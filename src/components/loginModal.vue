@@ -50,6 +50,9 @@
                     username: this.email,
                     password: this.password
                 })
+                    .then(response => {
+                        this.$emit('close');
+                    })
             }
         }
     }
