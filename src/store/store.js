@@ -50,20 +50,38 @@ export const store = new Vuex.Store({
         },
 
         logOut(context) {
+            axios.defaults.headers.common['Authorization'] = 'Bearer  ' + context.state.token;
             if (context.getters.loggedIn) {
                 return new Promise((resolve, reject) => {
-                    // axios.delete('/oauth/personal-access-tokens/' + this.state.token.id)
-                    //     .then(response => {
+                    axios.post('/api/logout')
+                        .then(response => {
                             localStorage.removeItem('access_token');
                             context.commit('destroyToken');
                             resolve(response)
                         })
-                        // .catch(error => {
-                        //     console.log(error);
-                        //     reject(error)
-                        // })
-                // })
+                        .catch(error => {
+                            console.log(axios);
+                            reject(error)
+                        })
+                })
             }
         },
+
+        register(context,credentials){
+            return new Promise((resolve, reject) => {
+                axios.post('/api/users', {
+                    name: credentials.name,
+                    email: credentials.email,
+                    password: credentials.password,
+                    password_confirmation: credentials.confirmPassword
+                }).then(response => {
+                    resolve(response)
+                })
+                    .catch(error => {
+                        console.log(error);
+                        reject(error)
+                    })
+            })
+        }
     }
 });
