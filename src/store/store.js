@@ -53,7 +53,7 @@ export const store = new Vuex.Store({
             axios.defaults.headers.common['Authorization'] = 'Bearer  ' + context.state.token;
             if (context.getters.loggedIn) {
                 return new Promise((resolve, reject) => {
-                    axios.post('/api/logout')
+                    axios.post('/api/user/logout')
                         .then(response => {
                             localStorage.removeItem('access_token');
                             context.commit('destroyToken');
@@ -67,9 +67,9 @@ export const store = new Vuex.Store({
             }
         },
 
-        register(context,credentials){
+        register(context, credentials) {
             return new Promise((resolve, reject) => {
-                axios.post('/api/users', {
+                axios.post('/api/user', {
                     name: credentials.name,
                     email: credentials.email,
                     password: credentials.password,
@@ -81,6 +81,18 @@ export const store = new Vuex.Store({
                         console.log(error);
                         reject(error)
                     })
+            })
+        },
+
+        checkUserCompany(context) {
+            axios.defaults.headers.common['Authorization'] = 'Bearer  ' + context.state.token;
+            return new Promise((resolve, reject) => {
+                axios.get('/api/user/show').then(response => {
+                    resolve(response)
+                }).catch(error => {
+                    console.log(error);
+                    reject(error)
+                })
             })
         }
     }

@@ -61,7 +61,15 @@
                     password: this.password
                 })
                     .then(response => {
-                        this.$emit('close');
+                        // this.$emit('close');
+                        this.$store.dispatch('checkUserCompany')
+                            .then(response =>{
+                                if (response.company_id){
+                                    this.$router.push('/user/dashboard')
+                                }else {
+                                    this.$router.push('/user/choose-company')
+                                }
+                            })
                     })
             },
 

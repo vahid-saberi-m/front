@@ -14,7 +14,22 @@ Vue.config.productionTip = false;
 Vue.use(BootstrapVue);
 Vue.use(axios);
 Vue.use(store);
-/* eslint-disable no-new */
+
+router.beforeEach((to, from, next) => {
+    if (to.matched.some(record => record.meta.requiresAuth)) {
+        // this route requires auth, check if logged in
+        // if not, redirect to login page.
+        if (!store.getters.loggedIn) {
+            next({
+                path: '/introduction',
+            })
+        } else {
+            next()
+        }
+    } else {
+        next() // make sure to always call next()!
+    }
+})
 new Vue({
     el: '#app',
     router,
