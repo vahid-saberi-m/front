@@ -62,9 +62,9 @@
                 })
                     .then(response => {
                         // this.$emit('close');
-                        this.$store.dispatch('checkUserCompany')
+                        this.$store.dispatch('checkUser')
                             .then(response =>{
-                                if (response.company_id){
+                                if (response.company_id&&response.is_approved){
                                     this.$router.push('/user/dashboard')
                                 }else {
                                     this.$router.push('/user/choose-company')

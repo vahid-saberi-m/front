@@ -8,8 +8,13 @@ export const store = new Vuex.Store({
     state: {
 
         token: localStorage.getItem('access_token') || null,
-        Accept: 'application/json'
-
+        name:'',
+        email:'',
+        companyId:'',
+        role:'',
+        position:'',
+        image:'',
+        isApproved:''
     },
     getters: {
         loggedIn(state) {
@@ -23,6 +28,15 @@ export const store = new Vuex.Store({
         },
         destroyToken(state) {
             state.token = null
+        },
+        userInfo(state, response){
+            state.name= response.data.name;
+                state.email= response.data.email;
+                state.companyId= response.data.company_id;
+                state.role= response.data.role;
+                state.position= response.data.position;
+                state.image= response.data.image ;
+                state.isApproved= response.data.is_approved;
         }
     },
 
@@ -84,16 +98,46 @@ export const store = new Vuex.Store({
             })
         },
 
-        checkUserCompany(context) {
+        checkUser(context) {
             axios.defaults.headers.common['Authorization'] = 'Bearer  ' + context.state.token;
             return new Promise((resolve, reject) => {
                 axios.get('/api/user/show').then(response => {
+                    context.commit('userInfo',response);
+                    // console.log();
                     resolve(response)
                 }).catch(error => {
                     console.log(error);
                     reject(error)
                 })
             })
-        }
+        },
+
+        joinCompany(context,credentials){
+            axios.defaults.headers.common['Authorization'] = 'Bearer  ' + context.state.token;
+            return new Promise((resolve, reject) => {
+                const fd=new FormData();
+                fd.append('position', credentials.position,);
+                fd.append('image', credentials.image,);
+                axios.post('/api/user/join-company/'+credentials.companyId, fd).then(response => {
+                    context.commit('userInfo',{response});
+                    resolve(response)
+                })
+                    .catch(error => {
+                        console.log(error);
+                        reject(error)
+                    })
+            })
+        },
+            searchCompany(context,payload){
+                return new Promise((resolve, reject) => {
+                    axios.get('/api/company/'+ payload.companyId ).then(response => {
+                        resolve(response)
+                    })
+                        .catch(error => {
+                            console.log(error);
+                            reject(error)
+                        })
+                })
+            }
     }
 });

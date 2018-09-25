@@ -29,7 +29,7 @@ router.beforeEach((to, from, next) => {
     } else {
         next() // make sure to always call next()!
     }
-})
+});
 new Vue({
     el: '#app',
     router,
