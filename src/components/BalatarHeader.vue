@@ -7,7 +7,7 @@
         </div>
         <div class="col-7"></div>
         <div class="col-2">
-            <img src="../assets/wings-logo.png" style="height: 40px; float: right"/>
+            <img src="../assets/wings-logo.png" style="height: 40px; float: left"/>
         </div>
 
         <login-modal v-if="showModal" @close="showModal=false"></login-modal>

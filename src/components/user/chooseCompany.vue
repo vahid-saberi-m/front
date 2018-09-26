@@ -4,8 +4,15 @@
         <div class="card bg-warning" v-if="companyId">
             <div class="card-body">{{name}} عزیز تقاضای افزوده شدن شما در انتظار تایید مسوول مربوطه می باشد.</div>
         </div>
-        <div class="card col-6" v-if="!companyId" style=" border-radius: 10px ">
-            <form class="form-group" enctype="multipart/form-data">
+        <div class="card " v-if="!companyId" style=" border-radius: 10px ">
+            <div class="card" v-if="!set">
+                <p>{{name}} عزیز. آیا می خواهید یک سایت استخدامی جدید بسازید یا اینکه دوست دارید به جمع کاربران سایت استخدامی شرکتی بپیوندید؟</p>
+                <button class="btn btn-success" @click="set=1 ; newCompany=1">سایت استخدامی جدید</button>
+                <button class="btn btn-success" @click="set=1 ; newCompany=0">پیوستن به سایت استخدامی</button>
+            </div>
+
+
+            <form v-if="!newCompany&&set" class="form-group" enctype="multipart/form-data">
                 <div class="card-header card" style=" border-radius: 10px ">
                     <label for="company_id">
                         <h5>لطفا اطلاعات زیر را وارد کنید:</h5>
@@ -32,6 +39,23 @@
                     </div>
                 </div>
             </form>
+
+
+            <form v-if="newCompany&&set" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
         </div>
     </div>
 </template>
@@ -50,7 +74,9 @@
                 email: this.$store.state.email,
                 image: null,
                 company_id: '',
-                companyName: ''
+                companyName: '',
+                newCompany:'',
+                set:''
             }
         },
         methods: {
