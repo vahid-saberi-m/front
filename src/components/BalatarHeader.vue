@@ -1,13 +1,15 @@
 <template>
-    <div class="row" style="margin-top: 2%">
+    <div class="row card-header " style="margin-top: 2%">
         <div class="col-3">
-            <button class="btn btn-outline-success" v-if="!loggedIn" data-dismiss="modal" @click="showModal=true">ورود/عضویت</button>
-            <button class="btn btn-outline-primary" v-if="loggedIn" data-dismiss="modal" @click="logOut">خروج</button>
+            <button class="btn btn-outline-success" style="height: 40px" v-if="!loggedIn" data-dismiss="modal" @click="showModal=true">ورود/عضویت</button>
+            <button class="btn btn-outline-primary " style="height: 40px" v-if="loggedIn" data-dismiss="modal" @click="logOut">خروج</button>
+            <button class="btn btn-outline-success  " style="height: 40px" v-if="loggedIn" data-dismiss="modal" @click=" $router.push('/user/choose-company')">پنل کاربری</button>
         </div>
-        <div class="col-8"></div>
-        <div class="col-1">
-            <img src="../assets/wings-logo.png" height="40"/>
+        <div class="col-7"></div>
+        <div class="col-2">
+            <img src="../assets/wings-logo.png" style="height: 40px; float: right"/>
         </div>
+
         <login-modal v-if="showModal" @close="showModal=false"></login-modal>
 
 
