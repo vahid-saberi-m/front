@@ -8,13 +8,13 @@ export const store = new Vuex.Store({
     state: {
 
         token: localStorage.getItem('access_token') || null,
-        name:'',
-        email:'',
-        companyId:'',
-        role:'',
-        position:'',
-        image:'',
-        isApproved:''
+        name: '',
+        email: '',
+        companyId: '',
+        role: '',
+        position: '',
+        image: '',
+        isApproved: ''
     },
     getters: {
         loggedIn(state) {
@@ -29,14 +29,14 @@ export const store = new Vuex.Store({
         destroyToken(state) {
             state.token = null
         },
-        userInfo(state, response){
-            state.name= response.data.name;
-                state.email= response.data.email;
-                state.companyId= response.data.company_id;
-                state.role= response.data.role;
-                state.position= response.data.position;
-                state.image= response.data.image ;
-                state.isApproved= response.data.is_approved;
+        userInfo(state, response) {
+            state.name = response.data.name;
+            state.email = response.data.email;
+            state.companyId = response.data.company_id;
+            state.role = response.data.role;
+            state.position = response.data.position;
+            state.image = response.data.image;
+            state.isApproved = response.data.is_approved;
         }
     },
 
@@ -102,7 +102,7 @@ export const store = new Vuex.Store({
             axios.defaults.headers.common['Authorization'] = 'Bearer  ' + context.state.token;
             return new Promise((resolve, reject) => {
                 axios.get('/api/user/show').then(response => {
-                    context.commit('userInfo',response);
+                    context.commit('userInfo', response);
                     // console.log();
                     resolve(response)
                 }).catch(error => {
@@ -112,14 +112,14 @@ export const store = new Vuex.Store({
             })
         },
 
-        joinCompany(context,credentials){
+        joinCompany(context, credentials) {
             axios.defaults.headers.common['Authorization'] = 'Bearer  ' + context.state.token;
             return new Promise((resolve, reject) => {
-                const fd=new FormData();
+                const fd = new FormData();
                 fd.append('position', credentials.position,);
                 fd.append('image', credentials.image,);
-                axios.post('/api/user/join-company/'+credentials.companyId, fd).then(response => {
-                    context.commit('userInfo',{response});
+                axios.post('/api/user/join-company/' + credentials.companyId, fd).then(response => {
+                    context.commit('userInfo', {response});
                     resolve(response)
                 })
                     .catch(error => {
@@ -128,16 +128,44 @@ export const store = new Vuex.Store({
                     })
             })
         },
-            searchCompany(context,payload){
-                return new Promise((resolve, reject) => {
-                    axios.get('/api/company/'+ payload.companyId ).then(response => {
-                        resolve(response)
-                    })
-                        .catch(error => {
-                            console.log(error);
-                            reject(error)
-                        })
+        searchCompany(context, payload) {
+            return new Promise((resolve, reject) => {
+                axios.get('/api/company/' + payload.companyId).then(response => {
+                    resolve(response)
                 })
-            }
-    }
+                    .catch(error => {
+                        console.log(error);
+                        reject(error)
+                    })
+            })
+        },
+        makeCompany(context,credentials) {
+            axios.defaults.headers.common['Authorization'] = 'Bearer  ' + context.state.token;
+            return new Promise((resolve, reject) => {
+                const fd = new FormData();
+                    fd.append('name', credentials.Name);
+                        fd.append('company_size', credentials.company_size);
+                        fd.append('slogan', credentials.slogan);
+                        fd.append('website', credentials.website);
+                        fd.append('logo', credentials.logo);
+                        fd.append('message_title', credentials.message_title);
+                        fd.append('message_content', credentials.message_content);
+                        fd.append('main_photo', credentials.main_photo);
+                        fd.append('about_us', credentials.about_us);
+                        fd.append('why_us', credentials.why_us);
+                        fd.append('recruiting_steps', credentials.recruiting_steps);
+                        fd.append('address', credentials.address);
+                        fd.append('email', credentials.Email);
+                        fd.append('phone_number', credentials.phone_number);
+                        fd.append('location', credentials.location);
+                axios.post('/api/company' , fd).then(response => {
+                    resolve(response)
+                })
+                    .catch(error => {
+                        console.log(error);
+                        reject(error)
+                    })
+            })
+        }
+    },
 });
