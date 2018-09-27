@@ -1,10 +1,15 @@
 <template>
-    
+    <div class="container" style="direction: rtl">
+    <balatar-header/>
+
+    </div>
 </template>
 
 <script>
+    import balatarHeader from '../BalatarHeader'
     export default {
-        name: "userDashboard"
+        name: "userDashboard",
+        components: {balatarHeader}
     }
 </script>
 
