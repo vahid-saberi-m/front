@@ -1,15 +1,17 @@
 <template>
-    <div class="container" style="direction: rtl">
-    <balatar-header/>
+    <!--<div class="container" style="direction: rtl">-->
+        <!--<balatar-header/>-->
 
-    </div>
+
+    <!--</div>-->
 </template>
 
 <script>
     import balatarHeader from '../BalatarHeader'
+    import VApp from "vuetify/src/components/VApp/VApp";
     export default {
         name: "userDashboard",
-        components: {balatarHeader}
+        components: {VApp, balatarHeader}
     }
 </script>
 
