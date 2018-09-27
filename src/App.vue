@@ -16,12 +16,17 @@
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'iransans', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 0;
 }
+@font-face{
+  font-family: iransans;
+  src: url("./assets/fonts/irsans.ttf");
+}
+
 
 </style>

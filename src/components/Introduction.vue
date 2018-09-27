@@ -87,7 +87,7 @@
 
 <style scoped>
     .container {
-        font-family: "B Nazanin";
+        font-family: "iransans";
         direction: rtl;
     }
 
