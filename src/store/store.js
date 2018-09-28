@@ -32,15 +32,13 @@ export const store = new Vuex.Store({
             state.token = null
         },
         userInfo(state, response) {
-            console.log(response);
-            this.state.name = response.data.data.name;
-            state.email = response.data.data.email;
-            this.state.companyId = response.data.data.company_id;
-            state.role = response.data.data.role;
-            state.position = response.data.data.position;
-            state.image = response.data.data.image;
-            state.isApproved = response.data.data.is_approved;
-
+            state.name = response.data.name;
+            state.email = response.data.email;
+            state.companyId = response.data.company_id;
+            state.role = response.data.role;
+            state.position = response.data.position;
+            state.image = response.data.image;
+            state.isApproved = response.data.is_approved;
         }
     },
 
