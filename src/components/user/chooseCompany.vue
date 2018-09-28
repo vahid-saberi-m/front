@@ -1,5 +1,22 @@
 <template>
     <div class="container" style="text-align: right; direction: rtl">
+        <v-badge
+                color="purple"
+                left
+                overlap
+        >
+            <v-icon
+                    slot="badge"
+                    dark
+                    small
+            >done</v-icon>
+            <v-icon
+                    color="grey lighten-1"
+                    large
+            >
+                account_circle
+            </v-icon>
+        </v-badge>
         <BalatarHeader/>
         <div class="card bg-warning" v-if="companyId">
             <div class="card-body">{{name}} عزیز تقاضای افزوده شدن شما در انتظار تایید مسوول مربوطه می باشد.</div>
@@ -213,7 +230,6 @@
                 this.logo = event.target.files[0]
             },
             joinCompany() {
-                console.log(this.image);
                 this.$store.dispatch('joinCompany', {
                     companyId: this.company_id,
                     position: this.position,
@@ -257,7 +273,6 @@
                     location: this.location,
                 }).then(response=>{
                     this.companyId=response.id;
-                    console.log(response);
                     this.$router.push('/user/dashboard')
                 })
             }

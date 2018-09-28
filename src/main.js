@@ -1,6 +1,7 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
+import './plugins/vuetify'
 import App from './App'
 import router from './router'
 import BootstrapVue from 'bootstrap-vue'
@@ -8,12 +9,20 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import axios from 'axios'
 import {store} from "./store/store";
-
+import 'roboto-fontface/css/roboto/roboto-fontface.css'
+import 'material-design-icons-iconfont/dist/material-design-icons.css'
+import Vuetify from 'vuetify'
+import 'vuetify/dist/vuetify.min.css' // Ensure you are using css-loader
+import farsi from 'vuetify/es5/locale/fa'
 
 Vue.config.productionTip = false;
 Vue.use(BootstrapVue);
 Vue.use(axios);
 Vue.use(store);
+Vue.use(Vuetify, {
+    rtl: true
+});
+
 
 router.beforeEach((to, from, next) => {
     if (to.matched.some(record => record.meta.requiresAuth)) {
