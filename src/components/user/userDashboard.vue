@@ -3,14 +3,13 @@
     <balatar-header/>
 
     </div>
-
 </template>
 
 <script>
     import balatarHeader from '../BalatarHeader'
     export default {
         name: "userDashboard",
-        components: { balatarHeader}
+        components: {balatarHeader}
     }
 </script>
 
