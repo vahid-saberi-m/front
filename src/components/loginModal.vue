@@ -61,13 +61,14 @@
                     password: this.password
                 })
                     .then(response => {
-                        // this.$emit('close');
                         this.$store.dispatch('checkUser')
                             .then(response =>{
-                                if (response.company_id&&response.is_approved){
+                                if (response.data.data.company_id&&response.data.data.is_approved){
                                     this.$router.push('/user/dashboard')
                                 }else {
-                                    this.$router.push('/user/choose-company')
+                                    this.$router.push('/user/choose-company');
+                                    console.log(response);
+                                    console.log(response.data.data.is_approved);
                                 }
                             })
                     })

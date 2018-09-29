@@ -1,7 +1,8 @@
 <template>
-  <div id="app">
+  <div id="app" >
     <router-view/>
   </div>
+
 </template>
 
 
@@ -10,6 +11,8 @@
   export default {
   name: 'app',
     components:{
+
+
     }
 }
 </script>
@@ -21,12 +24,14 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 0;
-}
+  }
 @font-face{
   font-family: iransans;
   src: url("./assets/fonts/irsans.ttf");
 }
+  body{
+    font-size: 12px;
+  }
 
 
 </style>

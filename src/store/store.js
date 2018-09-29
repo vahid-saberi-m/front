@@ -7,7 +7,6 @@ Vue.use(Vuex);
 axios.defaults.baseURL = 'http://api.balatar.inpin.co/';
 export const store = new Vuex.Store({
     state: {
-
         token: localStorage.getItem('access_token') || null,
         name: '',
         email: '',
@@ -32,13 +31,14 @@ export const store = new Vuex.Store({
             state.token = null
         },
         userInfo(state, response) {
-            state.name = response.data.name;
-            state.email = response.data.email;
-            state.companyId = response.data.company_id;
-            state.role = response.data.role;
-            state.position = response.data.position;
-            state.image = response.data.image;
-            state.isApproved = response.data.is_approved;
+            state.name = response.data.data.name;
+            state.email = response.data.data.email;
+            state.companyId = response.data.data.company_id;
+            state.role = response.data.data.role;
+            state.position = response.data.data.position;
+            state.image = response.data.data.image;
+            state.isApproved = response.data.data.is_approved;
+            // console.log(state.image)
         }
     },
 

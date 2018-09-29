@@ -1,5 +1,6 @@
 <template>
-    <div class="container" style="text-align: right; direction: rtl">
+    <div class="" style="text-align: right; direction: rtl">
+
         <BalatarHeader/>
         <div class="card bg-warning" v-if="companyId">
             <div class="card-body">{{name}} عزیز تقاضای افزوده شدن شما در انتظار تایید مسوول مربوطه می باشد.</div>
