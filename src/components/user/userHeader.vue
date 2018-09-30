@@ -5,7 +5,15 @@
     >
         <v-container>
             <v-layout justify-center>
-                <v-toolbar>
+                <v-toolbar
+                        clipped-right
+                >
+                    <img src="../../assets/wings-logo.png" height="80%" >
+
+
+                    <v-toolbar-items>
+                    </v-toolbar-items>
+                    <v-spacer></v-spacer>
                     <v-toolbar-side-icon
                             @click.stop="drawer = !drawer"
                     ></v-toolbar-side-icon>
@@ -18,6 +26,9 @@
                 v-model="drawer"
                 absolute
                 temporary
+                right
+                class="text-xs-right"
+
         >
             <v-list class="pa-1">
                 <v-list-tile avatar>
@@ -31,12 +42,10 @@
                 </v-list-tile>
 
             </v-list>
-
             <v-list class="pt-0" dense>
                 <v-divider></v-divider>
-
                 <v-list-tile
-                        @click=""
+                        @click="newPosts"
                 >
                     <v-list-tile-action>
                         <v-icon>assignment</v-icon>
@@ -48,9 +57,8 @@
 
                 </v-list-tile>
 
-
                 <v-list-tile
-                        @click=""
+                        @click="waitingPosts"
                 >
                     <v-list-tile-action>
                         <v-icon>stop_screen_share</v-icon>
@@ -63,9 +71,8 @@
 
                 </v-list-tile>
 
-
                 <v-list-tile
-                        @click=""
+                        @click="livePosts"
                 >
                     <v-list-tile-action>
                         <v-icon>screen_share</v-icon>
@@ -77,8 +84,9 @@
 
                 </v-list-tile>
 
+
                 <v-list-tile
-                        @click=""
+                        @click="expiredPosts"
                 >
                     <v-list-tile-action>
                         <v-icon>update</v-icon>
@@ -93,18 +101,18 @@
                 <hr>
                 <div v-if="role='admin'">
 
-                <v-list-tile
-                        @click=""
-                >
-                    <v-list-tile-action>
-                        <v-icon>storage</v-icon>
-                    </v-list-tile-action>
-                    ویرایش سایت
-                    <v-list-tile-content>
-                        <v-list-tile-title></v-list-tile-title>
-                    </v-list-tile-content>
+                    <v-list-tile
+                            @click=""
+                    >
+                        <v-list-tile-action>
+                            <v-icon>storage</v-icon>
+                        </v-list-tile-action>
+                        ویرایش سایت
+                        <v-list-tile-content>
+                            <v-list-tile-title></v-list-tile-title>
+                        </v-list-tile-content>
 
-                </v-list-tile>
+                    </v-list-tile>
 
                 </div>
 
@@ -149,7 +157,22 @@
                 phone_number: '',
                 location: '',
             }
+        },
+        methods: {
+            newPosts: function () {
+                this.$router.push('/user/jobPosts/newPost')
+            },
+            waitingPosts: function () {
+                this.$router.push('/user/jobPosts/waitingPosts')
+            },
+            livePosts: function () {
+                this.$router.push('/user/jobPosts/livePosts')
+            },
+            expiredPosts: function () {
+                this.$router.push('/user/jobPosts/expiredPosts')
+            },
         }
+
     }
 </script>
 

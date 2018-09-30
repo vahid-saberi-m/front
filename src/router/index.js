@@ -6,6 +6,11 @@ import Home from '@/components/Home'
 import Introduction from '@/components/Introduction.vue'
 import userDashboard from '@/components/user/userDashboard'
 import chooseCompany from '@/components/user/chooseCompany'
+import newPost from '@/components/user/jobPosts/newPost'
+import livePosts from '@/components/user/jobPosts/livePosts'
+import waitingPosts from '@/components/user/jobPosts/waitingPosts'
+import expiredPosts from '@/components/user/jobPosts/expiredPosts'
+
 Vue.use(Router);
 
 export default new Router({
@@ -42,7 +47,45 @@ export default new Router({
             meta:{
                 requiresAuth: true,
             }
+        },
+
+        {
+            path: '/user/jobPosts/newPost',
+            name: 'newPost',
+            component: newPost,
+            meta:{
+                requiresAuth: true,
+            }
+        },
+
+        {
+            path: '/user/jobPosts/livePosts',
+            name: 'livePosts',
+            component: livePosts,
+            meta:{
+                requiresAuth: true,
+            }
+        },
+
+        {
+            path: '/user/jobPosts/waitingPosts',
+            name: 'waitingPosts',
+            component: waitingPosts,
+            meta:{
+                requiresAuth: true,
+            }
+        },
+        {
+            path: '/user/jobPosts/expiredPosts',
+            name: 'expiredPosts',
+            component: expiredPosts,
+            meta:{
+                requiresAuth: true,
+            }
         }
+
+
+
 
     ]
 })
