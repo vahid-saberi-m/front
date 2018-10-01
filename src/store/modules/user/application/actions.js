@@ -1,12 +1,7 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import request from '../../tools/request'
+const actions={
 
-Vue.use(Vuex);
-
+};
 export default ({
-    actions: {
-
-    }
+    actions
 });
 

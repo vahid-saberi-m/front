@@ -1,16 +1,13 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import request from '@/tools/request'
+const state={
+    name: '',
+    email: '',
+    companyId: '',
+    role: '',
+    position: '',
+    image: '',
+    isApproved: ''
+}
 
-Vue.use(Vuex)
 export default {
-    state:{
-        name: '',
-        email: '',
-        companyId: '',
-        role: '',
-        position: '',
-        image: '',
-        isApproved: ''
-    }
+    state
 }

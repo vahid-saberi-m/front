@@ -1,8 +1,12 @@
+import actions from './actions'
+import getters from './getters'
+import mutations from './mutations'
+import state from './state'
+
 export default {
-
-};import Vue from 'vue'
-import Vuex from 'vuex'
-import axios from 'axios'
-
-Vue.use(Vuex);
-Vue.use(axios);
+    namespaced: true,
+    state,
+    actions,
+    getters,
+    mutations,
+};
