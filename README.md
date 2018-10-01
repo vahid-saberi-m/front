@@ -1,6 +1,6 @@
 # balatar
 
-> A Vue.js project
+> A Vuegetters.js project
 
 ## Build Setup
 

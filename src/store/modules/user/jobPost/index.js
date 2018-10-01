@@ -1,4 +1,6 @@
-import Vue from 'vue'
+export default {
+
+};import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 
