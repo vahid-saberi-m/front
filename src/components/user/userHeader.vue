@@ -8,7 +8,7 @@
                 <v-toolbar
                         clipped-right
                 >
-                    <img src="../../assets/wings-logo.png" height="80%" >
+                    <img src="../../assets/wings-logo.png" height="80%">
 
 
                     <v-toolbar-items>
@@ -113,9 +113,24 @@
                         </v-list-tile-content>
 
                     </v-list-tile>
-
+                    <hr>
                 </div>
+                <div v-for="jobPost in jobPosts"
+                >
 
+                <v-list-tile
+                        @click=""
+                >
+                    <v-list-tile-action>
+                        <v-icon>event_note</v-icon>
+                    </v-list-tile-action>
+                    {{jobPost.title}}
+                    <v-list-tile-content>
+                        <v-list-tile-title></v-list-tile-title>
+                    </v-list-tile-content>
+
+                </v-list-tile>
+                </div>
             </v-list>
 
         </v-navigation-drawer>
@@ -156,6 +171,7 @@
                 Email: '',
                 phone_number: '',
                 location: '',
+                jobPosts: ''
             }
         },
         methods: {
@@ -171,7 +187,14 @@
             expiredPosts: function () {
                 this.$router.push('/user/jobPosts/expiredPosts')
             },
-        }
+        },
+        created() {
+            this.$store.dispatch('getLast5liveJobPost')
+                .then(response => {
+                    this.jobPosts = response.data.data;
+                    console.log(this.jobPosts.data);
+                })
+        },
 
     }
 </script>

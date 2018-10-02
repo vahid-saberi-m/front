@@ -8,7 +8,7 @@ let headers = {
 if(localStorage.getItem('access_token')) {
     Object.assign(headers, {Authorization: 'Bearer ' + localStorage.getItem('access_token')});
 }
-console.log('url', process.env);
+// console.log('url', process.env);
 const instance = axios.create({
     baseURL: process.env.BASE_URL,
     timeout: 31000,
@@ -16,10 +16,9 @@ const instance = axios.create({
         Accept: 'application/json',
         Authorization: 'Bearer ' + localStorage.getItem('access_token')
     }
-})
+});
 
 instance.interceptors.response.use(function (response) {
-    console.log(response);
     return response
 }, function (error) {
     if (error.response.status === 401) {
