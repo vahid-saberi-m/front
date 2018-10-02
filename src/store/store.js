@@ -215,5 +215,24 @@ export const store = new Vuex.Store({
             })
 
         },
+
+        approveJobPost(context,id){
+            return new Promise((resolve, reject)=>{
+
+            request.get('/api/job-post/approval/'+ id)
+                .then(response=>{
+                    resolve(response)
+                })
+            });
+
+        },
+        deleteJobPost(context,id){
+            return new Promise((resolve, reject)=>{
+                request.delete('/api/job-post/'+id)
+                    .then(response=>{
+                        resolve(response)
+                    })
+            });
+        }
     },
 });

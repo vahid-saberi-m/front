@@ -3,8 +3,7 @@
             wrap
             style="height: 200px;"
     >
-        <v-container>
-            <v-layout justify-center>
+            <v-container justify-center >
                 <v-toolbar
                         clipped-right
                 >
@@ -18,8 +17,7 @@
                             @click.stop="drawer = !drawer"
                     ></v-toolbar-side-icon>
                 </v-toolbar>
-            </v-layout>
-        </v-container>
+            </v-container>
 
 
         <v-navigation-drawer
@@ -155,23 +153,8 @@
                 newCompany: '',
                 set: '',
                 step: 1,
+                jobPosts:''
 
-                Name: '',
-                company_size: '',
-                slogan: '',
-                website: '',
-                logo: '',
-                message_title: '',
-                message_content: '',
-                main_photo: '',
-                about_us: '',
-                why_us: '',
-                recruiting_steps: '',
-                address: '',
-                Email: '',
-                phone_number: '',
-                location: '',
-                jobPosts: ''
             }
         },
         methods: {

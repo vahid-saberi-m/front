@@ -3,36 +3,10 @@
         <user-header></user-header>
         <v-form>
 
-        <v-card v-for="jobPost in jobPosts" style="direction: rtl;">
-            <v-expansion-panel
-            popout
-            >
-                <v-expansion-panel-content
-                >
-                    <slot slot="header" >
-                        {{jobPost.title}}
-                        <v-spacer></v-spacer>
-                    </slot>
-                    <v-card>
-                        <v-card-text>
-                            <v-card-content
-                                    name="input-7-1"
-                                    label="شرح موقعیت شغلی"
-                                    :value=jobPost.description
-                                    hint=""
-                                    append-icon="edit"
-                            >
-                                {{jobPost.description}}
-                                <v-icon @click="">edit</v-icon>
-                            </v-card-content>
-                        </v-card-text>
-                    </v-card>
-                </v-expansion-panel-content>
-            </v-expansion-panel>
+        <v-card v-for="jobPost in jobPosts" style="direction: rtl;" :key="jobPost.id" v-on:removeJobPost="removeJobPost">
+            <job-post-show :jobPost="jobPost" v-if="!(jobPost.id === removedJobPost)"></job-post-show>
 
             <v-card-text>
-
-
             </v-card-text>
         </v-card>
         </v-form>
@@ -41,13 +15,15 @@
 
 <script>
     import UserHeader from "../userHeader";
+    import jobPostShow from "./jobPostCard/jobPostShow"
 
     export default {
         name: "waitingPosts",
-        components: {UserHeader},
+        components: {jobPostShow, UserHeader},
         data() {
             return {
-                jobPosts: ''
+                jobPosts: '',
+                removedJobPost:''
             }
         },
         mounted() {
@@ -56,6 +32,13 @@
                     this.jobPosts = response.data.data;
                 })
         },
+        methods:{
+            removeJobPost(id){
+                console.log(id)
+                this.removedJobPost=id
+            }
+        }
+
 
     }
 </script>
