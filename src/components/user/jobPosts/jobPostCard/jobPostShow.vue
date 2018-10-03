@@ -5,120 +5,127 @@
         >
             <v-expansion-panel-content
             >
-                <slot slot="header">
-                    {{jobPost.title}} {{role}}
-                    <v-spacer></v-spacer>
-                </slot>
-                <v-card >
-                    <v-card-title>
-                    </v-card-title>
-                    <v-card-text>
-                        <v-icon @click="">edit</v-icon>
-                        <v-card-text
-                                name="input-7-1"
-                                label="شرح موقعیت شغلی"
-                                :value=jobPost.description
-                                hint=""
-                                append-icon="edit"
-                        >
-                            <v-card>
-                                <v-card-title>
-                                    شرح شغل
-                                </v-card-title>
-                                <v-card-text>
-                                    {{jobPost.description}}
-                                </v-card-text>
-
-                            </v-card>
-
-                            <v-card>
-                                <v-card-title>
-                                    ویژگی های مورد نیاز
-                                </v-card-title>
-                                <v-card-text>
-                                    {{jobPost.requirements}}
-                                </v-card-text>
-                            </v-card>
-
-                            <v-card>
-                                <v-card-title>
-                                    حقوق و مزایای در نظر گرفته شده:
-                                </v-card-title>
-                                <v-card-text>
-                                    {{jobPost.benefits}}
-                                </v-card-text>
-                            </v-card>
-                            <v-card>
-                                <v-card-title>
-                                    محل کار:
-                                </v-card-title>
-                                <v-card-text>
-                                    {{jobPost.location}}
-                                </v-card-text>
-                            </v-card>
-                            <v-container row wrap align-center>
+                <jobPostEdit v-if="editMode" :jobPost="jobPost"></jobPostEdit>
+                <template v-if="!editMode" >
+                    <slot slot="header">
+                        {{jobPost.title}} {{role}}
+                        <v-spacer></v-spacer>
+                    </slot>
+                    <v-card>
+                        <v-card-title>
+                        </v-card-title>
+                        <v-card-text>
+                            <v-icon @click="editMode=!editMode">edit</v-icon>
+                            <v-card-text
+                                    name="input-7-1"
+                                    label="شرح موقعیت شغلی"
+                                    :value=jobPost.description
+                                    hint=""
+                                    append-icon="edit"
+                            >
                                 <v-card>
                                     <v-card-title>
-                                        تاریخ انتشار:
+                                        شرح شغل
                                     </v-card-title>
                                     <v-card-text>
-                                        <v-date-picker v-model="jobPost.publish_date" locale="fa-ir" readonly
-                                                       color="blue"></v-date-picker>
+                                        {{jobPost.description}}
                                     </v-card-text>
+
                                 </v-card>
-                                <v-spacer></v-spacer>
+
                                 <v-card>
                                     <v-card-title>
-                                        تاریخ انقضا:
+                                        ویژگی های مورد نیاز
                                     </v-card-title>
                                     <v-card-text>
-                                        <v-date-picker v-model="jobPost.expiration_date" locale="fa-ir" readonly
-                                                       color="red"></v-date-picker>
+                                        {{jobPost.requirements}}
                                     </v-card-text>
                                 </v-card>
-                            </v-container>
-                            <hr>
-                            <v-container row wrap align-center>
-                                <v-flex class="text-xs-center">
-                                    <v-btn color="green" dark  @click="approveJobPost(jobPost.id)">تایید</v-btn>
-                                    <v-btn color="red" dark @click="deleteJobPost(jobPost.id)">حذف</v-btn>
-                                </v-flex>
-                            </v-container>
+
+                                <v-card>
+                                    <v-card-title>
+                                        حقوق و مزایای در نظر گرفته شده:
+                                    </v-card-title>
+                                    <v-card-text>
+                                        {{jobPost.benefits}}
+                                    </v-card-text>
+                                </v-card>
+                                <v-card>
+                                    <v-card-title>
+                                        محل کار:
+                                    </v-card-title>
+                                    <v-card-text>
+                                        {{jobPost.location}}
+                                    </v-card-text>
+                                </v-card>
+                                <v-container row wrap align-center>
+                                    <v-card>
+                                        <v-card-title>
+                                            تاریخ انتشار:
+                                        </v-card-title>
+                                        <v-card-text>
+                                            <v-date-picker v-model="jobPost.publish_date" locale="fa-ir" readonly
+                                                           color="blue"></v-date-picker>
+                                        </v-card-text>
+                                    </v-card>
+                                    <v-spacer></v-spacer>
+                                    <v-card>
+                                        <v-card-title>
+                                            تاریخ انقضا:
+                                        </v-card-title>
+                                        <v-card-text>
+                                            <v-date-picker v-model="jobPost.expiration_date" locale="fa-ir" readonly
+                                                           color="red"></v-date-picker>
+                                        </v-card-text>
+                                    </v-card>
+                                </v-container>
+                                <hr>
+                                <v-container row wrap align-center>
+                                    <v-flex class="text-xs-center">
+                                        <v-btn color="green" dark @click="approveJobPost(jobPost.id)">تایید</v-btn>
+                                        <v-btn color="red" dark @click="deleteJobPost(jobPost.id)">حذف</v-btn>
+                                    </v-flex>
+                                </v-container>
+                            </v-card-text>
                         </v-card-text>
-                    </v-card-text>
-                </v-card>
+                    </v-card>
+                </template>
             </v-expansion-panel-content>
         </v-expansion-panel>
     </div>
 </template>
 
 <script>
+    import jobPostEdit from './jobPostEdit'
+
     export default {
+        components: {jobPostEdit},
         data() {
             return {
-                isAdmin:'',
-                role:'',
-                show: true
+                isAdmin: '',
+                role: '',
+                show: true,
+                editMode: false,
+                jobPost:''
             };
         },
         mounted() {
-            this.isAdmin=(this.$store.state.role==='admin')
+            this.isAdmin = (this.$store.state.role === 'admin')
         },
         name: "jobPostShow",
         props: ['jobPost'],
-        methods:{
+        methods: {
             approveJobPost(id) {
                 this.$store.dispatch('approveJobPost', id)
-                    .then(response=>{
-                        this.show= false;
-                        this.$emit('removeJobPost',id)
+                    .then(response => {
+                        this.show = false;
                     })
             },
-            deleteJobPost(id){
+            deleteJobPost(id) {
                 this.$store.dispatch('deleteJobPost', id)
-                    .then(response=>{
-                        this.show= false;
-                        this.$emit('removeJobPost',id)
+                    .then(response => {
+                        this.show = false;
+                        this.$emit('removeJobPost', id)
                     })
             }
         },

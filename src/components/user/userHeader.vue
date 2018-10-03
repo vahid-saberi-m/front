@@ -35,7 +35,10 @@
                     </v-list-tile-avatar>
 
                     <v-list-tile-content>
-                        <v-list-tile-title>{{name}}</v-list-tile-title>
+                        <v-list-tile-title>
+                            <h4>{{name}}</h4>
+                            <v-icon @click="logOut">exit</v-icon>
+                        </v-list-tile-title>
                     </v-list-tile-content>
                 </v-list-tile>
 
@@ -170,6 +173,12 @@
             expiredPosts: function () {
                 this.$router.push('/user/jobPosts/expiredPosts')
             },
+            logOut(){
+                this.$store.dispatch('logOut')
+                    .then(response => {
+                        this.$router.push('/introduction')
+                    })
+            }
         },
         created() {
             this.$store.dispatch('getLast5liveJobPost')
