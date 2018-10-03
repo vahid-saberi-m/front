@@ -5,7 +5,7 @@
         >
             <v-expansion-panel-content
             >
-                <jobPostEdit v-if="editMode" :jobPost="jobPost"></jobPostEdit>
+                <jobPostEdit v-if="editMode" @editOff="editMode=false" :jobPost="jobPost"></jobPostEdit>
                 <template v-if="!editMode" >
                     <slot slot="header">
                         {{jobPost.title}} {{role}}

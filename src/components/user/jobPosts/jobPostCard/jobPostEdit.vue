@@ -1,18 +1,26 @@
 <template>
-    <div v-if="show">
-        <v-text-field v-model="title">
-            {{jobPost.title}}
-        </v-text-field>
-        <v-card>
-            <v-card-text>
+    <v-card v-if="show">
+        <v-card-title>
+            <v-spacer></v-spacer>
+            <v-icon @click="editOff">assignment</v-icon>
+        </v-card-title>
+        <v-card-content>
+            <v-card>
                 <v-card-text>
-                    <v-icon @click="">assignment</v-icon>
+                    <v-card-text>
 
+                        <v-card>
+                            <v-card-title>
+                                عنوان شغل:
+                            </v-card-title>
+                            <v-text-field v-model="title" :value="jobPost.title">
+                            </v-text-field>
+                        </v-card>
                         <v-card>
                             <v-card-title>
                                 شرح شغل
                             </v-card-title>
-                            <v-text-field :value="jobPost.description">
+                            <v-text-field :value="jobPost.description" v-model="description">
                             </v-text-field>
 
                         </v-card>
@@ -22,7 +30,8 @@
                                 ویژگی های مورد نیاز
                             </v-card-title>
                             <v-textarea
-                            :value="jobPost.requirements"
+                                    :value="jobPost.requirements"
+                                    v-model="requirements"
                             >
                             </v-textarea>
                         </v-card>
@@ -51,7 +60,7 @@
                                     تاریخ انتشار:
                                 </v-card-title>
                                 <v-card-text>
-                                    <v-date-picker v-model="jobPost.publish_date" locale="fa-ir" readonly
+                                    <v-date-picker v-model="publish_date" locale="fa-ir"
                                                    color="blue"></v-date-picker>
                                 </v-card-text>
                             </v-card>
@@ -61,7 +70,7 @@
                                     تاریخ انقضا:
                                 </v-card-title>
                                 <v-card-text>
-                                    <v-date-picker v-model="jobPost.expiration_date" locale="fa-ir" readonly
+                                    <v-date-picker v-model="expiration_date" locale="fa-ir"
                                                    color="red"></v-date-picker>
                                 </v-card-text>
                             </v-card>
@@ -69,14 +78,15 @@
                         <hr>
                         <v-container row wrap align-center>
                             <v-flex class="text-xs-center">
-                                <v-btn color="yellow"  @click="updateJobPost(jobPost.id)">ویرایش</v-btn>
+                                <v-btn color="yellow" @click="updateJobPost(jobPost.id)">ویرایش</v-btn>
                                 <v-btn color="red" dark @click="deleteJobPost(jobPost.id)">حذف</v-btn>
                             </v-flex>
                         </v-container>
+                    </v-card-text>
                 </v-card-text>
-            </v-card-text>
-        </v-card>
-    </div>
+            </v-card>
+        </v-card-content>
+    </v-card>
 </template>
 
 <script>
@@ -85,15 +95,15 @@
         data() {
             return {
                 isAdmin: '',
-                role: '',
+                role: this.jobPost.role,
                 show: true,
-                title: '',
-                description: '',
-                requirements: '',
-                benefits: '',
-                location: '',
-                publish_date: '',
-                expiration_date: '',
+                title: this.jobPost.title,
+                description: this.jobPost.description,
+                requirements: this.jobPost.requirements,
+                benefits: this.jobPost.benefits,
+                location: this.jobPost.location,
+                publish_date: this.jobPost.publish_date,
+                expiration_date: this.jobPost.expiration_date,
                 cities: ['کیش', 'شیراز', 'مشهد', 'اصفهان', 'تهران']
             };
         },
@@ -103,9 +113,23 @@
         name: "jobPostEdit",
         props: ['jobPost'],
         methods: {
+            editOff() {
+                this.$emit('editOff')
+            },
             updateJobPost(id) {
-                this.$store.dispatch('updateJobPost', id)
+                this.$store.dispatch('updateJobPost', {
+                    id: id,
+                    role: this.role,
+                    title: this.title,
+                    description: this.description,
+                    requirements: this.requirements,
+                    benefits: this.benefits,
+                    location: this.location,
+                    publish_date: this.publish_date,
+                    expiration_date: this.expiration_date,
+                })
                     .then(response => {
+                        this.$emit('editOff')
                     })
             },
         },
