@@ -1,20 +1,11 @@
 import axios from 'axios'
 import router from '@/router'
 
-let headers = {
-    Accept: 'application/json',
-};
-
-if(localStorage.getItem('access_token')) {
-    Object.assign(headers, {Authorization: 'Bearer ' + localStorage.getItem('access_token')});
-}
-// console.log('url', process.env);
 const instance = axios.create({
     baseURL: process.env.BASE_URL,
     timeout: 31000,
     headers: {
-        Accept: 'application/json',
-        Authorization: 'Bearer ' + localStorage.getItem('access_token')
+        Accept: 'application/json'
     }
 });
 

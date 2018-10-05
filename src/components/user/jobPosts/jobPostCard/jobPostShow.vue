@@ -15,7 +15,7 @@
                         <v-card-title>
                         </v-card-title>
                         <v-card-text>
-                            <v-icon @click="editMode=!editMode">edit</v-icon>
+                            <v-icon v-if="jobPostState==='isWaiting'||isAdmin" @click="editMode=!editMode">edit</v-icon>
                             <v-card-text
                                     name="input-7-1"
                                     label="شرح موقعیت شغلی"
@@ -82,7 +82,7 @@
                                 <hr>
                                 <v-container row wrap align-center>
                                     <v-flex class="text-xs-center">
-                                        <v-btn color="green" dark @click="approveJobPost(jobPost.id)">تایید</v-btn>
+                                        <v-btn color="green" dark v-if="(jobPostState==='isWaiting')|(isAdmin)" @click="approveJobPost(jobPost.id)">تایید</v-btn>
                                         <v-btn color="red" dark @click="deleteJobPost(jobPost.id)">حذف</v-btn>
                                     </v-flex>
                                 </v-container>
@@ -102,18 +102,19 @@
         components: {jobPostEdit},
         data() {
             return {
-                isAdmin: '',
-                role: '',
+                role: this.$store.state.role,
+                isAdmin: true ,
                 show: true,
                 editMode: false,
-                jobPost:''
+                jobPost:'',
+                jobPostState:this.postState
             };
         },
         mounted() {
             this.isAdmin = (this.$store.state.role === 'admin')
         },
         name: "jobPostShow",
-        props: ['jobPost'],
+        props: {jobPost:Object , postState:String},
         methods: {
             approveJobPost(id) {
                 this.$store.dispatch('approveJobPost', id)

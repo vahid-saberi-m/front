@@ -43,6 +43,7 @@
 
 <script>
     import registerModal from './register'
+    import {mapGetters} from 'vuex'
 
     export default {
         name: "loginModal",
@@ -54,12 +55,16 @@
                 register: 0
             }
         },
+        computed: mapGetters({
+            isLoggedIn: 'isLoggedIn',
+            hasApprovedCompany: 'hasApprovedCompany'
+        }),
         methods: {
             login: function () {
                 this.$store.dispatch('retrieveToken', {
                     username: this.email,
                     password: this.password
-                })
+                })/*
                     .then(response => {
                         this.$store.dispatch('checkUser')
                             .then(response =>{
@@ -71,7 +76,7 @@
                                     console.log(response.data.data.is_approved);
                                 }
                             })
-                    })
+                    })*/
             },
 
         }

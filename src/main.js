@@ -5,7 +5,6 @@ import Vue from 'vue'
 // import './plugins/vuetify'
 import App from './App'
 import router from './router'
-// import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import axios from 'axios'
@@ -14,36 +13,19 @@ import 'roboto-fontface/css/roboto/roboto-fontface.css'
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
+import { sync } from 'vuex-router-sync'
 
-Vue.use(Vuetify, {
-    rtl: true
-});
-
-Vue.config.productionTip = false;
-// Vue.use(BootstrapVue);
+// sync(store, router, {moduleName: 'RouterModule'});
 Vue.use(axios);
+Vue.use(Vuetify, {rtl: true});
 Vue.use(store);
 
-router.beforeEach((to, from, next) => {
-    if (to.matched.some(record => record.meta.requiresAuth)) {
-        // this route requires auth, check if logged in
-        // if not, redirect to login page.
-        if (!store.getters.loggedIn) {
-            next({
-                path: '/introduction',
-            })
-        } else {
-            next()
-        }
-    } else {
-        next() // make sure to always call next()!
-    }
-});
+Vue.config.productionTip = false;
+
 new Vue({
     el: '#app',
     router,
     store,
-    // render: h => h(App),
     components: {App},
     template: '<App/>'
 });

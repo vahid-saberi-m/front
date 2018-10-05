@@ -4,7 +4,7 @@
         <v-form>
 
         <v-card v-for="jobPost in jobPosts" style="direction: rtl;" :key="jobPost.id" v-on:removeJobPost="removeJobPost">
-            <job-post-show :jobPost="jobPost" v-if="!(jobPost.id === removedJobPost)"></job-post-show>
+            <job-post-show :jobPost="jobPost" :postState="postState" v-if="!(jobPost.id === removedJobPost)"></job-post-show>
 
             <v-card-text>
             </v-card-text>
@@ -23,7 +23,8 @@
         data() {
             return {
                 jobPosts: '',
-                removedJobPost:''
+                removedJobPost:'',
+                postState:'isWaiting'
             }
         },
         mounted() {
