@@ -6,5 +6,6 @@ export default {
     role: null,
     position: null,
     image: null,
-    is_approved: null
+    is_approved: null,
+    lastFiveJobPosts:null
 }

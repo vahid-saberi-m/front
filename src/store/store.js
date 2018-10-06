@@ -70,23 +70,23 @@ export const store = new Vuex.Store({
             //     })
             // },
 
-            logOut(context) {
-                axios.defaults.headers.common['Authorization'] = 'Bearer  ' + context.state.token;
-                if (context.getters.loggedIn) {
-                    return new Promise((resolve, reject) => {
-                        axios.post('/api/user/logout')
-                            .then(response => {
-                                localStorage.removeItem('access_token');
-                                context.commit('destroyToken');
-                                resolve(response)
-                            })
-                            .catch(error => {
-                                console.log(axios);
-                                reject(error)
-                            })
-                    })
-                }
-            },
+            // logOut(context) {
+            //     axios.defaults.headers.common['Authorization'] = 'Bearer  ' + context.state.token;
+            //     if (context.getters.loggedIn) {
+            //         return new Promise((resolve, reject) => {
+            //             axios.post('/api/user/logout')
+            //                 .then(response => {
+            //                     localStorage.removeItem('access_token');
+            //                     context.commit('destroyToken');
+            //                     resolve(response)
+            //                 })
+            //                 .catch(error => {
+            //                     console.log(axios);
+            //                     reject(error)
+            //                 })
+            //         })
+            //     }
+            // },
 
             register(context, credentials) {
                 return new Promise((resolve, reject) => {

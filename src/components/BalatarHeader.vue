@@ -28,7 +28,7 @@
         },
         computed:{
             loggedIn(){
-                return this.$store.getters.loggedIn
+                return this.$store.getters.isLoggedIn
             }
         },
         methods:{

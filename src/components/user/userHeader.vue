@@ -156,7 +156,7 @@
                 newCompany: '',
                 set: '',
                 step: 1,
-                jobPosts:''
+                jobPosts:null
 
             }
         },
@@ -181,10 +181,11 @@
             }
         },
         created() {
-            this.$store.dispatch('getLast5liveJobPost')
+            this.$store.dispatch('getLastFiveJobPost')
                 .then(response => {
-                    this.jobPosts = response.data.data;
-                    console.log(this.jobPosts.data);
+                    this.jobPosts = this.$store.getters.lastFiveJobPosts;
+                    console.log('jobPosts');
+                    console.log(this.jobPosts)
                 })
         },
 

@@ -16,5 +16,10 @@ export default {
         Object.assign(state, response.data.data);
 
         router.push({name: 'userDashboard'});
+    },
+
+    [types.LAST_FIVE_JOB_POSTS]: function (state, response) {
+        console.log(response);
+        state.lastFiveJobPosts = response.data.data;
     }
 }

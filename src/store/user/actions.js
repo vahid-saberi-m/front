@@ -13,7 +13,7 @@ export default {
             password: credentials.password
         }).then(response => {
             context.commit(types.RETRIEVE_TOKEN, response.data.access_token);
-            console.log('token', response.data.access_token);
+            // console.log('token', response.data.access_token);
             context.dispatch('checkUser')
         }).catch(error => {
             console.log(error);
@@ -21,18 +21,15 @@ export default {
     },
 
     logOut(context) {
-        axios.defaults.headers.common['Authorization'] = 'Bearer  ' + context.state.token;
-        if (context.getters.loggedIn) {
-            return new Promise((resolve, reject) => {
-                axios.post('/api/user/logout')
+        if (context.getters.isLoggedIn) {
+                request.post('/api/user/logout')
                     .then(response => {
+                        context.commit(types.DESTROY_TOKEN);
                         localStorage.removeItem('access_token');
-                        context.commit('destroyToken');
                     })
                     .catch(error => {
                         console.log(axios);
                     })
-            })
         }
     },
 
@@ -138,17 +135,14 @@ export default {
         })
     },
 
-    getLast5liveJobPost(context) {
-        return new Promise((resolve, reject) => {
+    getLastFiveJobPost(context) {
             request.get('/api/job-post/last-five')
                 .then(response => {
-                    resolve(response)
+                    context.commit(types.LAST_FIVE_JOB_POSTS,response)
                 })
                 .catch(error => {
                     console.log(error);
-                    reject(error)
                 })
-        })
     },
     indexJobPosts(context, address) {
         return new Promise((resolve, reject) => {
