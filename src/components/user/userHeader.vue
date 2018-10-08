@@ -3,21 +3,21 @@
             wrap
             style="height: 200px;"
     >
-            <v-container justify-center >
-                <v-toolbar
-                        clipped-right
-                >
-                    <img src="../../assets/wings-logo.png" height="80%">
+        <v-container justify-center>
+            <v-toolbar
+                    clipped-right
+            >
+                <img src="../../assets/wings-logo.png" height="80%">
 
 
-                    <v-toolbar-items>
-                    </v-toolbar-items>
-                    <v-spacer></v-spacer>
-                    <v-toolbar-side-icon
-                            @click.stop="drawer = !drawer"
-                    ></v-toolbar-side-icon>
-                </v-toolbar>
-            </v-container>
+                <v-toolbar-items>
+                </v-toolbar-items>
+                <v-spacer></v-spacer>
+                <v-toolbar-side-icon
+                        @click.stop="drawer = !drawer"
+                ></v-toolbar-side-icon>
+            </v-toolbar>
+        </v-container>
 
 
         <v-navigation-drawer
@@ -31,12 +31,12 @@
             <v-list class="pa-1">
                 <v-list-tile avatar>
                     <v-list-tile-avatar>
-                        <img :src="image">
+                        <img :src="user.image">
                     </v-list-tile-avatar>
 
                     <v-list-tile-content>
                         <v-list-tile-title>
-                            <h4>{{name}}</h4>
+                            <h4>{{user.name}}</h4>
                             <v-icon @click="logOut">exit</v-icon>
                         </v-list-tile-title>
                     </v-list-tile-content>
@@ -116,49 +116,49 @@
                     </v-list-tile>
                     <hr>
                 </div>
-                <div v-for="jobPost in jobPosts"
+                <div v-for="jobPost in lastFiveJobPosts"
                 >
 
-                <v-list-tile
-                        @click=""
-                >
-                    <v-list-tile-action>
-                        <v-icon>event_note</v-icon>
-                    </v-list-tile-action>
-                    {{jobPost.title}}
-                    <v-list-tile-content>
-                        <v-list-tile-title></v-list-tile-title>
-                    </v-list-tile-content>
+                    <v-list-tile
+                            @click=""
+                    >
+                        <v-list-tile-action>
+                            <v-icon>event_note</v-icon>
+                        </v-list-tile-action>
+                        {{jobPost.title}}
+                        <v-list-tile-content>
+                            <v-list-tile-title></v-list-tile-title>
+                        </v-list-tile-content>
 
-                </v-list-tile>
+                    </v-list-tile>
                 </div>
             </v-list>
 
         </v-navigation-drawer>
+
     </v-layout>
 
 </template>
 
 <script>
+    import { mapGetters } from 'vuex'
     export default {
         name: "userHeader",
         data() {
             return {
                 drawer: null,
-                companyId: this.$store.state.companyId,
-                name: this.$store.state.name,
-                position: this.$store.state.position,
-                email: this.$store.state.email,
-                image: this.$store.state.image,
-                role: this.$store.state.role,
                 company_id: '',
                 companyName: '',
                 newCompany: '',
                 set: '',
                 step: 1,
-                jobPosts:null
+                jobPosts: null,
+                user: null
 
             }
+        },
+        computed:{
+            ...mapGetters(['lastFiveJobPosts'])
         },
         methods: {
             newPosts: function () {
@@ -173,7 +173,7 @@
             expiredPosts: function () {
                 this.$router.push('/user/jobPosts/expiredPosts')
             },
-            logOut(){
+            logOut() {
                 this.$store.dispatch('logOut')
                     .then(response => {
                         this.$router.push('/introduction')
@@ -181,12 +181,8 @@
             }
         },
         created() {
-            this.$store.dispatch('getLastFiveJobPost')
-                .then(response => {
-                    this.jobPosts = this.$store.getters.lastFiveJobPosts;
-                    console.log('jobPosts');
-                    console.log(this.jobPosts)
-                })
+            this.$store.dispatch('getLastFiveJobPosts');
+            this.user = this.$store.getters['userInfo']
         },
 
     }

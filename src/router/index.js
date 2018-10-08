@@ -11,6 +11,7 @@ import livePosts from '@/components/user/jobPosts/livePosts'
 import waitingPosts from '@/components/user/jobPosts/waitingPosts'
 import expiredPosts from '@/components/user/jobPosts/expiredPosts'
 import {store} from "../store/store";
+import jobBoard from '@/components/user/jobPosts/jobBoard/'
 
 Vue.use(Router);
 
@@ -83,14 +84,20 @@ const router = new Router({
             meta:{
                 requiresAuth: true,
             }
+        },
+        {
+            path: 'jobBoard/:id',
+            name: 'jobBoard',
+            component: jobBoard,
+            meta:{
+                requiresAuth: true,
+            }
         }
     ]
 })
 
 router.beforeEach((to, from, next) => {
     if (to.matched.some(record => record.meta.requiresAuth)) {
-        // this route requires auth, check if logged in
-        // if not, redirect to login page.
         if (!store.getters.isLoggedIn) {
             next({
                 path: '/introduction',

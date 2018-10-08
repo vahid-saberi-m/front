@@ -7,5 +7,4 @@ export default {
     position: null,
     image: null,
     is_approved: null,
-    lastFiveJobPosts:null
 }

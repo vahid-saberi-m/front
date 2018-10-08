@@ -3,7 +3,7 @@
         <user-header></user-header>
         <v-form>
 
-            <v-card v-for="jobPost in jobPosts" style="direction: rtl;" :key="jobPost.id" v-on:removeJobPost="removeJobPost">
+            <v-card v-for="jobPost in liveJobPosts" style="direction: rtl;" :key="jobPost.id" v-on:removeJobPost="removeJobPost">
                 <job-post-show :jobPost="jobPost" :postState="postState" v-if="!(jobPost.id === removedJobPost)"></job-post-show>
                 <v-card-text>
                 </v-card-text>
@@ -17,22 +17,22 @@
     import UserHeader from "../userHeader";
     import jobPostShow from './jobPostCard/jobPostShow'
     import jobPostEdit from './jobPostCard/jobPostEdit'
+    import {mapGetters} from 'vuex'
     export default {
         name: "livePosts",
         components: {UserHeader, jobPostShow, jobPostEdit},
+        computed:{
+            ...mapGetters(['liveJobPosts'])
+        },
         data() {
             return {
-                jobPosts: '',
                 removedJobPost:'',
                 postState:'live'
 
             }
         },
         mounted() {
-            this.$store.dispatch('indexJobPosts', {address: 'index-live'})
-                .then(response => {
-                    this.jobPosts = response.data.data;
-                })
+            this.$store.dispatch('liveJobPosts')
         },
         methods:{
             removeJobPost(id){

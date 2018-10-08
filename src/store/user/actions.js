@@ -30,6 +30,8 @@ export default {
                     .catch(error => {
                         console.log(axios);
                     })
+        }else {
+            console.log('not logged in')
         }
     },
 
@@ -52,7 +54,6 @@ export default {
 
     checkUser(context) {
         request.get('/api/user/show').then(response => {
-            console.log('response', response)
             context.commit(types.USER_INFO, response);
         }).catch(error => {
             console.log(error);
@@ -135,15 +136,7 @@ export default {
         })
     },
 
-    getLastFiveJobPost(context) {
-            request.get('/api/job-post/last-five')
-                .then(response => {
-                    context.commit(types.LAST_FIVE_JOB_POSTS,response)
-                })
-                .catch(error => {
-                    console.log(error);
-                })
-    },
+
     indexJobPosts(context, address) {
         return new Promise((resolve, reject) => {
             request.get('/api/job-post/' + address.address)

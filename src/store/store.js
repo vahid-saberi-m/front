@@ -3,12 +3,15 @@ import Vuex from 'vuex'
 import axios from 'axios'
 import request from '../tools/request'
 import user from './user'
+import jobPost from './jobPost'
+import company from './company'
+import application from './application'
 
 Vue.use(Vuex);
 axios.defaults.baseURL = 'http://api.balatar.inpin.co/';
 export const store = new Vuex.Store({
         modules: {
-            user
+            user,jobPost, company, application
         },
         state: {
             token: localStorage.getItem('access_token') || null,
@@ -33,9 +36,7 @@ export const store = new Vuex.Store({
                 localStorage.setItem('access_token', token)
 
             },
-            destroyToken(state) {
-                state.token = null
-            },
+
             userInfo(state, response) {
                 state.name = response.data.data.name;
                 state.email = response.data.data.email;
@@ -49,44 +50,6 @@ export const store = new Vuex.Store({
         },
 
         actions: {
-
-            // retrieveToken(context, credentials) {
-            //     return new Promise((resolve, reject) => {
-            //         request.post('/oauth/token', {
-            //             grant_type: 'password',
-            //             client_secret: 'LfztswTcawhXhkXydwf4X0YReFcqa5jFlPVoj0eE',
-            //             client_id: '2',
-            //             username: credentials.username,
-            //             password: credentials.password
-            //         }).then(response => {
-            //             const token = response.data.access_token;
-            //             context.commit('retrieveToken', token);
-            //             resolve(token)
-            //         })
-            //             .catch(error => {
-            //                 console.log(error);
-            //                 reject(error)
-            //             })
-            //     })
-            // },
-
-            // logOut(context) {
-            //     axios.defaults.headers.common['Authorization'] = 'Bearer  ' + context.state.token;
-            //     if (context.getters.loggedIn) {
-            //         return new Promise((resolve, reject) => {
-            //             axios.post('/api/user/logout')
-            //                 .then(response => {
-            //                     localStorage.removeItem('access_token');
-            //                     context.commit('destroyToken');
-            //                     resolve(response)
-            //                 })
-            //                 .catch(error => {
-            //                     console.log(axios);
-            //                     reject(error)
-            //                 })
-            //         })
-            //     }
-            // },
 
             register(context, credentials) {
                 return new Promise((resolve, reject) => {
@@ -104,20 +67,6 @@ export const store = new Vuex.Store({
                         })
                 })
             },
-
-            // checkUser(context) {
-            //     axios.defaults.headers.common['Authorization'] = 'Bearer  ' + context.state.token;
-            //     return new Promise((resolve, reject) => {
-            //         axios.get('/api/user/show').then(response => {
-            //             context.commit('userInfo', response);
-            //             // console.log();
-            //             resolve(response)
-            //         }).catch(error => {
-            //             console.log(error);
-            //             reject(error)
-            //         })
-            //     })
-            // },
 
             joinCompany(context, credentials) {
                 axios.defaults.headers.common['Authorization'] = 'Bearer  ' + context.state.token;
@@ -174,79 +123,5 @@ export const store = new Vuex.Store({
                         })
                 })
             },
-
-            submitNewJobPost(context, credentials) {
-                return new Promise((resolve, reject) => {
-                    request.post('/api/job-post', {
-                        title: credentials.title,
-                        description: credentials.description,
-                        requirements: credentials.requirements,
-                        benefits: credentials.benefits,
-                        location: credentials.location,
-                        publish_date: credentials.publish_date,
-                        expiration_date: credentials.expiration_date,
-                    }).then(response => {
-                        resolve(response)
-                    })
-                        .catch(error => {
-                            console.log(error);
-                            reject(error)
-                        })
-                })
-            },
-
-            getLast5liveJobPost(context) {
-                return new Promise((resolve, reject) => {
-                    request.get('/api/job-post/last-five')
-                        .then(response => {
-                            resolve(response)
-                        })
-                        .catch(error => {
-                            console.log(error);
-                            reject(error)
-                        })
-                })
-            },
-            indexJobPosts(context, address) {
-                return new Promise((resolve, reject) => {
-                    request.get('/api/job-post/' + address.address)
-                        .then(response => {
-                            resolve(response)
-                        })
-                        .catch(error => {
-                            console.log(error);
-                            reject(error)
-                        })
-                })
-
-            },
-
-            approveJobPost(context, id) {
-                return new Promise((resolve, reject) => {
-
-                    request.get('/api/job-post/approval/' + id)
-                        .then(response => {
-                            resolve(response)
-                        })
-                });
-
-            },
-            deleteJobPost(context, id) {
-                return new Promise((resolve, reject) => {
-                    request.delete('/api/job-post/' + id)
-                        .then(response => {
-                            resolve(response)
-                        })
-                });
-            },
-            updateJobPost(context, credentials) {
-                return new Promise((resolve, reject) => {
-                    request.put('/api/job-post/' + credentials.id, credentials)
-                        .then(response => {
-                            resolve(response)
-                        })
-                });
-            }
-
         },
     });

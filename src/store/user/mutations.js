@@ -8,18 +8,13 @@ export default {
         request.defaults.headers.Authorization = 'Bearer ' + token;
         state.token = token;
     },
-    [types.DESTROY_TOKEN]: function (state) {
+    [types.DESTROY_TOKEN]: function (state,token){
+        request.defaults.headers.Authorization = 'Bearer ' + token;
         state.token = null
     },
     [types.USER_INFO]: function (state, response) {
-        console.log('here', router);
         Object.assign(state, response.data.data);
-
         router.push({name: 'userDashboard'});
     },
 
-    [types.LAST_FIVE_JOB_POSTS]: function (state, response) {
-        console.log(response);
-        state.lastFiveJobPosts = response.data.data;
-    }
 }

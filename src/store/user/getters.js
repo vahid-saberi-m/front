@@ -7,7 +7,7 @@ export default {
     hasApprovedCompany(state) {
         return !_.isNil(state.company_id) && state.is_approved
     },
-    lastFiveJobPosts(state){
-        return state.lastFiveJobPosts
+    userInfo(state){
+        return state
     }
 }
