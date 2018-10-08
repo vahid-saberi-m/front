@@ -11,7 +11,7 @@ import livePosts from '@/components/user/jobPosts/livePosts'
 import waitingPosts from '@/components/user/jobPosts/waitingPosts'
 import expiredPosts from '@/components/user/jobPosts/expiredPosts'
 import {store} from "../store/store";
-import jobBoard from '@/components/user/jobPosts/jobBoard/'
+import jobBoard from '@/components/user/jobPosts/jobBoard/jobBoard'
 
 Vue.use(Router);
 
@@ -86,7 +86,7 @@ const router = new Router({
             }
         },
         {
-            path: 'jobBoard/:id',
+            path: '/job_board/:id',
             name: 'jobBoard',
             component: jobBoard,
             meta:{
@@ -94,7 +94,7 @@ const router = new Router({
             }
         }
     ]
-})
+});
 
 router.beforeEach((to, from, next) => {
     if (to.matched.some(record => record.meta.requiresAuth)) {

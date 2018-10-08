@@ -1,6 +1,6 @@
-const mutations={
-
-};
+import * as types from "./mutationTypes";
 export default {
-mutations
+    [types.RETRIEVE_CV_FOLDERS]:function (context,response) {
+        context.cvFolders=response.data.data
+    }
 };

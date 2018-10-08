@@ -120,7 +120,7 @@
                 >
 
                     <v-list-tile
-                            @click=""
+                            @click="$router.push('/job_board/'+jobPost.id)"
                     >
                         <v-list-tile-action>
                             <v-icon>event_note</v-icon>

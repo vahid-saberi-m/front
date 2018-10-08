@@ -6,12 +6,13 @@ import user from './user'
 import jobPost from './jobPost'
 import company from './company'
 import application from './application'
+import cvFolder from './cvFolder'
 
 Vue.use(Vuex);
 axios.defaults.baseURL = 'http://api.balatar.inpin.co/';
 export const store = new Vuex.Store({
         modules: {
-            user,jobPost, company, application
+            user,jobPost, company, application, cvFolder
         },
         state: {
             token: localStorage.getItem('access_token') || null,

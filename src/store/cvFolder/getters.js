@@ -1,6 +1,6 @@
-const getters={
 
-};
 export default {
-    getters
+ cvFolders(state){
+     return state.cvFolders
+ }
 }
