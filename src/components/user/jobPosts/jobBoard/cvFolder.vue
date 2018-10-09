@@ -8,8 +8,8 @@
             <v-card-text  >
                 <v-content v-for="application in jobPostApplications" :key="application.id">
 
-                <v-card v-if="application.cv_folder_id===id">
-                <application :info="application" :key="application.id"></application>
+                <v-card v-if="application.cv_folder_id===id" v-on:open-application="cvView">
+                <application :info="application" :key="application.id" ></application>
                 </v-card>
                 </v-content>
             </v-card-text>
@@ -19,15 +19,20 @@
 
 <script>
     import {mapGetters} from 'vuex'
-    import Application from "./application";
+    import application from "./application";
     export default {
         name: "cvFolder",
-        components: { Application},
+        components: { application},
         props: ['id', 'name','jobPostApplications'],
         computed: {
             ...mapGetters(['cvFolderApplications'])
         },
         created(){
+        },
+        methods:{
+            cvView(){
+                console.log('3')
+            }
         }
     }
 </script>

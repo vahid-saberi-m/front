@@ -31,12 +31,12 @@
             <v-list class="pa-1">
                 <v-list-tile avatar>
                     <v-list-tile-avatar>
-                        <img :src="user.image">
+                        <img :src="userInfo.image">
                     </v-list-tile-avatar>
 
                     <v-list-tile-content>
                         <v-list-tile-title>
-                            <h4>{{user.name}}</h4>
+                            <h4>{{userInfo.name}}</h4>
                             <v-icon @click="logOut">exit</v-icon>
                         </v-list-tile-title>
                     </v-list-tile-content>
@@ -153,12 +153,11 @@
                 set: '',
                 step: 1,
                 jobPosts: null,
-                user: null
 
             }
         },
         computed:{
-            ...mapGetters(['lastFiveJobPosts'])
+            ...mapGetters(['lastFiveJobPosts','userInfo'])
         },
         methods: {
             newPosts: function () {
@@ -182,7 +181,6 @@
         },
         created() {
             this.$store.dispatch('getLastFiveJobPosts');
-            this.user = this.$store.getters['userInfo']
         },
 
     }
