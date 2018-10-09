@@ -1,7 +1,5 @@
-const state={
-    token: localStorage.getItem('access_token') || null,
-
-}
 export default {
-state
-};
+    token: localStorage.getItem('access_token') || null,
+    cvFolderApplications:null,
+    jobPostApplications:null,
+}

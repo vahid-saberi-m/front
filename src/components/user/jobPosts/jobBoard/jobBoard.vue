@@ -3,7 +3,7 @@
         <user-header></user-header>
         <v-layout row wrap>
             <template v-for="cvFolder in cvFolders">
-                <cv-folder :name="cvFolder.name" :id="cvFolder.id"></cv-folder>
+                <cv-folder :name="cvFolder.name" :id="cvFolder.id" :jobPostApplications="jobPostApplications" :key="cvFolder.id"></cv-folder>
             </template>
         </v-layout>
     </v-container>
@@ -23,10 +23,13 @@
             }
         },
         computed: {
-            ...mapGetters(['cvFolders'])
+            ...mapGetters(['cvFolders','jobPostApplications'])
         },
         created() {
-            this.$store.dispatch('retrieveCvFolders', this.id)
+            this.$store.dispatch('retrieveCvFolders', this.id);
+            this.$store.dispatch('indexJobPostApplications',this.id);
+            console.log(this.$store.getters.jobPostApplications)
+
         },
     }
 </script>
