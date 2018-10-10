@@ -20,7 +20,6 @@
 </template>
 
 <script>
-    import route from "../router";
     export default {
         props: ['id'],
 
@@ -31,7 +30,6 @@
             }
         },
         created(){
-            console.log(this.id);
             fetch('http://api.balatar.inpin.co/api/company/' + this.id, {
                 headers : {
                     'Content-Type': 'application/json',

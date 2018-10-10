@@ -1,6 +1,6 @@
 <template>
-    <v-card draggable="true" @click="$emit('open-application')"  >
-        <v-card-title @open-application="openDialog" >
+    <v-card draggable="true"  >
+        <v-card-title @click="openDialog"  >
             <b>{{info.name}}</b>
             <v-spacer></v-spacer>
             <v-icon small @click="deleteApplication(info.id)" >delete</v-icon>
@@ -21,8 +21,8 @@
                 this.$store.dispatch('deleteApplication',id)
             },
             openDialog(){
-                this.$emit('open-application');
-                    console.log(21)
+                this.$store.commit('APPLICATION_DIALOG');
+                console.log(1)
             },
 
 

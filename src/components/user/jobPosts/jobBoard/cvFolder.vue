@@ -8,8 +8,8 @@
             <v-card-text  >
                 <v-content v-for="application in jobPostApplications" :key="application.id">
 
-                <v-card v-if="application.cv_folder_id===id" v-on:open-application="cvView">
-                <application :info="application" :key="application.id" ></application>
+                <v-card v-if="application.cv_folder_id===id" >
+                <application :info="application" :key="application.id" v-on:application1="cvView"></application>
                 </v-card>
                 </v-content>
             </v-card-text>

@@ -4,5 +4,8 @@ export default {
     },
     jobPostApplications(state){
         return state.jobPostApplications
+    },
+    applicationDialog(state){
+        return state.applicationDialog
     }
 };

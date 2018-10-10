@@ -19,5 +19,8 @@ export default {
         }
         // state.jobPostApplications.splice({id:117});
         console.log(state.jobPostApplications)
+    },
+    [types.APPLICATION_DIALOG]:function (state) {
+        state.applicationDialog=!state.applicationDialog
     }
 };

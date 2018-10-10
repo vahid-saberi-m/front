@@ -1,8 +1,9 @@
 <template>
     <div class="text-xs-center">
         <v-dialog
-                v-model="dialog"
+                v-model="applicationDialog"
                 width="500"
+                lazy
         >
 
 
@@ -36,14 +37,13 @@
 </template>
 
 <script>
+    import {mapGetters} from 'vuex'
     export default {
         name: "cvView",
-        props:['dialog'],
-        data(){
-            return{
-                dialog:this.dialog
-            }
+        computed:{
+            ...mapGetters(['applicationDialog'])
         },
+
     }
 </script>
 

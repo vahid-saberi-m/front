@@ -1,7 +1,7 @@
 <template>
-    <v-container v-on:open-application="openCvView">
+    <v-container >
         <user-header></user-header>
-        <cvView :dialog="dialog" ></cvView>
+        <cvView :dialog="applicationDialog" ></cvView>
         <v-layout row wrap>
             <template v-for="cvFolder in cvFolders">
                 <cv-folder :name="cvFolder.name" :id="cvFolder.id" :jobPostApplications="jobPostApplications" :key="cvFolder.id" ></cv-folder>
@@ -27,7 +27,7 @@
             }
         },
         computed: {
-            ...mapGetters(['cvFolders','jobPostApplications'])
+            ...mapGetters(['cvFolders','jobPostApplications','applicationDialog'])
         },
         created() {
             this.$store.dispatch('retrieveCvFolders', this.id);
