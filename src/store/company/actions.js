@@ -1,6 +1,6 @@
 import request from '@/tools/request'
 import axios from "axios";
-
+import * as types from './mutationTypes'
 
 export default {
     joinCompany({context}, credentials) {
@@ -29,7 +29,7 @@ export default {
                 })
         })
     },
-    makeCompany(context,credentials) {
+    makeCompany(context, credentials) {
         return new Promise((resolve, reject) => {
             const fd = new FormData();
             fd.append('name', credentials.Name);
@@ -47,7 +47,7 @@ export default {
             fd.append('email', credentials.Email);
             fd.append('phone_number', credentials.phone_number);
             fd.append('location', credentials.location);
-            request.post('/api/company' , fd).then(response => {
+            request.post('/api/company', fd).then(response => {
                 resolve(response)
             })
                 .catch(error => {
@@ -56,7 +56,13 @@ export default {
                 })
         })
     },
-    };
+    retrieveCompany(context,id){
+        request.get('/api/company/'+ id)
+            .then(response=>{
+                context.commit(types.RETRIEVE_COMPANY,response)
+            })
+    }
+};
 
 
 

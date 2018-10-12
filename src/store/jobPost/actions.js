@@ -84,6 +84,13 @@ export default ({
                     resolve(response)
                 })
         });
+    },
+
+    publicJobPosts(context,companyId){
+        request.get('/api/job-post/index-public/'+ companyId)
+            .then(response=>{
+                context.commit(types.PUBLIC_JOB_POSTS,response)
+            })
     }
 });
 

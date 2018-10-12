@@ -1,1 +1,1 @@
-export const COMPANY = 'COMPANY';
+export const RETRIEVE_COMPANY = 'RETRIEVE_COMPANY';

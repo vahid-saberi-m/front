@@ -13,4 +13,7 @@ export default {
     expiredJobPosts(state){
         return state.expiredJobPosts
     },
+    publicJobPosts(state){
+        return state.publicJobPosts
+    },
 };

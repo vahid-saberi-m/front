@@ -15,4 +15,8 @@ export default {
     [types.WAITING_JOB_POSTS]: function (state, response) {
         state.waitingJobPosts = response.data.data;
     },
+    [types.PUBLIC_JOB_POSTS]: function (state, response) {
+        state.publicJobPosts = response.data.data;
+    },
+
 };

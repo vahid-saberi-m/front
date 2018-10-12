@@ -4,4 +4,5 @@ export default {
     liveJobPosts:null,
     waitingJobPosts:null,
     expiredJobPosts:null,
+    publicJobPosts:null,
 };
