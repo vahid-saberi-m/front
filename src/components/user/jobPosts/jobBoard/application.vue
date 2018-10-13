@@ -1,5 +1,5 @@
 <template>
-    <v-card draggable="true"  >
+    <v-card >
         <v-card-title @click="openDialog"  >
             <b>{{info.name}}</b>
             <v-spacer></v-spacer>

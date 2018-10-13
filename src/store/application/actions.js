@@ -54,5 +54,12 @@ export default ({
                 context.commit(types.APPLY_JOB_POST_QUESTIONS,response)
             })
     },
+
+    changeApplicationCvFolder(context,credentials){
+        request.get('/api/application/change-cv-folder/'+credentials.application+'/'+credentials.cvFolder)
+            .then(response=>{
+                console.log(response.data.cv_folder_id)
+            })
+    },
 });
 
