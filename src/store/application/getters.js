@@ -35,6 +35,8 @@ export default {
     applyJobPostQuestions(state) {
         return state.applyJobPostQuestions
     },
-
+    movingApplication(state){
+        return state.movingApplication
+    }
 
 };

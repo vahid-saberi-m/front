@@ -12,4 +12,5 @@ export default {
     candidateInfo:null,
     candidateEmail:null,
     applyJobPostQuestions:null,
+    movingApplication: null,
 }

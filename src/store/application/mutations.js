@@ -42,5 +42,8 @@ export default {
     [types.APPLY_JOB_POST_QUESTIONS]: function (state,response) {
         state.applyJobPostQuestions=response.data.data;
         console.log(state.applyJobPostQuestions);
-    }
+    },
+    [types.MOVING_APPLICATION]:function (state,id) {
+        state.movingApplication= id
+    },
 };

@@ -9,7 +9,7 @@
                 <v-content v-for="application in jobPostApplications" :key="application.id">
                     <draggable v-model="cvFolderApplications" :options="{group:'applications',animation:200}" @start="drag=true" style=" min-height: 10px;"
                                @end="drag=false">
-                        <v-card v-if="application.cv_folder_id===id" @drag="movingApplication=application.id ">
+                        <v-card v-if="application.cv_folder_id===id" @drag="setMovingApplication(application.id) ">
                             <application :info="application" :key="application.id"
                                          v-on:application1="cvView" ></application>
                         </v-card>
@@ -24,6 +24,8 @@
     import {mapGetters} from 'vuex'
     import application from "./application";
     import draggable from 'vuedraggable'
+    import {TARGET_CV_FOLDER} from "../../../../store/cvFolder/mutationTypes";
+    import {MOVING_APPLICATION} from "../../../../store/application/mutationTypes";
 
     export default {
         name: "cvFolder",
@@ -51,8 +53,12 @@
             cvView() {
                 console.log('3')
             },
-            changeApplicationCvFolder(id){
-                this.$store.dispatch('changeApplicationCvFolder',{cvFolder: id ,application:this.movingApplication})
+            setMovingApplication(applicationId){
+                this.$store.commit(MOVING_APPLICATION,applicationId)
+            },
+            changeApplicationCvFolder(cvFolderId){
+                this.$store.commit(TARGET_CV_FOLDER,cvFolderId);
+                this.$store.dispatch('changeApplicationCvFolder')
            },
 
         }

@@ -1,5 +1,6 @@
 
 
 export default {
-    cvFolders:null
+    cvFolders:null,
+    targetCvFolder:null
 }

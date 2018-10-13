@@ -55,8 +55,8 @@ export default ({
             })
     },
 
-    changeApplicationCvFolder(context,credentials){
-        request.get('/api/application/change-cv-folder/'+credentials.application+'/'+credentials.cvFolder)
+    changeApplicationCvFolder(context){
+        request.get('/api/application/change-cv-folder/'+context.getters.movingApplication+'/'+context.getters.targetCvFolder)
             .then(response=>{
                 console.log(response.data.cv_folder_id)
             })
