@@ -41,7 +41,7 @@
     export default {
         name: "cvView",
         computed:{
-            ...mapGetters(['applicationDialog'])
+            ...mapGetters(['applicationDialog','currentCv'])
         },
 
     }
