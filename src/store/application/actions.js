@@ -46,6 +46,13 @@ export default ({
             .then(response => {
                 context.commit(types.NEXT_STEP)
             })
-    }
+    },
+    applyJobPostQuestions(context,jobPostId){
+        console.log('asdfasdf');
+        request('/api/question/job-post/'+jobPostId)
+            .then(response=>{
+                context.commit(types.APPLY_JOB_POST_QUESTIONS,response)
+            })
+    },
 });
 

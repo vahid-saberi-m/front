@@ -1,36 +1,39 @@
 export default {
-    cvFolderApplications(state){
+    cvFolderApplications(state) {
         return state.cvFolderApplications
     },
-    jobPostApplications(state){
+    jobPostApplications(state) {
         return state.jobPostApplications
     },
-    applicationDialog(state){
+    applicationDialog(state) {
         return state.applicationDialog
     },
-    applyModal(state){
+    applyModal(state) {
         return state.applyModal
     },
-    applyStep(state){
+    applyStep(state) {
         return state.applyStep
     },
-    applyJobPost(state){
+    applyJobPost(state) {
         return state.applyJobPost
     },
-    appliedBefore(state){
+    appliedBefore(state) {
         return state.appliedBefore
     },
-    applicant(state){
+    applicant(state) {
         return state.applicant
     },
-    candidateExist(state){
+    candidateExist(state) {
         return state.candidateExist
     },
-    candidateInfo(state){
+    candidateInfo(state) {
         return state.candidateInfo
     },
-    candidateEmail(state){
+    candidateEmail(state) {
         return state.candidateEmail
+    },
+    applyJobPostQuestions(state) {
+        return state.applyJobPostQuestions
     },
 
 

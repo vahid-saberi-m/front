@@ -9,9 +9,10 @@
 
             <v-card>
                <check-applicant v-if="applyStep===1"></check-applicant>
-                <apply-form v-if="applyStep===2 && !appliedBefore"></apply-form>
                 <applied-before v-if="applyStep===2 && appliedBefore"></applied-before>
-                <applied-successfully v-if="applyStep===3"></applied-successfully>
+                <questions v-if="applyStep===2 && !appliedBefore"></questions>
+                <apply-form v-if="applyStep===3 && !appliedBefore"></apply-form>
+                <applied-successfully v-if="applyStep===4"></applied-successfully>
             </v-card>
         </v-dialog>
     </div>
@@ -23,9 +24,10 @@
         import ApplyForm from "./applyModal/applyForm";
         import AppliedSuccessfully from "./applyModal/appliedSuccessfully";
         import AppliedBefore from "./applyModal/appliedBefore";
+        import Questions from "./applyModal/questions";
     export default {
         name: "applyModal",
-        components: {AppliedBefore, AppliedSuccessfully, ApplyForm, CheckApplicant},
+        components: {Questions, AppliedBefore, AppliedSuccessfully, ApplyForm, CheckApplicant},
         computed:{
             ...mapGetters(['applyModal','applyStep','applyJobPost','appliedBefore'])
         },
@@ -33,6 +35,8 @@
             return{
                 email:null
             }
+        },
+        created(){
         }
     }
 </script>

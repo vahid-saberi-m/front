@@ -11,4 +11,5 @@ export default {
     candidateExist:null,
     candidateInfo:null,
     candidateEmail:null,
+    applyJobPostQuestions:null,
 }

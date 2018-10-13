@@ -38,5 +38,9 @@ export default {
     },
     [types.NEXT_STEP]:function (state) {
         state.applyStep= state.applyStep+1
+    },
+    [types.APPLY_JOB_POST_QUESTIONS]: function (state,response) {
+        state.applyJobPostQuestions=response.data.data;
+        console.log(state.applyJobPostQuestions);
     }
 };

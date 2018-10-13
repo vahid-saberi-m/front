@@ -25,12 +25,21 @@
 </template>
 
 <script>
+    import {mapGetters} from 'vuex'
+
+
     export default {
         name: "checkApplicant",
         data(){
             return{
                 email:null,
             }
+        },
+        computed:{
+            ...mapGetters(['applyJobPost'])
+        },
+        created(){
+            this.$store.dispatch('applyJobPostQuestions',this.applyJobPost.id);
         },
         methods:{
             checkApplicant(){
