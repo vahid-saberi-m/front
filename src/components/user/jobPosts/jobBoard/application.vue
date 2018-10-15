@@ -1,6 +1,6 @@
 <template>
-    <v-card >
-        <v-card-title @click="openDialog"  >
+    <v-card  >
+        <v-card-title   @click="viewCv(info.id)" >
             <b>{{info.name}}</b>
             <v-spacer></v-spacer>
             <v-icon small @click="deleteApplication(info.id)" >delete</v-icon>
@@ -20,13 +20,13 @@
             deleteApplication(id){
                 this.$store.dispatch('deleteApplication',id)
             },
-            openDialog(){
+            viewCv(id){
+                this.$store.dispatch('applicationViewCv',id);
                 this.$store.commit('APPLICATION_DIALOG');
-                console.log(1)
             },
 
-
         },
+
     }
 </script>
 

@@ -46,4 +46,9 @@ export default {
     [types.MOVING_APPLICATION]:function (state,id) {
         state.movingApplication= id
     },
+    [types.APPLICATION_VIEW_CV]:function (state,response) {
+        state.applicationViewCv= response.data.data;
+        console.log(state.applicationViewCv)
+    },
+
 };

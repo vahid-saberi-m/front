@@ -37,6 +37,9 @@ export default {
     },
     movingApplication(state){
         return state.movingApplication
+    },
+    applicationViewCv(state){
+        return state.applicationViewCv
     }
 
 };

@@ -61,5 +61,11 @@ export default ({
                 console.log(response.data.cv_folder_id)
             })
     },
+    applicationViewCv(context,id){
+        request.get('/api/application/'+id)
+            .then(response=>{
+                context.commit(types.APPLICATION_VIEW_CV,response)
+            })
+    }
 });
 
