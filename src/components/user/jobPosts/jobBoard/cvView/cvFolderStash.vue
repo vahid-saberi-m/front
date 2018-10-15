@@ -4,8 +4,8 @@
             انتقال به یکی از پوشه ها:
         </v-card-title>
         <v-layout row>
-        <v-card-text v-for="cvFolder in cvFolders">
-            <v-btn v-if="cvFolder.id!==id" :key="cvFolder.id">
+        <v-card-text v-for="cvFolder in cvFolders" :key="cvFolder.id">
+            <v-btn v-if="cvFolder.id!==id" @click="changeApplicationCvFolder(cvFolder.id)">
                 {{cvFolder.name}}
             </v-btn>
         </v-card-text>
@@ -22,6 +22,12 @@
         computed:{
             ...mapGetters(['cvFolders'])
         },
+        methods:{
+            changeApplicationCvFolder(cvFolderId){
+                this.$store.commit('TARGET_CV_FOLDER',cvFolderId);
+                this.$store.dispatch('changeApplicationCvFolder')
+            },
+        }
     }
 </script>
 

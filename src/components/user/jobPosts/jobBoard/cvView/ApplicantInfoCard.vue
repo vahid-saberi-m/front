@@ -34,7 +34,9 @@
         computed: {
 
             ...mapGetters(['applicationViewCv']),
-
+        },
+        created(){
+                this.$store.commit('MOVING_APPLICATION',this.applicationViewCv.id)
         }
     }
 </script>

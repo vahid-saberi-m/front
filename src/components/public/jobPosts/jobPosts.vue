@@ -7,7 +7,7 @@
                 موقعیت های شغلی:
             </v-card-title>
             <v-card-text>
-                <v-card v-for="jobPost in publicJobPosts">
+                <v-card v-for="jobPost in publicJobPosts" :key="jobPost.id">
                     <jobPostShow :jobPost="jobPost" :key="jobPost.id"></jobPostShow>
                 </v-card>
             </v-card-text>

@@ -18,7 +18,7 @@ export default ({
         request.post('/api/application/applied-before', {
             email: email
         }).then(response => {
-            context.commit(types.APPLIED_BEFORE, response)
+            // context.commit(types.APPLIED_BEFORE, response)
         })
     },
     checkApplicant(context, email) {

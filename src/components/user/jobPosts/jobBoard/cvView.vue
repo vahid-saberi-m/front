@@ -20,9 +20,10 @@
                         <v-layout row >
                             <v-flex xs5>
                                 <applicant-info-card></applicant-info-card>
-                                <cv-folder :id="applicationViewCv.cv_folder_id"></cv-folder>
+                                <cv-view-cv-folder  :id="applicationViewCv.cv_folder_id"></cv-view-cv-folder>
                             </v-flex>
                             <v-flex xs 7>
+                                <cv-pdf-viewer :address="applicationViewCv.cv.cv"></cv-pdf-viewer>
                                 <cv-foldr-stash :id="applicationViewCv.cv_folder_id" ></cv-foldr-stash>
                             </v-flex>
                         </v-layout>
@@ -50,22 +51,26 @@
     import {mapGetters} from 'vuex'
     import ApplicantInfoCard from "./cvView/ApplicantInfoCard";
     import CvFolder from "./cvFolder";
-    import CvFoldrStash from "./cvView/cvFoldrStash";
+    import CvFoldrStash from "./cvView/cvFolderStash";
+    import CvPdfViewer from "./cvView/cvPdfViewer";
+    import CvViewCvFolder from "./cvView/cvViewCvFolder";
 
     export default {
         name: "cvView",
-        components: {CvFoldrStash, CvFolder, ApplicantInfoCard},
+        components: {CvViewCvFolder, CvPdfViewer, CvFoldrStash, CvFolder, ApplicantInfoCard},
         computed: {
             ...mapGetters(['applicationDialog', 'applicationViewCv']),
             dialog: {
                 get() {
                     return this.$store.getters['applicationDialog']
                 },
-                set(applicationDialog) {
-                    this.$store.commit('APPLICATION_DIALOG', applicationDialog)
+                set() {
+                    this.$store.commit('APPLICATION_DIALOG')
                 },
             }
         },
+        created(){
+        }
 
     }
 </script>

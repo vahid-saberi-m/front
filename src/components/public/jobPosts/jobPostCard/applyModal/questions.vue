@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-card-text v-for="applyJobPostQuestion in applyJobPostQuestions">
+        <v-card-text v-for="applyJobPostQuestion in applyJobPostQuestions" :key="applyJobPostQuestion.id">
             <v-container fluid>
             <p>{{applyJobPostQuestion.question}}</p>
                 <v-radio-group v-model="answer" :mandatory="false">
