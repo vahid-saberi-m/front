@@ -20,35 +20,34 @@ export default {
         console.log(state.jobPostApplications)
     },
     [types.APPLICATION_DIALOG]: function (state) {
-        state.applicationDialog = !state.applicationDialog
+        state.applicationDialog = !state.applicationDialog;
     },
     [types.APPLY_MODAL]: function (state) {
         state.applyModal = !state.applyModal
     },
-    [types.APPLY_JOB_POST]: function (state,jobPost) {
+    [types.APPLY_JOB_POST]: function (state, jobPost) {
         state.applyJobPost = jobPost
     },
-    [types.CHECK_APPLICANT]: function (state,{response,email}) {
-        state.candidateEmail=email;
-        if (response.data){
+    [types.CHECK_APPLICANT]: function (state, {response, email}) {
+        state.candidateEmail = email;
+        if (response.data) {
             state.candidateExist = response.data.data.candidate;
             state.appliedBefore = response.data.data.applied_before;
             state.candidateInfo = response.data.data;
         }
     },
-    [types.NEXT_STEP]:function (state) {
-        state.applyStep= state.applyStep+1
+    [types.NEXT_STEP]: function (state) {
+        state.applyStep = state.applyStep + 1
     },
-    [types.APPLY_JOB_POST_QUESTIONS]: function (state,response) {
-        state.applyJobPostQuestions=response.data.data;
+    [types.APPLY_JOB_POST_QUESTIONS]: function (state, response) {
+        state.applyJobPostQuestions = response.data.data;
         console.log(state.applyJobPostQuestions);
     },
-    [types.MOVING_APPLICATION]:function (state,id) {
-        state.movingApplication= id
+    [types.MOVING_APPLICATION]: function (state, id) {
+        state.movingApplication = id
     },
-    [types.APPLICATION_VIEW_CV]:function (state,response) {
-        state.applicationViewCv= response.data.data;
-        console.log(state.applicationViewCv)
+    [types.APPLICATION_VIEW_CV]: function (state, response) {
+        state.applicationViewCv = response.data.data;
     },
 
 };

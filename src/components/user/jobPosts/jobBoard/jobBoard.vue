@@ -4,7 +4,7 @@
         <cvView :dialog="applicationDialog" ></cvView>
         <v-layout row wrap>
             <template v-for="cvFolder in cvFolders">
-                <cv-folder :name="cvFolder.name" :id="cvFolder.id" :jobPostApplications="jobPostApplications" :key="cvFolder.id" ></cv-folder>
+                <cv-folder :name="cvFolder.name" :id="cvFolder.id" :key="cvFolder.id" ></cv-folder>
             </template>
         </v-layout>
     </v-container>

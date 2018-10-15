@@ -30,9 +30,9 @@
     export default {
         name: "cvFolder",
         components: {application, draggable},
-        props: ['id', 'name', 'jobPostApplications'],
+        props: ['id', 'name', ],
         computed: {
-            ...mapGetters(['cvFolderApplications']),
+            ...mapGetters(['cvFolderApplications','jobPostApplications']),
             cvFolderApplications: {
                 get() {
                     this.$store.getters.cvFolderApplications
