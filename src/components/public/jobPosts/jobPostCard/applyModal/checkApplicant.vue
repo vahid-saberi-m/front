@@ -11,16 +11,7 @@
 
 
 
-            <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn
-                        color="primary"
-                        flat
-                        @click="dialog = false"
-                >
-                    I accept
-                </v-btn>
-            </v-card-actions>
+
     </div>
 </template>
 

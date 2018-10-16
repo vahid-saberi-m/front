@@ -1,6 +1,7 @@
 <template>
 <div >
     <userHeader></userHeader>
+    <user-company></user-company>
     <router-view></router-view>
 </div>
 
@@ -9,9 +10,10 @@
 <script>
     import balatarHeader from '../BalatarHeader'
     import userHeader from './userHeader'
+    import UserCompany from "./userDashboard/userCompany";
     export default {
         name: "userDashboard",
-        components: { balatarHeader, userHeader},
+        components: {UserCompany, balatarHeader, userHeader},
         data() {
             return {
                 sideNav: false,

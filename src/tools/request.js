@@ -1,5 +1,6 @@
 import axios from 'axios'
 import router from '@/router'
+import _ from 'lodash'
 
 const instance = axios.create({
     baseURL: process.env.BASE_URL,
@@ -8,6 +9,11 @@ const instance = axios.create({
         Accept: 'application/json'
     }
 });
+
+const token = localStorage.getItem('access_token');
+if(!_.isNil(token)) {
+    instance.defaults.headers.Authorization = 'Bearer ' + token;
+}
 
 instance.interceptors.response.use(function (response) {
     return response

@@ -9,15 +9,7 @@ export default {
         state.jobPostApplications = response.data.data
     },
     [types.DELETE_APPLICATION]: function (state, id) {
-        for (var i = 0; i < state.jobPostApplications.length; i++) {
-            var obj = state.jobPostApplications[i];
-
-            if (state.jobPostApplications.indexOf(obj.id === id)) {
-                console.log(state.jobPostApplications.indexOf(id));
-                state.jobPostApplications.splice(i, 1);
-            }
-        }
-        console.log(state.jobPostApplications)
+        state.jobPostApplications = state.jobPostApplications.filter(item => item.id !== id);
     },
     [types.APPLICATION_DIALOG]: function (state) {
         state.applicationDialog = !state.applicationDialog;
@@ -49,7 +41,5 @@ export default {
     [types.APPLICATION_VIEW_CV]: function (state, response) {
         state.applicationViewCv = response.data.data;
         console.log(state.applicationViewCv);
-
     },
-
 };

@@ -1,7 +1,7 @@
 <template>
     <div class="text-xs-center">
         <v-dialog
-                v-model="applyModal"
+                v-model="modal"
                 width="500"
                 lazy
         >
@@ -13,6 +13,16 @@
                 <questions v-if="applyStep===2 && !appliedBefore"></questions>
                 <apply-form v-if="applyStep===3 && !appliedBefore"></apply-form>
                 <applied-successfully v-if="applyStep===4"></applied-successfully>
+                <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn
+                            color="primary"
+                            flat
+                            @click="modal = false"
+                    >
+                        انصراف
+                    </v-btn>
+                </v-card-actions>
             </v-card>
         </v-dialog>
     </div>
@@ -29,7 +39,15 @@
         name: "applyModal",
         components: {Questions, AppliedBefore, AppliedSuccessfully, ApplyForm, CheckApplicant},
         computed:{
-            ...mapGetters(['applyModal','applyStep','applyJobPost','appliedBefore'])
+            ...mapGetters(['applyModal','applyStep','applyJobPost','appliedBefore']),
+            modal:{
+                get(){
+                    return this.applyModal
+                },
+                set(){
+                    this.$store.commit('APPLY_MODAL')
+                }
+            }
         },
         data(){
             return{

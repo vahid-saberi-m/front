@@ -2,6 +2,7 @@ import _ from 'lodash'
 
 export default {
     isLoggedIn(state) {
+        console.log('inja',state.token)
         return state.token !== null
     },
     hasApprovedCompany(state) {

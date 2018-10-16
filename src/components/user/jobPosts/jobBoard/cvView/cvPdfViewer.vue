@@ -1,5 +1,5 @@
 <template>
-    <!--<pdf src="http://api.balatar.inpin.co//storage/candidate/cvs/avatar.pdf"></pdf>-->
+    <pdf :src="address"></pdf>
 </template>
 
 <script>
