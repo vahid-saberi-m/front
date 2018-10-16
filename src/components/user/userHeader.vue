@@ -37,7 +37,7 @@
                     <v-list-tile-content>
                         <v-list-tile-title>
                             <h4>{{userInfo.name}}</h4>
-                            <v-icon @click="logOut">exit</v-icon>
+                            <br>
                         </v-list-tile-title>
                     </v-list-tile-content>
                 </v-list-tile>
@@ -98,12 +98,24 @@
                     </v-list-tile-content>
 
                 </v-list-tile>
+                <v-list-tile
+                        @click="logOut"
+                >
+                    <v-list-tile-action>
+                        <v-icon>clear</v-icon>
+                    </v-list-tile-action>
+                    خروج
+                    <v-list-tile-content>
+                        <v-list-tile-title></v-list-tile-title>
+                    </v-list-tile-content>
+
+                </v-list-tile>
 
                 <hr>
                 <div v-if="role='admin'">
 
                     <v-list-tile
-                            @click=""
+                            @click="editCompany"
                     >
                         <v-list-tile-action>
                             <v-icon>storage</v-icon>
@@ -114,6 +126,20 @@
                         </v-list-tile-content>
 
                     </v-list-tile>
+
+                    <v-list-tile
+                            @click="companyUsers"
+                    >
+                        <v-list-tile-action>
+                            <v-icon>people</v-icon>
+                        </v-list-tile-action>
+                        کاربران
+                        <v-list-tile-content>
+                            <v-list-tile-title></v-list-tile-title>
+                        </v-list-tile-content>
+
+                    </v-list-tile>
+
                     <hr>
                 </div>
                 <div v-for="jobPost in lastFiveJobPosts"
@@ -132,6 +158,7 @@
 
                     </v-list-tile>
                 </div>
+
             </v-list>
 
         </v-navigation-drawer>
@@ -177,7 +204,13 @@
                     .then(response => {
                         this.$router.push('/introduction')
                     })
-            }
+            },
+            editCompany(){
+                this.$router.push('/user/company/edit')
+            },
+            companyUsers(){
+                this.$router.push('/user/company/users')
+            },
         },
         created() {
             this.$store.dispatch('getLastFiveJobPosts');

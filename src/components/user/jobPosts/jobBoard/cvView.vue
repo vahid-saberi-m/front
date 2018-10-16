@@ -19,11 +19,12 @@
 
                         <v-layout row >
                             <v-flex xs5>
+
                                 <applicant-info-card></applicant-info-card>
                                 <cv-view-cv-folder  :id="applicationViewCv.cv_folder_id"></cv-view-cv-folder>
                             </v-flex>
                             <v-flex xs 7>
-                                <cv-pdf-viewer :address="applicationViewCv.cv.cv"></cv-pdf-viewer>
+                                <cv-pdf-viewer :address="applicationViewCv.cv"></cv-pdf-viewer>
                                 <cv-foldr-stash :id="applicationViewCv.cv_folder_id" ></cv-foldr-stash>
                             </v-flex>
                         </v-layout>

@@ -1,14 +1,18 @@
 <template>
-    <pdf :src="address"></pdf>
+    <!--<pdf :src="address"  />-->
 </template>
 
 <script>
+
     import pdf from 'vue-pdf'
     export default {
         props:['address'],
         name: "cvPdfViewer",
         components: {
             pdf
+        },
+        created(){
+            console.log(this.address)
         }
     }
 </script>

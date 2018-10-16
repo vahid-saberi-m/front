@@ -12,6 +12,8 @@ import waitingPosts from '@/components/user/jobPosts/waitingPosts'
 import expiredPosts from '@/components/user/jobPosts/expiredPosts'
 import {store} from "../store/store";
 import jobBoard from '@/components/user/jobPosts/jobBoard/jobBoard'
+import editCompany from '@/components/user/company/editCompany'
+import companyUsers from '@/components/user/company/companyUsers'
 
 Vue.use(Router);
 
@@ -89,6 +91,22 @@ const router = new Router({
             path: '/job_board/:id',
             name: 'jobBoard',
             component: jobBoard,
+            meta:{
+                requiresAuth: true,
+            }
+        },
+        {
+            path: '/user/company/edit',
+            name: 'userCompany',
+            component: editCompany,
+            meta:{
+                requiresAuth: true,
+            }
+        },
+        {
+            path: '/user/company/users',
+            name: 'companyUsers',
+            component: companyUsers,
             meta:{
                 requiresAuth: true,
             }
