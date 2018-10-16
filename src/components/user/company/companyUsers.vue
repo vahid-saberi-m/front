@@ -1,7 +1,6 @@
 <template>
     <div>
-        <user-header></user-header>
-
+        asdfsf
     </div>
 
 </template>

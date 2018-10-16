@@ -1,14 +1,17 @@
 <template>
     <div>
-        <user-header></user-header>
     </div>
 </template>
 
 <script>
-    import UserHeader from "../userHeader";
+import {mapGetters} from 'vuex'
     export default {
         name: "editCompany",
-        components: {UserHeader}
+        components: {},
+        computed:{},
+        created(){
+          this.$store.dispatch('retrieveCompany')
+        },
     }
 </script>
 

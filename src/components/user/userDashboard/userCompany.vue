@@ -30,7 +30,7 @@
             ...mapGetters(['userInfo', 'companyInfo'])
         },
         created() {
-            this.$store.dispatch('retrieveCompany', this.userInfo.company_id)
+            this.$store.dispatch('retrieveCompany', this.userInfo.company_id);
         }
     }
 </script>

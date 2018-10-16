@@ -3,6 +3,7 @@ import axios from "axios";
 import * as types from './mutationTypes'
 
 export default {
+
     retrieveToken(context, credentials) {
         const self = this;
         request.post('/oauth/token', {

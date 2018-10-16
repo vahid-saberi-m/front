@@ -68,7 +68,8 @@
         },
         name: "company",
         created() {
-            this.$store.dispatch('retrieveCompany', this.id)
+            this.$store.dispatch('retrieveCompany', this.id);
+
         },
 
 

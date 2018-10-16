@@ -1,6 +1,5 @@
 <template>
     <v-container  >
-        <user-header></user-header>
         <v-form>
 
             <v-card v-for="jobPost in liveJobPosts" style="direction: rtl;" :key="jobPost.id" v-on:removeJobPost="removeJobPost">

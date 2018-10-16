@@ -32,42 +32,11 @@ export const store = new Vuex.Store({
         },
         mutations: {
 
-            retrieveToken(state, token) {
-                state.token = token;
-                localStorage.setItem('access_token', token)
-
-            },
-
-            userInfo(state, response) {
-                state.name = response.data.data.name;
-                state.email = response.data.data.email;
-                state.companyId = response.data.data.company_id;
-                state.role = response.data.data.role;
-                state.position = response.data.data.position;
-                state.image = response.data.data.image;
-                state.isApproved = response.data.data.is_approved;
-                // console.log(state.image)
-            }
         },
 
         actions: {
 
-            register(context, credentials) {
-                return new Promise((resolve, reject) => {
-                    axios.post('/api/user', {
-                        name: credentials.name,
-                        email: credentials.email,
-                        password: credentials.password,
-                        password_confirmation: credentials.confirmPassword
-                    }).then(response => {
-                        resolve(response)
-                    })
-                        .catch(error => {
-                            console.log(error);
-                            reject(error)
-                        })
-                })
-            },
+
 
         },
     });

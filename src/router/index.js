@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import company from '@/components/public/company'
 import Home from '@/components/Home'
 import Introduction from '@/components/Introduction.vue'
@@ -14,6 +13,7 @@ import {store} from "../store/store";
 import jobBoard from '@/components/user/jobPosts/jobBoard/jobBoard'
 import editCompany from '@/components/user/company/editCompany'
 import companyUsers from '@/components/user/company/companyUsers'
+import userCompany from '@/components/user/userDashboard/userCompany'
 
 Vue.use(Router);
 
@@ -37,87 +37,90 @@ const router = new Router({
             component: Introduction
         },
         {
-            path: '/user/dashboard',
+            path: '/user',
             name: 'userDashboard',
             component: userDashboard,
-            meta:{
+            meta: {
                 requiresAuth: true,
-            }
+            },
+            children: [
+                {
+                    path: '',
+                    component: userCompany
+                },
+                {
+                    path: '/jobPosts/newPost',
+                    name: 'newPost',
+                    meta: {
+                        requiresAuth: true
+                    },
+                    component: newPost
+                },
+                {
+                    path: '/jobPosts/livePosts',
+                    name: 'livePosts',
+                    meta: {
+                        requiresAuth: true
+                    },
+                    component: livePosts
+                },
+                {
+                    path: '/jobPosts/expiredPosts',
+                    name: 'expiredPosts',
+                    meta: {
+                        requiresAuth: true
+                    },
+                    component: expiredPosts
+                },
+                {
+                    path: '/jobPosts/waitingPosts',
+                    name: 'waitingPosts',
+                    meta: {
+                        requiresAuth: true
+                    },
+                    component: waitingPosts
+                },
+                {
+                    path: '/job_board/:id',
+                    name: 'jobBoard',
+                    meta: {
+                        requiresAuth: true
+                    },
+                    component: jobBoard
+                },
+                {
+                    path: '/company/edit',
+                    name: 'editCompany',
+                    component: editCompany,
+                    meta: {
+                        requiresAuth: true,
+                    }
+                },
+                {
+                    path: '/company/users',
+                    name: 'companyUsers',
+                    component: companyUsers,
+                    meta: {
+                        requiresAuth: true,
+                    }
+                }
+            ]
         },
         {
             path: '/user/choose-company',
             name: 'chooseCompany',
             component: chooseCompany,
-            meta:{
+            meta: {
                 requiresAuth: true,
             }
         },
 
-        {
-            path: '/user/jobPosts/newPost',
-            name: 'newPost',
-            component: newPost,
-            meta:{
-                requiresAuth: true,
-            }
-        },
-
-        {
-            path: '/user/jobPosts/livePosts',
-            name: 'livePosts',
-            component: livePosts,
-            meta:{
-                requiresAuth: true,
-            }
-        },
-
-        {
-            path: '/user/jobPosts/waitingPosts',
-            name: 'waitingPosts',
-            component: waitingPosts,
-            meta:{
-                requiresAuth: true,
-            }
-        },
-        {
-            path: '/user/jobPosts/expiredPosts',
-            name: 'expiredPosts',
-            component: expiredPosts,
-            meta:{
-                requiresAuth: true,
-            }
-        },
-        {
-            path: '/job_board/:id',
-            name: 'jobBoard',
-            component: jobBoard,
-            meta:{
-                requiresAuth: true,
-            }
-        },
-        {
-            path: '/user/company/edit',
-            name: 'userCompany',
-            component: editCompany,
-            meta:{
-                requiresAuth: true,
-            }
-        },
-        {
-            path: '/user/company/users',
-            name: 'companyUsers',
-            component: companyUsers,
-            meta:{
-                requiresAuth: true,
-            }
-        }
     ]
 });
 
 router.beforeEach((to, from, next) => {
     if (to.matched.some(record => record.meta.requiresAuth)) {
         if (!store.getters.isLoggedIn) {
-            console.log('inja2')
             next({
                 path: '/introduction',
             })

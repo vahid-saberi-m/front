@@ -7,7 +7,7 @@
             >
                 <template>
                     <slot slot="header">
-                        {{jobPost.title}}
+                        {{jobPostInfo.title}}
                         <v-spacer></v-spacer>
                     </slot>
                     <v-card>
@@ -17,7 +17,7 @@
                             <v-card-text
                                     name="input-7-1"
                                     label="شرح موقعیت شغلی"
-                                    :value=jobPost.description
+                                    :value=jobPostInfo.description
                                     hint=""
                                     append-icon="edit"
                             >
@@ -26,7 +26,7 @@
                                         شرح شغل
                                     </v-card-title>
                                     <v-card-text>
-                                        {{jobPost.description}}
+                                        {{jobPostInfo.description}}
                                     </v-card-text>
 
                                 </v-card>
@@ -36,7 +36,7 @@
                                         ویژگی های مورد نیاز
                                     </v-card-title>
                                     <v-card-text>
-                                        {{jobPost.requirements}}
+                                        {{jobPostInfo.requirements}}
                                     </v-card-text>
                                 </v-card>
 
@@ -45,7 +45,7 @@
                                         حقوق و مزایای در نظر گرفته شده:
                                     </v-card-title>
                                     <v-card-text>
-                                        {{jobPost.benefits}}
+                                        {{jobPostInfo.benefits}}
                                     </v-card-text>
                                 </v-card>
                                 <v-card>
@@ -53,13 +53,13 @@
                                         محل کار:
                                     </v-card-title>
                                     <v-card-text>
-                                        {{jobPost.location}}
+                                        {{jobPostInfo.location}}
                                     </v-card-text>
                                 </v-card>
                                 <hr>
                                 <v-container row wrap align-center>
                                     <v-flex class="text-xs-center">
-                                        <v-btn color="blue" dark @click="apply(jobPost)">ارسال رزومه</v-btn>
+                                        <v-btn color="blue" dark @click="apply(jobPostInfo)">ارسال رزومه</v-btn>
                                     </v-flex>
                                 </v-container>
                             </v-card-text>
@@ -82,7 +82,7 @@
         mounted() {
         },
         name: "jobPostShow",
-        props: {jobPost:Object },
+        props: {jobPostInfo:Object },
         methods:{
             apply(jobPost){
                 this.$store.commit('APPLY_JOB_POST',jobPost);

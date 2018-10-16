@@ -2,7 +2,6 @@
     <div>
         <v-container>
 
-            <user-header></user-header>
             <v-card style="direction: rtl" tile>
                 <v-card-title primary-title>
                     <h3 class="headline mb-0">آگهی شغلی جدید:</h3>

@@ -1,14 +1,15 @@
 <template>
-    <v-container  >
-        <user-header></user-header>
+    <v-container>
         <v-form>
 
-        <v-card v-for="jobPost in waitingJobPosts" style="direction: rtl;" :key="jobPost.id" v-on:removeJobPost="removeJobPost">
-            <job-post-show :jobPost="jobPost" :postState="postState" v-if="!(jobPost.id === removedJobPost)"></job-post-show>
+            <v-card v-for="jobPost in waitingJobPosts" style="direction: rtl;" :key="jobPost.id"
+                    v-on:removeJobPost="removeJobPost">
+                <job-post-show :jobPost="jobPost" :postState="postState"
+                               v-if="!(jobPost.id === removedJobPost)"></job-post-show>
 
-            <v-card-text>
-            </v-card-text>
-        </v-card>
+                <v-card-text>
+                </v-card-text>
+            </v-card>
         </v-form>
     </v-container>
 </template>
@@ -23,20 +24,20 @@
         components: {jobPostShow, UserHeader},
         data() {
             return {
-                removedJobPost:'',
-                postState:'isWaiting'
+                removedJobPost: '',
+                postState: 'isWaiting'
             }
         },
-        computed:{
+        computed: {
             ...mapGetters(['waitingJobPosts'])
         },
         mounted() {
             this.$store.dispatch('waitingJobPosts')
         },
-        methods:{
-            removeJobPost(id){
+        methods: {
+            removeJobPost(id) {
                 console.log(id);
-                this.removedJobPost=id
+                this.removedJobPost = id
             }
         }
 

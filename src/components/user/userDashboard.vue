@@ -1,7 +1,6 @@
 <template>
 <div >
     <userHeader></userHeader>
-    <user-company></user-company>
     <router-view></router-view>
 </div>
 
