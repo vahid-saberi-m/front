@@ -89,7 +89,7 @@ const router = new Router({
                     component: jobBoard
                 },
                 {
-                    path: '/company/edit',
+                    path: '/admin/company/edit',
                     name: 'editCompany',
                     component: editCompany,
                     meta: {
@@ -97,7 +97,7 @@ const router = new Router({
                     }
                 },
                 {
-                    path: '/company/users',
+                    path: '/admin/company/users',
                     name: 'companyUsers',
                     component: companyUsers,
                     meta: {

@@ -8,6 +8,6 @@ export default {
         return !_.isNil(state.company_id) && state.is_approved
     },
     userInfo(state){
-        return state
+        return state.user
     }
 }

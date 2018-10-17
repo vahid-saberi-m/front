@@ -8,12 +8,12 @@ export default {
         request.defaults.headers.Authorization = 'Bearer ' + token;
         state.token = token;
     },
-    [types.DESTROY_TOKEN]: function (state,token){
+    [types.DESTROY_TOKEN]: function (state, token) {
         request.defaults.headers.Authorization = 'Bearer ' + token;
         state.token = null
     },
     [types.USER_INFO]: function (state, response) {
-        Object.assign(state, response.data.data);
+        state.user = response.data.data;
         router.push({name: 'userDashboard'});
     },
 
