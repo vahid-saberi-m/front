@@ -7,11 +7,17 @@ import jobPost from './jobPost'
 import company from './company'
 import application from './application'
 import cvFolder from './cvFolder'
+import VuexPersistence from 'vuex-persist'
+
+const vuexLocal = new VuexPersistence({
+    storage: window.localStorage
+});
 
 Vue.use(Vuex);
 axios.defaults.baseURL = 'http://api.balatar.inpin.co/';
 export const store = new Vuex.Store({
-        modules: {
+    plugins: [vuexLocal.plugin],
+    modules: {
             user,jobPost, company, application, cvFolder
         },
         state: {

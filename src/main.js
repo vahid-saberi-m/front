@@ -14,11 +14,17 @@ import 'material-design-icons-iconfont/dist/material-design-icons.css'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import { sync } from 'vuex-router-sync'
+import VuexPersistence from 'vuex-persist'
+
+
 
 // sync(store, router, {moduleName: 'RouterModule'});
 Vue.use(axios);
 Vue.use(Vuetify, {rtl: true});
 Vue.use(store);
+const vuexLocal = new VuexPersistence({
+    storage: window.localStorage
+})
 
 Vue.config.productionTip = false;
 
