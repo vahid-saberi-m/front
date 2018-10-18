@@ -80,11 +80,10 @@
 </template>
 
 <script>
-    import UserHeader from "../userHeader";
 
     export default {
         name: "newPost",
-        components: { UserHeader},
+        components: { },
         data() {
             return {
                 title: '',

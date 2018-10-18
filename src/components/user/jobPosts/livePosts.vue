@@ -13,13 +13,12 @@
 </template>
 
 <script>
-    import UserHeader from "../userHeader";
     import jobPostShow from './jobPostCard/jobPostShow'
     import jobPostEdit from './jobPostCard/jobPostEdit'
     import {mapGetters} from 'vuex'
     export default {
         name: "livePosts",
-        components: {UserHeader, jobPostShow, jobPostEdit},
+        components: { jobPostShow, jobPostEdit},
         computed:{
             ...mapGetters(['liveJobPosts'])
         },

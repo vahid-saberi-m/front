@@ -1,6 +1,6 @@
 <template>
     <v-container style="direction: rtl  " >
-        <v-content v-for="user in getCompanyUsers">
+        <v-content v-for="user in getCompanyUsers" :key="user.id">
         <v-card >
             <v-card-title v-if="user.is_approved" style="background-color: greenyellow" >
                 <b >{{user.name}}</b>
@@ -28,7 +28,7 @@
                           <v-btn color="green" @click="userApproval(user.id)" dark>تایید</v-btn>
                           <v-btn color="red" @click="disOwnUser(user.id)"  dark >حذف</v-btn>
                         </v-layout>
-                        <v-layout  v-if="user.is_approved">
+                        <v-layout  v-if="(user.is_approved) && !(user.role==='admin')">
                             <v-btn color="yellow"  @click="userApproval(user.id)">تعلیق</v-btn>
                             <v-btn color="red"  @click="disOwnUser(user.id)" dark>حذف</v-btn>
                         </v-layout>
@@ -62,7 +62,7 @@
         name: "companyUsers",
         components: {},
         computed:{
-            ...mapGetters(['getCompanyUsers','userInfo'])
+            ...mapGetters(['getCompanyUsers','userInfo',])
         },
         data(){
             return{
@@ -75,7 +75,6 @@
         },
         methods:{
             userApproval(id){
-                console.log(id);
                 this.$store.dispatch('userApproval',id)
             },
             disOwnUser(id){

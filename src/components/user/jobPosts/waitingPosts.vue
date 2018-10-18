@@ -15,13 +15,12 @@
 </template>
 
 <script>
-    import UserHeader from "../userHeader";
     import jobPostShow from "./jobPostCard/jobPostShow"
     import {mapGetters} from 'vuex'
 
     export default {
         name: "waitingPosts",
-        components: {jobPostShow, UserHeader},
+        components: {jobPostShow},
         data() {
             return {
                 removedJobPost: '',

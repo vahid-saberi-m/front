@@ -1,6 +1,5 @@
 <template>
     <v-container >
-        <user-header></user-header>
         <cvView :dialog="applicationDialog" ></cvView>
         <v-layout row wrap>
             <template v-for="cvFolder in cvFolders">
@@ -12,14 +11,13 @@
 
 <script>
     import {mapGetters} from 'vuex'
-    import UserHeader from "../../userHeader";
     import CvFolder from "./cvFolder";
     import cvView from "./cvView"
     import application from './application'
 
     export default {
         name: "jobBoard",
-        components: {CvFolder, UserHeader,cvView,application},
+        components: {CvFolder, cvView,application},
         data() {
             return {
                 id: this.$route.params.id,
