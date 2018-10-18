@@ -14,6 +14,7 @@ import jobBoard from '@/components/user/jobPosts/jobBoard/jobBoard'
 import editCompany from '@/components/user/company/editCompany'
 import companyUsers from '@/components/user/company/companyUsers'
 import userCompany from '@/components/user/userDashboard/userCompany'
+import editProfile from '@/components/user/users/editProfile'
 
 Vue.use(Router);
 
@@ -55,6 +56,14 @@ const router = new Router({
                         requiresAuth: true
                     },
                     component: newPost
+                },
+                {
+                    path: '/profile/edit',
+                    name: 'editProfile',
+                    meta: {
+                        requiresAuth: true
+                    },
+                    component: editProfile
                 },
                 {
                     path: '/jobPosts/livePosts',

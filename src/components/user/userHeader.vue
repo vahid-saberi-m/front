@@ -2,19 +2,19 @@
     <v-layout
             wrap
     >
-            <v-toolbar
-                    clipped-right
-            >
-                <img src="../../assets/wings-logo.png" height="80%">
+        <v-toolbar
+                clipped-right
+        >
+            <img src="../../assets/wings-logo.png" height="80%">
 
 
-                <v-toolbar-items>
-                </v-toolbar-items>
-                <v-spacer></v-spacer>
-                <v-toolbar-side-icon
-                        @click.stop="drawer = !drawer"
-                ></v-toolbar-side-icon>
-            </v-toolbar>
+            <v-toolbar-items>
+            </v-toolbar-items>
+            <v-spacer></v-spacer>
+            <v-toolbar-side-icon
+                    @click.stop="drawer = !drawer"
+            ></v-toolbar-side-icon>
+        </v-toolbar>
 
 
         <v-navigation-drawer
@@ -32,10 +32,12 @@
                     </v-list-tile-avatar>
 
                     <v-list-tile-content>
-                        <v-list-tile-title>
-                            <h4>{{userInfo.name}}</h4>
-                            <br>
-                        </v-list-tile-title>
+                        <router-link :to="{name:'editProfile'}">
+                            <v-list-tile-title>
+                                <h4><v-icon>edit</v-icon>{{userInfo.name}}</h4>
+                            </v-list-tile-title>
+                            <v-list-tile-title>{{userInfo.position}}</v-list-tile-title>
+                        </router-link>
                     </v-list-tile-content>
                 </v-list-tile>
 
@@ -47,7 +49,7 @@
                     <v-list-tile-action>
                         <v-icon>assignment</v-icon>
                     </v-list-tile-action>
-                    <router-link :to="{name:'newPost'}">درج آگهی </router-link>
+                    <router-link :to="{name:'newPost'}">درج آگهی</router-link>
 
                     <v-list-tile-content>
                         <v-list-tile-title></v-list-tile-title>
@@ -60,7 +62,7 @@
                     <v-list-tile-action>
                         <v-icon>stop_screen_share</v-icon>
                     </v-list-tile-action>
-                    <router-link :to="{name:'waitingPosts'}">آگهی های در انتظار تایید </router-link>
+                    <router-link :to="{name:'waitingPosts'}">آگهی های در انتظار تایید</router-link>
                     <v-list-tile-content>
                         <v-list-tile-title></v-list-tile-title>
                     </v-list-tile-content>
@@ -158,7 +160,8 @@
 </template>
 
 <script>
-    import { mapGetters } from 'vuex'
+    import {mapGetters} from 'vuex'
+
     export default {
         name: "userHeader",
         data() {
@@ -173,8 +176,8 @@
 
             }
         },
-        computed:{
-            ...mapGetters(['lastFiveJobPosts','userInfo'])
+        computed: {
+            ...mapGetters(['lastFiveJobPosts', 'userInfo'])
         },
         methods: {
             logOut() {

@@ -11,7 +11,6 @@ export default {
         return state.user
     },
     isAdmin(state){
-        console.log(state.user.role==='admin');
         return state.user.role==='admin'
     }
 }
