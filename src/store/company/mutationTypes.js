@@ -1,1 +1,4 @@
 export const RETRIEVE_COMPANY = 'RETRIEVE_COMPANY';
+export const COMPANY_USERS = 'COMPANY_USERS';
+export const USER_APPROVAL = 'USER_APPROVAL';
+export const DIS_OWN_USER = 'DIS_OWN_USER';

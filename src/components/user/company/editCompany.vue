@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <v-container>
 
         <v-card style="direction: rtl" tile>
             <v-card-title primary-title>
@@ -197,7 +197,7 @@
             </v-card-text>
 
         </v-card>
-    </div>
+    </v-container>
 </template>
 
 <script>

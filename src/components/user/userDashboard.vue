@@ -1,8 +1,8 @@
 <template>
-<div >
+<v-container>
     <userHeader></userHeader>
     <router-view></router-view>
-</div>
+</v-container>
 
 </template>
 

@@ -1,9 +1,7 @@
 <template>
     <v-layout
             wrap
-            style="height: 200px;"
     >
-        <v-container justify-center>
             <v-toolbar
                     clipped-right
             >
@@ -17,7 +15,6 @@
                         @click.stop="drawer = !drawer"
                 ></v-toolbar-side-icon>
             </v-toolbar>
-        </v-container>
 
 
         <v-navigation-drawer

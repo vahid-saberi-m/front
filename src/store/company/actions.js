@@ -84,8 +84,25 @@ export default {
         request.post('/api/company/'+credentials.id, fd).then(response => {
             context.commit(types.RETRIEVE_COMPANY,response)
         })
+    },
+    companyUsers(context,id){
+        request.get('/api/company/users/'+id).then(
+            response=>{context.commit(types.COMPANY_USERS,response)}
+        )
+    },
 
-    }
+    userApproval(context,id){
+        request.get('/api/company/user/approval/'+id).then(
+            response=>{context.commit(types.COMPANY_USERS,response)}
+        )
+    },
+
+    disOwnUser(context,id){
+        request.get('/api/company/user/dis-own/'+id).then(
+            response=>{context.commit(types.COMPANY_USERS,response)}
+        )
+    },
+
 };
 
 
