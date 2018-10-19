@@ -9,10 +9,10 @@ export default ({
             })
     },
     deleteApplication(context, id) {
-        // request.delete('/api/applications/'+id)
-        //     .then(response=>{
+        request.delete('/api/applications/'+id)
+            .then(response=>{
         context.commit(types.DELETE_APPLICATION, id)
-        // })
+        })
     },
     appliedBefore(context, email) {
         request.post('/api/application/applied-before', {

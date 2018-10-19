@@ -40,6 +40,5 @@ export default {
     },
     [types.APPLICATION_VIEW_CV]: function (state, response) {
         state.applicationViewCv = response.data.data;
-        console.log(state.applicationViewCv);
     },
 };

@@ -1,7 +1,9 @@
 <template>
 <v-container>
     <userHeader></userHeader>
+    <transition>
     <router-view></router-view>
+    </transition>
 </v-container>
 
 </template>

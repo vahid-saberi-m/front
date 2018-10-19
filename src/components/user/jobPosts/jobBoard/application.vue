@@ -1,4 +1,6 @@
 <template>
+    <v-hover :value="value">
+
     <v-card  >
         <v-card-title   @click="viewCv(info.id)" >
             <b>{{info.name}}</b>
@@ -10,12 +12,18 @@
            <small>{{info.position}}</small>
         </v-card-text>
     </v-card>
+    </v-hover>
 </template>
 
 <script>
     export default {
         name: "application",
         props:['info'],
+        data(){
+            return{
+                value:true
+            }
+        },
         methods:{
             deleteApplication(id){
                 this.$store.dispatch('deleteApplication',id)

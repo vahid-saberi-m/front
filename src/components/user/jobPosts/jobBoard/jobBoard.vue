@@ -3,6 +3,7 @@
         <cvView :dialog="applicationDialog" ></cvView>
         <v-layout row wrap>
             <template v-for="cvFolder in cvFolders">
+
                 <cv-folder :name="cvFolder.name" :id="cvFolder.id" :key="cvFolder.id" ></cv-folder>
             </template>
         </v-layout>
@@ -11,7 +12,7 @@
 
 <script>
     import {mapGetters} from 'vuex'
-    import CvFolder from "./cvFolder";
+    import CvFolder from "./jobBoard/cvFolder";
     import cvView from "./cvView"
     import application from './application'
 

@@ -51,7 +51,7 @@
 <script>
     import {mapGetters} from 'vuex'
     import ApplicantInfoCard from "./cvView/ApplicantInfoCard";
-    import CvFolder from "./cvFolder";
+    import CvFolder from "./jobBoard/cvFolder";
     import CvFoldrStash from "./cvView/cvFolderStash";
     import CvPdfViewer from "./cvView/cvPdfViewer";
     import CvViewCvFolder from "./cvView/cvViewCvFolder";
