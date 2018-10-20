@@ -7,7 +7,7 @@
                 <h5><b>{{name}}</b></h5>
             </v-card-title>
             <v-card-text droppable @drop="changeApplicationCvFolder(id)">
-                <v-content v-for="application in jobPostApplications" :key="application.id" style="min-width: 100px">
+                <v-card v-for="application in jobPostApplications" :key="application.id" style="min-width: 100px">
                     <draggable v-model="cvFolderApplications" :options="{group:'applications',animation:200}"
                                @start="drag=true " style=" min-height: 10px;"
                                @end="drag=false"
@@ -17,7 +17,7 @@
                             ></application>
                         </v-card>
                     </draggable>
-                </v-content>
+                </v-card>
             </v-card-text>
         </v-card>
         <v-spacer></v-spacer>

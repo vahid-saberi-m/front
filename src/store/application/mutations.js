@@ -42,7 +42,7 @@ export default {
     },
     [types.CHANGE_APPLICATION_CV_FOLDER]:function (state,response) {
         const changingApplication = _.find(state.jobPostApplications,function(application){
-            const id=state.movingApplication;
+            let id=state.movingApplication;
             return application.id===id;
         });
         changingApplication.cv_folder_id=response.data.cv_folder_id;
