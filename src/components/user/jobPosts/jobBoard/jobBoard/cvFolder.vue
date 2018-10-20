@@ -6,15 +6,16 @@
             <v-card-title v-bind:style="{backgroundColor: color}">
                 <h5><b>{{name}}</b></h5>
             </v-card-title>
-            <v-card-text @drop="changeApplicationCvFolder(id)" >
+            <v-card-text droppable @drop="changeApplicationCvFolder(id)">
                 <v-content v-for="application in jobPostApplications" :key="application.id" style="min-width: 100px">
                     <draggable v-model="cvFolderApplications" :options="{group:'applications',animation:200}"
-                               @start="drag=true" style=" min-height: 10px;"
-                               @end="drag=false">
-                            <v-card v-if="application.cv_folder_id===id" @drag="setMovingApplication(application.id)">
-                                <application :info="application" :key="application.id"
-                                ></application>
-                            </v-card>
+                               @start="drag=true " style=" min-height: 10px;"
+                               @end="drag=false"
+                    >
+                        <v-card v-if="application.cv_folder_id===id" draggable @drag="setMovingApplication(application.id)">
+                            <application :info="application"
+                            ></application>
+                        </v-card>
                     </draggable>
                 </v-content>
             </v-card-text>
@@ -38,7 +39,7 @@
             ...mapGetters(['cvFolderApplications', 'jobPostApplications']),
             cvFolderApplications: {
                 get() {
-                    this.$store.getters.cvFolderApplications
+                   return  this.$store.getters.cvFolderApplications
                 },
                 set(value) {
                     this.$store.commit('CV_FOLDER_APPLICATIONS', value)
@@ -72,7 +73,8 @@
                 console.log('3')
             },
             setMovingApplication(applicationId) {
-                this.$store.commit(MOVING_APPLICATION, applicationId)
+                this.$store.commit(MOVING_APPLICATION, applicationId);
+                console.log('id'+applicationId)
             },
             changeApplicationCvFolder(cvFolderId) {
                 this.$store.commit(TARGET_CV_FOLDER, cvFolderId);

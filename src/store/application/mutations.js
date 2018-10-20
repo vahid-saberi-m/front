@@ -1,9 +1,8 @@
 import * as types from './mutationTypes'
-
+import _ from 'lodash'
 export default {
     [types.CV_FOLDER_APPLICATIONS]: function (state, response) {
         state.cvFolderApplications = state.cvFolderApplications.push(response.data.data);
-        console.log(state.cvFolderApplications)
     },
     [types.JOB_POST_APPLICATIONS]: function (state, response) {
         state.jobPostApplications = response.data.data
@@ -41,4 +40,12 @@ export default {
     [types.APPLICATION_VIEW_CV]: function (state, response) {
         state.applicationViewCv = response.data.data;
     },
+    [types.CHANGE_APPLICATION_CV_FOLDER]:function (state,response) {
+        const changingApplication = _.find(state.jobPostApplications,function(application){
+            const id=state.movingApplication;
+            return application.id===id;
+        });
+        changingApplication.cv_folder_id=response.data.cv_folder_id;
+
+    }
 };
