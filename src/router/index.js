@@ -46,7 +46,7 @@ const router = new Router({
             },
             children: [
                 {
-                    path: '',
+                    path: '/',
                     component: userCompany
                 },
                 {

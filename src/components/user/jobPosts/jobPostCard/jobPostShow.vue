@@ -64,7 +64,7 @@
                                             تاریخ انتشار:
                                         </v-card-title>
                                         <v-card-text>
-                                            <v-date-picker v-model="jobPost.publish_date" locale="fa-ir" readonly
+                                            <v-date-picker v-model="jobPost.publish_date" locale="fa-ir" readonly show-current="false"
                                                            color="blue"></v-date-picker>
                                         </v-card-text>
                                     </v-card>
@@ -74,7 +74,7 @@
                                             تاریخ انقضا:
                                         </v-card-title>
                                         <v-card-text>
-                                            <v-date-picker v-model="jobPost.expiration_date" locale="fa-ir" readonly
+                                            <v-date-picker v-model="jobPost.expiration_date" locale="fa-ir" readonly show-current="false"
                                                            color="red"></v-date-picker>
                                         </v-card-text>
                                     </v-card>
