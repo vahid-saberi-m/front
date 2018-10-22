@@ -6,5 +6,9 @@ export default {
      [types.TARGET_CV_FOLDER]:function (context,cvFolderId) {
         context.targetCvFolder=cvFolderId
     },
+    [types.JOB_BOARD_CV_FOLDERS]:function (context,response) {
+        context.cvFolders=response.data.data.cv_folders;
+        this.commit('JOB_BOARD_APPLICATIONS',context.cvFolders)
+    },
 
 };

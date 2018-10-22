@@ -1,7 +1,7 @@
 export default {
     token: localStorage.getItem('access_token') || null,
     cvFolderApplications:null,
-    jobPostApplications:null,
+    jobPostApplications:[],
     applicationDialog:false,
     applyModal:false,
     applyStep:1,

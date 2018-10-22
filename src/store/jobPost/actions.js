@@ -12,6 +12,12 @@ export default ({
                 console.log(error);
             })
     },
+    jobBoard(context, jobPostId) {
+        request.get('/api/job-post/job-board/' + jobPostId)
+            .then(response => {
+                context.commit('JOB_BOARD_CV_FOLDERS', response)
+            })
+    },
     submitNewJobPost(context, credentials) {
         return new Promise((resolve, reject) => {
             request.post('/api/job-post', {

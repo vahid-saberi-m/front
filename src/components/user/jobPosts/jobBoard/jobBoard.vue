@@ -26,17 +26,15 @@
             }
         },
         computed: {
-            ...mapGetters(['cvFolders','jobPostApplications','applicationDialog'])
+            ...mapGetters(['cvFolders','applicationDialog'])
         },
         created() {
-            this.$store.dispatch('retrieveCvFolders', this.id);
-            this.$store.dispatch('indexJobPostApplications',this.id);
+            // this.$store.dispatch('retrieveCvFolders', this.id);
+            this.$store.dispatch('jobBoard',this.id);
         },
+        mounted(){
+    },
         methods:{
-            openCvView(){
-                // this.dialog=true;
-                    console.log(2)
-            },
         }
     }
 </script>
