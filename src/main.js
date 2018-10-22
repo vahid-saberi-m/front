@@ -14,7 +14,9 @@ import 'material-design-icons-iconfont/dist/material-design-icons.css'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import { sync } from 'vuex-router-sync'
+import VeeValidate from 'vee-validate';
 
+Vue.use(VeeValidate);
 
 
 // sync(store, router, {moduleName: 'RouterModule'});

@@ -38,6 +38,7 @@
             if(!this.applyJobPostQuestions){
                 this.$store.commit('NEXT_STEP')
             }
+
         },
         methods:{
             answerCheck(){
