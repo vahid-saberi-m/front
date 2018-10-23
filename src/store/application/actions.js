@@ -58,7 +58,7 @@ export default ({
     changeApplicationCvFolder(context){
         request.get('/api/application/change-cv-folder/'+context.getters.movingApplication+'/'+context.getters.targetCvFolder)
             .then(response=>{
-                console.log(response.data.cv_folder_id)
+                console.log(response.data.cv_folder_id);
                 context.commit(types.CHANGE_APPLICATION_CV_FOLDER,response)
 
             })
@@ -68,6 +68,15 @@ export default ({
             .then(response=>{
                 context.commit(types.APPLICATION_VIEW_CV,response)
             })
+    },
+    loadMoreApplications(context,credentials){
+        request.get('/api/cv-folder/applications/'+credentials.cvFolderId+'?page='+credentials.page)
+            .then(response=>{
+                context.commit(types.ADD_MORE_APPLICATIONS_TO_CV_FOLDER,response)
+            })
+    },
+    setMovingApplication(context,applicationId){
+        context.commit(types.MOVING_APPLICATION,applicationId)
     }
 });
 

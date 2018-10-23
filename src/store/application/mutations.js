@@ -1,5 +1,6 @@
 import * as types from './mutationTypes'
 import _ from 'lodash'
+
 export default {
     [types.CV_FOLDER_APPLICATIONS]: function (state, response) {
         state.cvFolderApplications = state.cvFolderApplications.push(response.data.data);
@@ -40,21 +41,26 @@ export default {
     [types.APPLICATION_VIEW_CV]: function (state, response) {
         state.applicationViewCv = response.data.data;
     },
-    [types.CHANGE_APPLICATION_CV_FOLDER]:function (state,response) {
-        const changingApplication = _.find(state.jobPostApplications,function(application){
-            let id=state.movingApplication;
-            return application.id===id;
+    [types.CHANGE_APPLICATION_CV_FOLDER]: function (state, response) {
+        const changingApplication = _.find(state.jobPostApplications, function (application) {
+            let id = state.movingApplication;
+            return application.id === id;
         });
-        changingApplication.cv_folder_id=response.data.cv_folder_id;
+        changingApplication.cv_folder_id = response.data.cv_folder_id;
     },
     [types.JOB_BOARD_APPLICATIONS]: function (state, cvFolders) {
-        let applications =[];
-        cvFolders.forEach(function(cvFolder){
+        let applications = [];
+        cvFolders.forEach(function (cvFolder) {
             cvFolder.applications.forEach(function (application) {
                 applications.push(application);
             });
-         });
-        state.jobPostApplications=applications;
+        });
+        state.jobPostApplications = applications;
+    },
+    [types.ADD_MORE_APPLICATIONS_TO_CV_FOLDER]: function (state, response) {
+        response.data.data.forEach(function (application) {
+            state.jobPostApplications.push(application);
+        });
     }
 
 };

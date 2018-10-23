@@ -1,24 +1,22 @@
 <template>
     <v-container >
         <cvView :dialog="applicationDialog" ></cvView>
-        <v-layout row wrap>
-            <template v-for="cvFolder in cvFolders">
 
-                <cv-folder :name="cvFolder.name" :id="cvFolder.id" :key="cvFolder.id" ></cv-folder>
-            </template>
+        <v-layout row wrap>
+            <cv-folder v-for="cvFolder in cvFolders" :key="cvFolder.id" :cvFolder="cvFolder"></cv-folder>
         </v-layout>
     </v-container>
 </template>
 
 <script>
     import {mapGetters} from 'vuex'
-    import CvFolder from "./jobBoard/cvFolder";
+    import cvFolder from "./jobBoard/cvFolder";
     import cvView from "./cvView"
-    import application from './application'
+    import application from './jobBoard/cvFolders/application'
 
     export default {
         name: "jobBoard",
-        components: {CvFolder, cvView,application},
+        components: {cvFolder, cvView,application},
         data() {
             return {
                 id: this.$route.params.id,
