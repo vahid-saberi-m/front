@@ -15,6 +15,7 @@ import editCompany from '@/components/user/company/editCompany'
 import companyUsers from '@/components/user/company/companyUsers'
 import userCompany from '@/components/user/userDashboard/userCompany'
 import editProfile from '@/components/user/users/editProfile'
+import events from '@/components/user/events/events'
 
 Vue.use(Router);
 
@@ -112,7 +113,15 @@ const router = new Router({
                     meta: {
                         requiresAuth: true,
                     }
-                }
+                },
+                {
+                    path: '/admin/events',
+                    name: 'events',
+                    component: events,
+                    meta: {
+                        requiresAuth: true,
+                    }
+                },
             ]
         },
         {

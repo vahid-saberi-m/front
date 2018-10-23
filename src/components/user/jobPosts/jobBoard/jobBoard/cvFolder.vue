@@ -5,19 +5,29 @@
             <v-card-title v-bind:style="{backgroundColor: color}">
                 <h5><b>{{cvFolder.name}}</b></h5>
             </v-card-title>
-            <v-card-text  @drop="changeApplicationCvFolder(cvFolder.id)">
-                <v-card v-for="application in jobPostApplications" :key="application.id"
-                        style="min-width: 100px">
-                    <draggable v-model="cvFolderApplications" :options="{group:'applications',animation:200}"
-                               style=" min-height: 10px;" @start="drag=true"
-                               @end="drag=false">
-                        <v-card v-if="application.cv_folder_id===cvFolder.id" draggable
+            <v-card-text @drop="changeApplicationCvFolder(cvFolder.id)"
+                         v-scroll:#scroll-target=""
+                         column
+                         justify-center
+                         style="height: 500px"
+                         class="scroll-y"
+            >
+                <v-content style="min-width: 100px; height: 1000px">
+
+                    <v-card v-for="application in jobPostApplications" :key="application.id"
+                            style="min-width: 100px;">
+                        <v-card v-if="application.cv_folder_id===cvFolder.id"
                                 @drag="setMovingApplication(application.id)">
-                            <application :info="application"
-                            ></application>
+                            <draggable v-model="cvFolderApplications" :options="{group:'applications',animation:200}"
+                                       style=" min-height: 10px;" @start="drag=true"
+                                       @end="drag=false">
+                                <application :info="application"
+                                ></application>
+                            </draggable>
                         </v-card>
-                    </draggable>
-                </v-card>
+
+                    </v-card>
+                </v-content>
             </v-card-text>
             <v-btn v-if="cvFolder.next_page" @click="loadMoreApplications(cvFolder.id)">بیشتر</v-btn>
         </v-card>
@@ -31,9 +41,10 @@
     import draggable from 'vuedraggable'
     import {MOVING_APPLICATION} from "@/store/application/mutationTypes";
     import {TARGET_CV_FOLDER} from "@/store/cvFolder/mutationTypes";
+
     export default {
         name: "cvFolder",
-        props:['cvFolder'],
+        props: ['cvFolder'],
         components: {application, draggable},
         computed: {
             ...mapGetters(['jobPostApplications']),
@@ -46,11 +57,11 @@
                 }
             }
         },
-        data(){
-            return{
+        data() {
+            return {
                 movingApplication: null,
                 color: null,
-                i:2
+                i: 2
             }
         },
         mounted() {
@@ -79,7 +90,7 @@
                 this.$store.dispatch('changeApplicationCvFolder')
             },
             loadMoreApplications(id) {
-                this.$store.dispatch('loadMoreApplications',{cvFolderId:id,page:this.i});
+                this.$store.dispatch('loadMoreApplications', {cvFolderId: id, page: this.i});
                 this.i++;
                 console.log(this.i)
             }

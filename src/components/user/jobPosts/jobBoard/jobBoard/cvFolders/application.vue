@@ -1,7 +1,6 @@
 <template>
-    <v-hover :value="value">
 
-    <v-card  >
+    <v-card hover  >
         <v-card-title   @click="viewCv(info.id)" >
             <b>{{info.name}}</b>
             <v-spacer></v-spacer>
@@ -12,7 +11,6 @@
            <small>{{info.position}}</small>
         </v-card-text>
     </v-card>
-    </v-hover>
 </template>
 
 <script>

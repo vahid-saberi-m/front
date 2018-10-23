@@ -32,24 +32,26 @@
                     </v-list-tile-avatar>
 
                     <v-list-tile-content>
-                        <router-link class="v-list__tile v-list__tile--link"  :to="{name:'editProfile'}">
+                        <router-link class="v-list__tile v-list__tile--link" :to="{name:'editProfile'}">
                             <v-list-tile-title>
-                                <h5><v-icon>edit</v-icon>{{userInfo.name}}</h5>
+                                <h5>
+                                    <v-icon>edit</v-icon>
+                                    {{userInfo.name}}
+                                </h5>
                             </v-list-tile-title>
                         </router-link>
-                            <v-list-tile-title>{{userInfo.position}}</v-list-tile-title>
+                        <v-list-tile-title>{{userInfo.position}}</v-list-tile-title>
                     </v-list-tile-content>
                 </v-list-tile>
 
             </v-list>
             <v-list class="pt-0" dense>
                 <v-divider></v-divider>
-                <v-list-tile
-                >
+                <v-list-tile>
                     <v-list-tile-action>
                         <v-icon>assignment</v-icon>
                     </v-list-tile-action>
-                    <router-link :to="{name:'newPost'}"class="v-list__tile v-list__tile--link">درج آگهی</router-link>
+                    <router-link :to="{name:'newPost'}" class="v-list__tile v-list__tile--link">درج آگهی</router-link>
 
                     <v-list-tile-content>
                         <v-list-tile-title></v-list-tile-title>
@@ -57,24 +59,26 @@
 
                 </v-list-tile>
 
-                <v-list-tile
-                >
+                <v-list-tile>
                     <v-list-tile-action>
                         <v-icon>stop_screen_share</v-icon>
                     </v-list-tile-action>
-                    <router-link :to="{name:'waitingPosts'}" class="v-list__tile v-list__tile--link">آگهی های در انتظار تایید</router-link>
+                    <router-link :to="{name:'waitingPosts'}" class="v-list__tile v-list__tile--link">آگهی های در انتظار
+                        تایید
+                    </router-link>
                     <v-list-tile-content>
                         <v-list-tile-title></v-list-tile-title>
                     </v-list-tile-content>
 
                 </v-list-tile>
 
-                <v-list-tile
-                >
+                <v-list-tile>
                     <v-list-tile-action>
                         <v-icon>screen_share</v-icon>
                     </v-list-tile-action>
-                    <router-link  :to="{name:'livePosts'}" class="v-list__tile v-list__tile--link"> آگهی های در حال انتشار</router-link>
+                    <router-link :to="{name:'livePosts'}" class="v-list__tile v-list__tile--link"> آگهی های در حال
+                        انتشار
+                    </router-link>
                     <v-list-tile-content>
                         <v-list-tile-title></v-list-tile-title>
                     </v-list-tile-content>
@@ -82,20 +86,20 @@
                 </v-list-tile>
 
 
-                <v-list-tile
-                >
+                <v-list-tile>
                     <v-list-tile-action>
                         <v-icon>update</v-icon>
                     </v-list-tile-action>
-                    <router-link :to="{name:'expiredPosts'}" class="v-list__tile v-list__tile--link">آگهی های منقضی شده</router-link>
+                    <router-link :to="{name:'expiredPosts'}" class="v-list__tile v-list__tile--link">آگهی های منقضی
+                        شده
+                    </router-link>
                     <v-list-tile-content>
                         <v-list-tile-title></v-list-tile-title>
                     </v-list-tile-content>
 
                 </v-list-tile>
                 <v-list-tile
-                        @click="logOut"
-                >
+                        @click="logOut">
                     <v-list-tile-action>
                         <v-icon>clear</v-icon>
                     </v-list-tile-action>
@@ -109,29 +113,40 @@
                 <hr>
                 <div v-if="role='admin'">
 
-                    <v-list-tile
-                    >
+                    <v-list-tile>
                         <v-list-tile-action>
                             <v-icon>storage</v-icon>
                         </v-list-tile-action>
-                        <router-link :to="{name:'editCompany'}" class="v-list__tile v-list__tile--link"> ویرایش سایت</router-link>
+                        <router-link :to="{name:'editCompany'}" class="v-list__tile v-list__tile--link"> ویرایش سایت
+                        </router-link>
                         <v-list-tile-content>
                             <v-list-tile-title></v-list-tile-title>
                         </v-list-tile-content>
 
                     </v-list-tile>
 
-                    <v-list-tile
-                    >
+                    <v-list-tile>
                         <v-list-tile-action>
                             <v-icon>people</v-icon>
                         </v-list-tile-action>
-                        <router-link :to="{name:'companyUsers'}" class="v-list__tile v-list__tile--link">کاربران</router-link>
+                        <router-link :to="{name:'companyUsers'}" class="v-list__tile v-list__tile--link">کاربران
+                        </router-link>
 
                         <v-list-tile-content>
                             <v-list-tile-title></v-list-tile-title>
                         </v-list-tile-content>
+                    </v-list-tile>
 
+                    <v-list-tile>
+                        <v-list-tile-action>
+                            <v-icon>event</v-icon>
+                        </v-list-tile-action>
+                        <router-link :to="{name:'events'}" class="v-list__tile v-list__tile--link">رویدادها
+                        </router-link>
+
+                        <v-list-tile-content>
+                            <v-list-tile-title></v-list-tile-title>
+                        </v-list-tile-content>
                     </v-list-tile>
 
                     <hr>
@@ -144,7 +159,9 @@
                         <v-list-tile-action>
                             <v-icon>event_note</v-icon>
                         </v-list-tile-action>
-                        <router-link :to="'/job_board/'+jobPost.id" class="v-list__tile v-list__tile--link">{{jobPost.title}}</router-link>
+                        <router-link :to="'/job_board/'+jobPost.id" class="v-list__tile v-list__tile--link">
+                            {{jobPost.title}}
+                        </router-link>
                         <v-list-tile-content>
                             <v-list-tile-title></v-list-tile-title>
                         </v-list-tile-content>
@@ -195,7 +212,7 @@
 </script>
 
 <style scoped>
-    a{
+    a {
         text-decoration: none
     }
 </style>
