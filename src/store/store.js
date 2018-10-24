@@ -23,8 +23,6 @@ export const store = new Vuex.Store({
         },
         state: {
             token: localStorage.getItem('access_token') || null,
-            isAdmin: this.role === 'admin',
-
         },
         getters: {
             loggedIn(state) {
