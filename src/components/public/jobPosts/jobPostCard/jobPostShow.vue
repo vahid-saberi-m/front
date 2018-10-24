@@ -82,7 +82,7 @@
         mounted() {
         },
         name: "jobPostShow",
-        props: {jobPostInfo:Object },
+        props: ['jobPostInfo'],
         methods:{
             apply(jobPost){
                 this.$store.commit('APPLY_JOB_POST',jobPost);

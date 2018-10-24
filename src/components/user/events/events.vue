@@ -4,7 +4,7 @@
             <v-flex xs4>
                 <create-event></create-event>
             </v-flex>
-            <v-flex xs4 v-for="event in retrieveEvents">
+            <v-flex xs4 v-for="event in retrieveEvents" :key="event.id">
                 <event-card :event="event"></event-card>
             </v-flex>
         </v-layout>
@@ -24,7 +24,6 @@
         },
         created() {
             this.$store.dispatch('retrieveEvents', this.$store.getters.userInfo.company_id);
-            console.log(this.$store.getters.userInfo.company_id)
         }
     }
 </script>

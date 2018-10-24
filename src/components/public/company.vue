@@ -36,6 +36,9 @@
 
                 </section>
                 <section>
+                    <about-company :company="companyInfo"></about-company>
+                </section>
+                <section>
                     <v-card>
                         <v-card-title>
                         </v-card-title>
@@ -44,6 +47,9 @@
                             <apply-modal></apply-modal>
                         </v-card-text>
                     </v-card>
+                </section>
+                <section>
+                    <public-events></public-events>
                 </section>
 
             </v-content>
@@ -55,10 +61,12 @@
     import {mapGetters} from 'vuex'
     import jobPosts from './jobPosts/jobPosts'
     import ApplyModal from "./jobPosts/jobPostCard/applyModal";
+    import PublicEvents from "./events/publicEvents";
+    import AboutCompany from "./about/aboutCompany";
 
     export default {
         props: ['id'],
-        components:{ApplyModal, jobPosts},
+        components:{AboutCompany, PublicEvents, ApplyModal, jobPosts},
         computed: {
             ...mapGetters(['companyInfo'])
         },
