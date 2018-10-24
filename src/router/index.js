@@ -40,7 +40,6 @@ const router = new Router({
         },
         {
             path: '/user',
-            name: 'userDashboard',
             component: userDashboard,
             meta: {
                 requiresAuth: true,
