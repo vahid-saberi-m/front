@@ -8,7 +8,9 @@
                 <jobPostEdit v-if="editMode" @editOff="editMode=false" :jobPost="jobPost"></jobPostEdit>
                 <template v-if="!editMode" >
                     <slot slot="header">
+                        <b>
                         {{jobPost.title}} {{role}}
+                        </b>
                         <v-spacer></v-spacer>
                     </slot>
                     <v-card>

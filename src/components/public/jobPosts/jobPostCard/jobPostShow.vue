@@ -1,14 +1,16 @@
 <template>
     <div>
 
-        <v-expansion-panel
+        <v-expansion-panel dark inset focusable
         >
             <v-expansion-panel-content
             >
                 <template>
-                    <slot slot="header">
-                        {{jobPostInfo.title}}
-                        <v-spacer></v-spacer>
+                    <slot slot="header" >
+                        <v-card-title >
+                            <b>{{jobPostInfo.title}}</b>
+                        </v-card-title>
+                            <v-spacer></v-spacer>
                     </slot>
                     <v-card>
                         <v-card-title>
@@ -20,12 +22,13 @@
                                     :value=jobPostInfo.description
                                     hint=""
                                     append-icon="edit"
+
                             >
-                                <v-card>
+                                <v-card >
                                     <v-card-title>
                                         شرح شغل
                                     </v-card-title>
-                                    <v-card-text>
+                                    <v-card-text >
                                         {{jobPostInfo.description}}
                                     </v-card-text>
 
@@ -76,16 +79,15 @@
     export default {
         components: {},
         data() {
-            return {
-            };
+            return {};
         },
         mounted() {
         },
         name: "jobPostShow",
         props: ['jobPostInfo'],
-        methods:{
-            apply(jobPost){
-                this.$store.commit('APPLY_JOB_POST',jobPost);
+        methods: {
+            apply(jobPost) {
+                this.$store.commit('APPLY_JOB_POST', jobPost);
                 this.$store.commit('APPLY_MODAL')
             }
         }
