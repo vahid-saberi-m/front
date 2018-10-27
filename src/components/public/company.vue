@@ -2,15 +2,28 @@
 
     <div id="app">
         <v-app dark class="text-right">
-            <v-toolbar class="">
+            <template>
                 <v-toolbar >
-                    <!--{{companyInfo.name}}-->
+
+                    <v-img contain max-height="70" style="position: relative;
+                    left: 130px;" :src="companyInfo.logo" ></v-img>
+                    <v-toolbar-title style="position: relative;
+                    left: 230px;">
+                        <a :src="companyInfo.website">
+                        <h1>{{companyInfo.name}}</h1>
+                        </a>
+                    </v-toolbar-title>
+                    <v-spacer></v-spacer>
+                    <v-toolbar-items class="hidden-sm-and-down" >
+                        <v-btn flat>فرصتهای شغلی</v-btn>
+                        <v-btn flat>درباره ما</v-btn>
+                        <v-btn flat>رویدادها</v-btn>
+                    </v-toolbar-items>
+
                 </v-toolbar>
-                <v-spacer></v-spacer>
-                <v-toolbar-items>
-                </v-toolbar-items>
-                <v-img contain max-height="70" :src="companyInfo.logo"></v-img>
-            </v-toolbar>
+            </template>
+
+            <v-divider></v-divider>
             <v-content>
                 <section>
                     <v-parallax :src="companyInfo.main_photo" height="600">
@@ -35,21 +48,28 @@
                     </v-parallax>
 
                 </section>
+                <v-divider></v-divider>
                 <section>
                     <about-company :company="companyInfo"></about-company>
                 </section>
+                <v-divider></v-divider>
                 <section>
                     <v-card>
                         <v-card-title>
                         </v-card-title>
                         <v-card-text>
-                            <jobPosts :companyId="id"></jobPosts>
+                            <jobPosts :job-posts="companyInfo.jobPosts" :companyId="id"></jobPosts>
                             <apply-modal></apply-modal>
                         </v-card-text>
                     </v-card>
                 </section>
+                <v-divider></v-divider>
                 <section>
-                    <public-events></public-events>
+                    <public-events :events="companyInfo.events"></public-events>
+                </section>
+                <v-divider></v-divider>
+                <section>
+                    <company-footer></company-footer>
                 </section>
 
             </v-content>
@@ -63,16 +83,16 @@
     import ApplyModal from "./jobPosts/jobPostCard/applyModal";
     import PublicEvents from "./events/publicEvents";
     import AboutCompany from "./about/aboutCompany";
+    import CompanyFooter from "./companyFooter";
 
     export default {
         props: ['id'],
-        components:{AboutCompany, PublicEvents, ApplyModal, jobPosts},
+        components: {CompanyFooter, AboutCompany, PublicEvents, ApplyModal, jobPosts},
         computed: {
             ...mapGetters(['companyInfo'])
         },
-        data(){
-          return{
-          }
+        data() {
+            return {}
         },
         name: "company",
         created() {

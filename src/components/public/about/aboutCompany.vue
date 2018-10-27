@@ -1,23 +1,28 @@
 <template>
-    <v-card light style="background-color: antiquewhite">
-        <v-card-title>
-            <v-layout row wrap>
-                <v-flex xs2>
-                    <v-btn @click="show=1">درباره ما</v-btn>
-                </v-flex>
-                <v-flex xs2>
-                    <v-btn  @click="show=2">چرا اینجا؟</v-btn>
-                </v-flex>
-                <v-flex xs2>
-                    <v-btn @click="show=3">مراحل استخدام</v-btn>
-                </v-flex>
-                <v-flex xs2>
-                    <v-btn  @click="show=4">اطلاعات تماس</v-btn>
-                </v-flex>
-            </v-layout>
-        </v-card-title>
+   <v-card light style="background-color: antiquewhite">
+
+
+                <v-card>
+                    <v-container>
+
+                    <v-layout row wrap>
+                        <v-flex xs3>
+                            <v-btn large dark class="blue lighten-2 " @click="show=1">درباره ما</v-btn>
+                        </v-flex>
+                        <v-flex xs3>
+                            <v-btn large dark class="blue lighten-2 " @click="show=2">چرا اینجا؟</v-btn>
+                        </v-flex>
+                        <v-flex xs3>
+                            <v-btn large dark class="blue lighten-2 " @click="show=3">مراحل استخدام</v-btn>
+                        </v-flex>
+                        <v-flex xs3>
+                            <v-btn large dark class="blue lighten-2 " @click="show=4">اطلاعات تماس</v-btn>
+                        </v-flex>
+                    </v-layout>
+                    </v-container>
+                </v-card>
         <v-card-text>
-            <v-card>
+            <v-card style="height: 100px">
                 <v-card-text v-if="show===1">
                     {{company.about_us}}
                 </v-card-text>
@@ -46,14 +51,13 @@
 <script>
     export default {
         name: "aboutCompany",
-        props:['company'],
-        data(){
-            return{
-                show:1
+        props: ['company'],
+        data() {
+            return {
+                show: 1
             }
         },
-        methods:{
-        }
+        methods: {}
     }
 </script>
 

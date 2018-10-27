@@ -53,7 +53,7 @@
                                         محل کار:
                                     </v-card-title>
                                     <v-card-text>
-                                        {{jobPostInfo.location}}
+                                        {{jobPostInfo.location}}{{jobPostInfo.expiration_date}}
                                     </v-card-text>
                                 </v-card>
                                 <hr>
