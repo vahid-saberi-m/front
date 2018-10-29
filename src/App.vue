@@ -3,6 +3,7 @@
     <router-view :key="$route.fullPath">
 
     </router-view>
+    <loader></loader>
   </div>
 
 </template>
@@ -10,9 +11,11 @@
 
 <script>
 
+  import Loader from "./components/loader";
   export default {
   name: 'app',
     components:{
+        Loader
 
 
     }

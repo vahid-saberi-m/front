@@ -23,14 +23,22 @@ export const store = new Vuex.Store({
         },
         state: {
             token: localStorage.getItem('access_token') || null,
+            loader:''
         },
         getters: {
+            loader(state){
+                console.log('here',state.loader);
+                return state.loader
+            },
             loggedIn(state) {
                 return state.token !== null
             }
         },
         mutations: {
-
+            LOADER:function (state, payload) {
+                state.loader=payload;
+                console.log('MUTATION')
+            }
         },
 
         actions: {
