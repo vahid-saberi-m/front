@@ -26,7 +26,6 @@ export default ({
             email: email
         }).then(response => {
             context.commit(types.CHECK_APPLICANT, {response,email});
-            context.commit(types.NEXT_STEP)
         })
     },
     applyForJob(context, credentials) {
@@ -48,7 +47,6 @@ export default ({
             })
     },
     applyJobPostQuestions(context,jobPostId){
-        console.log('asdfasdf');
         request('/api/question/job-post/'+jobPostId)
             .then(response=>{
                 context.commit(types.APPLY_JOB_POST_QUESTIONS,response)

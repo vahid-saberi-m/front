@@ -1,6 +1,6 @@
 <template>
 
-    <v-card hover  >
+    <v-card hover="true"  >
         <v-card-title   @click="viewCv(info.id)" >
             <b>{{info.name}}</b>
             <v-spacer></v-spacer>

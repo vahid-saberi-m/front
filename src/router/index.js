@@ -16,6 +16,12 @@ import companyUsers from '@/components/user/company/companyUsers'
 import userCompany from '@/components/user/userDashboard/userCompany'
 import editProfile from '@/components/user/users/editProfile'
 import events from '@/components/user/events/events'
+import applyModal from '@/components/public/jobPosts/jobPostCard/applyModal'
+import appliedSuccessfully from '@/components/public/jobPosts/jobPostCard/applyModal/appliedSuccessfully'
+import applyForm from '@/components/public/jobPosts/jobPostCard/applyModal/applyForm'
+import questions from '@/components/public/jobPosts/jobPostCard/applyModal/questions'
+import checkApplicant from '@/components/public/jobPosts/jobPostCard/applyModal/checkApplicant'
+import appliedBefore from '@/components/public/jobPosts/jobPostCard/applyModal/appliedBefore'
 
 Vue.use(Router);
 
@@ -31,7 +37,41 @@ const router = new Router({
             path: '/company/:id',
             name: 'company',
             props: true,
-            component: company
+            component: company,
+            children:[
+                {
+                    path: '/check-applicant/:jobPostId',
+                    component: checkApplicant,
+                    name:'checkApplicant'
+                },
+                {
+                    path: '/apply/:jobPostId',
+                    component: applyModal,
+                    name:'applyModal'
+                },
+                {
+                    path: '/apply/applied-before',
+                    component: appliedBefore,
+                    name:'appliedBefore'
+                },
+                {
+                    path: '/apply/applied-successfully',
+                    component: appliedSuccessfully,
+                    name:'appliedSuccessfully'
+                },
+                {
+                    path: '/apply/apply-form',
+                    component: applyForm,
+                    name:'applyForm'
+                },
+                {
+                    path: '/apply/questions',
+                    component: questions,
+                    name:'questions'
+                },
+
+
+            ]
         },
         {
             path: '/introduction',

@@ -21,8 +21,6 @@
                             <v-card-text
                                     name="input-7-1"
                                     label="شرح موقعیت شغلی"
-                                    :value=jobPost.description
-                                    hint=""
                                     append-icon="edit"
                             >
                                 <v-card>
@@ -108,12 +106,11 @@
                 isAdmin: true ,
                 show: true,
                 editMode: false,
-                jobPost:'',
                 jobPostState:this.postState
             };
         },
         mounted() {
-            this.isAdmin = (this.$store.state.role === 'admin')
+            this.isAdmin = this.$store.getters.isAdmin;
         },
         name: "jobPostShow",
         props: {jobPost:Object , postState:String},

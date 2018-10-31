@@ -1,25 +1,25 @@
 <template>
-   <v-card light style="background-color: antiquewhite">
+   <v-card   style="background-color: Background ">
 
 
-                <v-card>
-                    <v-container>
+                <v-card class="text-xs-center">
+                    <v-card-title>
 
                     <v-layout row wrap>
                         <v-flex xs3>
-                            <v-btn large dark class="blue lighten-2 " @click="show=1">درباره ما</v-btn>
+                            <v-btn large dark class="Background lighten-2 " @click="show=1">درباره ما</v-btn>
                         </v-flex>
                         <v-flex xs3>
-                            <v-btn large dark class="blue lighten-2 " @click="show=2">چرا اینجا؟</v-btn>
+                            <v-btn large dark class="Background lighten-2 " @click="show=2">چرا اینجا؟</v-btn>
                         </v-flex>
                         <v-flex xs3>
-                            <v-btn large dark class="blue lighten-2 " @click="show=3">مراحل استخدام</v-btn>
+                            <v-btn large dark class="Background lighten-2 " @click="show=3">مراحل استخدام</v-btn>
                         </v-flex>
                         <v-flex xs3>
-                            <v-btn large dark class="blue lighten-2 " @click="show=4">اطلاعات تماس</v-btn>
+                            <v-btn large dark class="Background lighten-2 " @click="show=4">اطلاعات تماس</v-btn>
                         </v-flex>
                     </v-layout>
-                    </v-container>
+                    </v-card-title>
                 </v-card>
         <v-card-text>
             <v-card style="height: 100px">

@@ -1,5 +1,7 @@
 import * as types from './mutationTypes'
 import _ from 'lodash'
+import router from '@/router'
+
 
 export default {
     [types.CV_FOLDER_APPLICATIONS]: function (state, response) {
@@ -23,17 +25,23 @@ export default {
     [types.CHECK_APPLICANT]: function (state, {response, email}) {
         state.candidateEmail = email;
         if (response.data) {
-            state.candidateExist = response.data.data.candidate;
-            state.appliedBefore = response.data.data.applied_before;
-            state.candidateInfo = response.data.data;
+            let appliedBefore = response.data.data.applied_before;
+            if (!appliedBefore) {
+                state.candidateExist = response.data.data.candidate;
+                state.candidateInfo = response.data.data;
+                console.log('router');
+                router.push({name: 'applyForm'});
+            } else {
+                console.log(response);
+                router.push({name: 'appliedBefore'})
+            }
         }
     },
     [types.NEXT_STEP]: function (state) {
-        state.applyStep = state.applyStep + 1
+        router.push({name: 'appliedSuccessfully'})
     },
     [types.APPLY_JOB_POST_QUESTIONS]: function (state, response) {
         state.applyJobPostQuestions = response.data.data;
-        console.log(state.applyJobPostQuestions);
     },
     [types.MOVING_APPLICATION]: function (state, id) {
         state.movingApplication = id

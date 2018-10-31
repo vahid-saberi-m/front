@@ -1,7 +1,7 @@
 <template>
     <v-footer
             height="auto"
-            color="primary lighten-1"
+            color="Background lighten-1"
     >
         <v-layout
                 justify-center
@@ -27,7 +27,7 @@
                     flat
                     round
             >
-                آگهی های شغل
+                فرصتهای شغلی
             </v-btn>
             <v-btn
                     color="white"
@@ -37,7 +37,7 @@
                 رویدادها
             </v-btn>
             <v-flex
-                    primary
+                    Background
                     lighten-2
                     py-3
                     text-xs-center

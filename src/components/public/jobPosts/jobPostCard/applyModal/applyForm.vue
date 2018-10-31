@@ -13,8 +13,8 @@
                             </v-text-field>
                         </v-flex>
                         <v-flex xs12 sm6 md6>
-                            <v-text-field type="file" accept="application/pdf" @change="onCvSelected"
-                                          label="رزومه"></v-text-field>
+                            <input type="file" accept="application/pdf" @change="onCvSelected"
+                                          label="رزومه">
                         </v-flex>
                         <v-flex xs12 sm6 md6>
                             <v-text-field outeline="true" v-model="name" label="نام و نام خانوادگی"
@@ -78,7 +78,8 @@
         },
         methods: {
             onCvSelected() {
-                this.cv = event.target.files[0]
+                this.cv = event.target.files[0];
+                console.log('cv selected')
             },
             applyForJob() {
                 this.$store.dispatch('applyForJob', {

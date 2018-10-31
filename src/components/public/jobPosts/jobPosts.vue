@@ -1,8 +1,12 @@
 <template>
     <v-content>
-        <v-card light>
+        <v-card>
             <v-card-title>
-                موقعیت های شغلی:
+                <h5>
+                    <b>
+                        موقعیت های شغلی:
+                    </b>
+                </h5>
             </v-card-title>
             <v-card-text>
                 <v-card v-for="jobPost in jobPosts" :key="jobPost.id">
@@ -16,16 +20,17 @@
 <script>
     import jobPostShow from './jobPostCard/jobPostShow'
     import {mapGetters} from 'vuex'
+
     export default {
         name: "jobPosts",
-        props:['companyId','jobPosts'],
-        components:{jobPostShow},
-        data(){
-            return{
-                id:this.companyId,
+        props: ['companyId', 'jobPosts'],
+        components: {jobPostShow},
+        data() {
+            return {
+                id: this.companyId,
             }
         },
-        mounted(){
+        mounted() {
         },
     }
 </script>

@@ -3,16 +3,11 @@
         <v-dialog
                 v-model="modal"
                 width="500"
-                lazy
         >
 
-
             <v-card>
-               <check-applicant v-if="applyStep===1"></check-applicant>
-                <applied-before v-if="applyStep===2 && appliedBefore"></applied-before>
-                <questions v-if="applyStep===2 && !appliedBefore"></questions>
-                <apply-form v-if="applyStep===3 && !appliedBefore"></apply-form>
-                <applied-successfully v-if="applyStep===4"></applied-successfully>
+            <router-view></router-view>
+
                 <v-card-actions>
                     <v-spacer></v-spacer>
                     <v-btn
@@ -30,14 +25,9 @@
 
 <script>
         import {mapGetters} from 'vuex'
-        import CheckApplicant from "./applyModal/checkApplicant";
-        import ApplyForm from "./applyModal/applyForm";
-        import AppliedSuccessfully from "./applyModal/appliedSuccessfully";
-        import AppliedBefore from "./applyModal/appliedBefore";
-        import Questions from "./applyModal/questions";
     export default {
         name: "applyModal",
-        components: {Questions, AppliedBefore, AppliedSuccessfully, ApplyForm, CheckApplicant},
+        components: { },
         computed:{
             ...mapGetters(['applyModal','applyStep','applyJobPost','appliedBefore']),
             modal:{
@@ -55,6 +45,7 @@
             }
         },
         created(){
+            // this.applyModal?this.$store.commit('APPLY_MODAL'):null
         }
     }
 </script>

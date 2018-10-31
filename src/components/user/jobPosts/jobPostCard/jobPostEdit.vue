@@ -4,7 +4,7 @@
             <v-spacer></v-spacer>
             <v-icon @click="editOff">assignment</v-icon>
         </v-card-title>
-        <v-card-content>
+        <v-card-text>
             <v-card>
                 <v-card-text>
                     <v-card-text>
@@ -47,12 +47,11 @@
                             <v-card-title>
                                 محل کار:
                             </v-card-title>
-                            <v-combobox
+                            <v-text-field
                                     v-model="location"
-                                    :items="cities"
                                     :value="jobPost.location"
                                     label="محل کار (شهر یا استان)"
-                            ></v-combobox>
+                            ></v-text-field>
                         </v-card>
                         <v-container row wrap align-center>
                             <v-card>
@@ -61,6 +60,8 @@
                                 </v-card-title>
                                 <v-card-text>
                                     <v-date-picker v-model="publish_date" locale="fa-ir"
+                                                   :min="today"
+                                                   @change="setMaxExpirationDate"
                                                    color="blue"></v-date-picker>
                                 </v-card-text>
                             </v-card>
@@ -71,6 +72,8 @@
                                 </v-card-title>
                                 <v-card-text>
                                     <v-date-picker v-model="expiration_date" locale="fa-ir"
+                                                   :min="today"
+                                                   :max="maxExpirationDate"
                                                    color="red"></v-date-picker>
                                 </v-card-text>
                             </v-card>
@@ -85,7 +88,7 @@
                     </v-card-text>
                 </v-card-text>
             </v-card>
-        </v-card-content>
+        </v-card-text>
     </v-card>
 </template>
 
@@ -104,7 +107,8 @@
                 location: this.jobPost.location,
                 publish_date: this.jobPost.publish_date,
                 expiration_date: this.jobPost.expiration_date,
-                cities: ['کیش', 'شیراز', 'مشهد', 'اصفهان', 'تهران']
+                today:new Date().toJSON(),
+                maxExpirationDate:null,
             };
         },
         mounted() {
@@ -132,6 +136,14 @@
                         this.$emit('editOff')
                     })
             },
+            setMaxExpirationDate(){
+                let date= new Date();
+                let exDate=new Date();
+                exDate.setDate(date.getDate() + 13);
+                this.maxExpirationDate=exDate.toJSON();
+                console.log(exDate.getDate(),this.publish_date)
+            }
+
         },
 
     }

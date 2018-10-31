@@ -34,7 +34,7 @@
         },
         methods:{
             checkApplicant(){
-                this.$store.dispatch('checkApplicant',this.email)
+                this.$store.dispatch('checkApplicant',this.email);
             }
         }
     }
