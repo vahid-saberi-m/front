@@ -5,7 +5,7 @@
             <template>
                 <v-toolbar>
 
-                    <v-img contain max-height="70" style="position: relative;
+                    <v-img contain  style="position: relative; height: 100%;
                     left: 130px;" :src="companyInfo.logo"></v-img>
                     <v-toolbar-title style="position: relative;
                     left: 230px;">
@@ -33,7 +33,7 @@
                                 justify-center
                                 class="white--text"
                         >
-                            <v-card light style="border-radius: 15px; opacity: 0.92" width="30%">
+                            <v-card light style="border-radius: 15px; opacity: 0.92" width="40%">
 
                                 <v-img :src="companyInfo.logo"
                                        aspect-ratio="2.75"></v-img>

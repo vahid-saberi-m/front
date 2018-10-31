@@ -1,7 +1,7 @@
 <template>
     <div>
-        <v-carousel>
-                <v-carousel-item v-for="(event,i) in events" :key="i" :src="event.main_photo" >
+        <v-carousel hide-delimiters>
+                <v-carousel-item v-for="(event,i) in events" :key="i" >
                     <public-event-card :event="event"></public-event-card>
                 </v-carousel-item>
         </v-carousel>

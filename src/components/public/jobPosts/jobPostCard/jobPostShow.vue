@@ -38,7 +38,7 @@
                                     </v-container>
 
                                 </v-card>
-
+                                <v-divider></v-divider>
                                 <v-card>
                                     <v-card-title>
                                         <h6>
@@ -51,7 +51,7 @@
                                         </v-card-text>
                                     </v-container>
                                 </v-card>
-
+                                <v-divider></v-divider>
                                 <v-card>
                                     <v-card-title>
                                         <h6>
