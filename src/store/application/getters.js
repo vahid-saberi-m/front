@@ -1,6 +1,12 @@
 export default {
-    cvFolderApplications(state) {
-        return state.cvFolderApplications
+    cvFolderApplications: (state)=>(cvFolderId)=> {
+        let apps= [];
+            state.jobPostApplications.forEach(function (item) {
+            if (item.cv_folder_id=== cvFolderId){
+                apps.push(item)
+            }
+        });
+        return apps
     },
     jobPostApplications(state) {
         return state.jobPostApplications

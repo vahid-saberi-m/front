@@ -5,8 +5,8 @@
             <v-card-title v-bind:style="{backgroundColor: color}">
                 <h5><b>{{cvFolder.name}}</b></h5>
             </v-card-title>
-            <v-card-text  @drop="changeApplicationCvFolder(cvFolder.id)"
-                          @dragover="allowDrop(event)"
+            <v-card-text @drop="changeApplicationCvFolder(cvFolder.id)"
+                         @dragover=""
                          v-scroll:#scroll-target=""
                          column
                          justify-center
@@ -15,19 +15,17 @@
             >
                 <v-content style="min-width: 100px; height: 550px">
 
-                    <v-card v-for="application in jobPostApplications" :key="application.id"
-                            style="min-width: 100px;">
-                        <v-card v-if="application.cv_folder_id===cvFolder.id"
-                                >
-                            <!--<draggable v-model="cvFolderApplications" :options="{group:'applications'}"-->
-                                       <!--style=" min-height: 15px;" @start="drag=true "-->
-                                       <!--@end="drag=false">-->
+                    <draggable v-model="cvFolderApplication" :options="{group:'people'}"
+                               style=" min-height: 15px;" @start="drag=true "
+                               @end="drag=false">
+                        <v-card v-for="application in cvFolderApplication" :key="application.id"
+                                style="min-width: 100px;">
+
                                 <application :info="application"
                                 ></application>
-                            <!--</draggable>-->
-                        </v-card>
 
-                    </v-card>
+                        </v-card>
+                    </draggable>
                 </v-content>
             </v-card-text>
             <v-btn v-if="cvFolder.next_page" @click="loadMoreApplications(cvFolder.id)">بیشتر</v-btn>
@@ -48,10 +46,9 @@
         props: ['cvFolder'],
         components: {application, draggable},
         computed: {
-            ...mapGetters(['jobPostApplications']),
-            cvFolderApplications: {
+            cvFolderApplication: {
                 get() {
-                    return this.$store.getters.cvFolderApplications
+                    return this.$store.getters.cvFolderApplications(this.cvFolder.id)
                 },
                 set(value) {
                     this.$store.commit('CV_FOLDER_APPLICATIONS', value)
@@ -66,7 +63,6 @@
             }
         },
         mounted() {
-
             if (this.cvFolder.name === 'صف انتظار') {
                 this.color = '#0066cc'
             }
@@ -82,9 +78,7 @@
 
         },
         methods: {
-            allowDrop(ev) {
-                ev.preventDefault();
-            },
+
             changeApplicationCvFolder(cvFolderId) {
                 this.$store.commit('TARGET_CV_FOLDER', cvFolderId);
                 this.$store.dispatch('changeApplicationCvFolder')
