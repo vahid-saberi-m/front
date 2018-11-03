@@ -51,7 +51,9 @@
                     return this.$store.getters.cvFolderApplications(this.cvFolder.id)
                 },
                 set(value) {
-                    this.$store.commit('CV_FOLDER_APPLICATIONS', value)
+                    // this.$store.commit('CV_FOLDER_APPLICATIONS', value)
+                    console.log('set');
+
                 }
             }
         },
@@ -80,6 +82,7 @@
         methods: {
 
             changeApplicationCvFolder(cvFolderId) {
+                console.log('change');
                 this.$store.commit('TARGET_CV_FOLDER', cvFolderId);
                 this.$store.dispatch('changeApplicationCvFolder')
             },
