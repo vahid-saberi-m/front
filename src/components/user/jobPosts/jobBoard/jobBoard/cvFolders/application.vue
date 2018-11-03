@@ -1,6 +1,6 @@
 <template>
 
-    <v-card hover="true"  >
+    <v-card draggable hover @drag="setMovingApplication(info)"  >
         <v-card-title   @click="viewCv(info.id)" >
             <b>{{info.name}}</b>
             <v-spacer></v-spacer>
@@ -23,6 +23,10 @@
             }
         },
         methods:{
+            setMovingApplication(application) {
+                this.$store.dispatch('setMovingApplication', application.id);
+                console.log('id' + application.name)
+            },
             deleteApplication(id){
                 this.$store.dispatch('deleteApplication',id)
             },

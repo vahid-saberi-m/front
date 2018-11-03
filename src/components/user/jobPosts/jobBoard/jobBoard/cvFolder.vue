@@ -5,25 +5,26 @@
             <v-card-title v-bind:style="{backgroundColor: color}">
                 <h5><b>{{cvFolder.name}}</b></h5>
             </v-card-title>
-            <v-card-text @drop="changeApplicationCvFolder(cvFolder.id)"
+            <v-card-text  @drop="changeApplicationCvFolder(cvFolder.id)"
+                          @dragover="allowDrop(event)"
                          v-scroll:#scroll-target=""
                          column
                          justify-center
-                         style="height: 500px"
-                         class="scroll-y"
+                         style=" overflow-y: auto;"
+                         class="scroll-y "
             >
-                <v-content style="min-width: 100px; height: 1000px">
+                <v-content style="min-width: 100px; height: 550px">
 
                     <v-card v-for="application in jobPostApplications" :key="application.id"
                             style="min-width: 100px;">
                         <v-card v-if="application.cv_folder_id===cvFolder.id"
-                                @drag="setMovingApplication(application.id)">
-                            <draggable v-model="cvFolderApplications" :options="{group:'applications',animation:200}"
-                                       style=" min-height: 10px;" @start="drag=true"
-                                       @end="drag=false">
+                                >
+                            <!--<draggable v-model="cvFolderApplications" :options="{group:'applications'}"-->
+                                       <!--style=" min-height: 15px;" @start="drag=true "-->
+                                       <!--@end="drag=false">-->
                                 <application :info="application"
                                 ></application>
-                            </draggable>
+                            <!--</draggable>-->
                         </v-card>
 
                     </v-card>
@@ -81,9 +82,8 @@
 
         },
         methods: {
-            setMovingApplication(applicationId) {
-                this.$store.dispatch('setMovingApplication', applicationId);
-                console.log('id' + applicationId)
+            allowDrop(ev) {
+                ev.preventDefault();
             },
             changeApplicationCvFolder(cvFolderId) {
                 this.$store.commit('TARGET_CV_FOLDER', cvFolderId);
@@ -92,7 +92,6 @@
             loadMoreApplications(id) {
                 this.$store.dispatch('loadMoreApplications', {cvFolderId: id, page: this.i});
                 this.i++;
-                console.log(this.i)
             }
 
         }

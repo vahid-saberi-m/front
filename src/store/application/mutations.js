@@ -55,6 +55,7 @@ export default {
             return application.id === id;
         });
         changingApplication.cv_folder_id = response.data.cv_folder_id;
+        console.log('cv folder id '+changingApplication.name, response.data.name)
     },
     [types.JOB_BOARD_APPLICATIONS]: function (state, cvFolders) {
         let applications = [];
