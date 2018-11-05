@@ -1,7 +1,7 @@
 <template>
     <v-content>
         <div v-if="companyInfo">
-            <section v-if="companyInfo.is_live">
+            <section >
                 <v-parallax :src="companyInfo.main_photo" height="600" >
                     <v-layout
                             column
@@ -17,9 +17,7 @@
                 </v-parallax>
 
             </section>
-                <v-card v-if="!companyInfo.is_live">
-                    <v-card-title style="direction: rtl; color: red;padding-top: 10%">سایت استخدامی شما ساخته شده و در انتظار تایید مدیر سایت می باشد.</v-card-title>
-                </v-card>
+
         </div>
     </v-content>
 </template>

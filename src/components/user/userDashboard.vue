@@ -2,7 +2,10 @@
 <v-container>
     <userHeader></userHeader>
     <transition>
-    <router-view ></router-view>
+    <router-view v-if="companyInfo.is_live"></router-view>
+    <v-card v-if="!companyInfo.is_live" style="direction: rtl; color: red">
+        <v-card-title >سایت استخدامی شما ساخته شده و در انتظار تایید مدیر سایت می باشد.</v-card-title>
+    </v-card>
     </transition>
 </v-container>
 
@@ -16,6 +19,9 @@
     export default {
         name: "userDashboard",
         components: {UserCompany, balatarHeader, userHeader},
+        computed:{
+            ...mapGetters(['companyInfo'])
+        },
         data() {
             return {
                 sideNav: false,
