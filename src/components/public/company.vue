@@ -26,7 +26,7 @@
             <v-divider></v-divider>
             <v-content>
                 <section>
-                    <v-parallax :src="companyInfo.main_photo" height="600">
+                    <v-parallax :src="companyInfo.main_photo" >
                         <v-layout
                                 column
                                 align-center
