@@ -49,6 +49,7 @@ export default {
 
     checkUser(context) {
         request.get('/api/user/show').then(response => {
+            context.dispatch('retrieveCompany', response.data.data.company_id);
             context.commit(types.USER_INFO, response);
         }).catch(error => {
             console.log(error);

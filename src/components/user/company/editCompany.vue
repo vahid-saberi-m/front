@@ -233,7 +233,7 @@
             }
         },
 
-        created() {
+        beforeCreate() {
             let id = this.$store.getters.userInfo.company_id;
             this.$store.dispatch('retrieveCompany', id);
 

@@ -2,7 +2,7 @@
 <v-container>
     <userHeader></userHeader>
     <transition>
-    <router-view></router-view>
+    <router-view ></router-view>
     </transition>
 </v-container>
 
@@ -12,6 +12,7 @@
     import balatarHeader from '../BalatarHeader'
     import userHeader from './userHeader'
     import UserCompany from "./userDashboard/userCompany";
+    import {mapGetters} from 'vuex'
     export default {
         name: "userDashboard",
         components: {UserCompany, balatarHeader, userHeader},
@@ -28,8 +29,6 @@
                 newCompany: '',
                 set: '',
                 step: 1,
-
-
             }
         }
     }
