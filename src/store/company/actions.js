@@ -30,7 +30,6 @@ export default {
         })
     },
     makeCompany(context, credentials) {
-        return new Promise((resolve, reject) => {
             const fd = new FormData();
             fd.append('name', credentials.Name);
             fd.append('company_size', credentials.company_size);
@@ -48,14 +47,11 @@ export default {
             fd.append('phone_number', credentials.phone_number);
             fd.append('location', credentials.location);
             request.post('/api/company', fd).then(response => {
-                resolve(response)
+                this.$router.push({name: 'userDashboard'})
             })
-                .catch(error => {
-                    console.log(error);
-                    reject(error)
-                })
-        })
-    },
+
+        },
+
     retrieveCompany(context,id){
         request.get('/api/company/'+ id)
             .then(response=>{

@@ -1,5 +1,5 @@
 <template>
-    <!--<pdf :src="address"  />-->
+    <pdf :src="address"  />
 </template>
 
 <script>
@@ -12,7 +12,7 @@
             pdf
         },
         created(){
-            console.log(this.address)
+            console.log('address '+this.address)
         }
     }
 </script>

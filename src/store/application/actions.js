@@ -21,7 +21,7 @@ export default ({
             // context.commit(types.APPLIED_BEFORE, response)
         })
     },
-    checkApplicant(context, email) {
+        checkApplicant(context, email) {
         request.post('/api/candidate/exists/' + context.getters['applyJobPost'].id, {
             email: email
         }).then(response => {
@@ -47,7 +47,7 @@ export default ({
             })
     },
     applyJobPostQuestions(context,jobPostId){
-        request('/api/question/job-post/'+jobPostId)
+        request.get('/api/question/job-post/'+jobPostId)
             .then(response=>{
                 context.commit(types.APPLY_JOB_POST_QUESTIONS,response)
             })

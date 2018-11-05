@@ -23,7 +23,6 @@
 
 <script>
     import {mapGetters} from 'vuex'
-    import axios from 'axios'
 
     export default {
         name: "loader",
@@ -31,21 +30,7 @@
             ...mapGetters(['loader'])
         },
         created(){
-            axios.interceptors.request.use(function (config) {
-                this.$store.commit('LOADER',true);
-                return config;
-            }, function (error) {
-                this.$store.commit('LOADER',false);
-                return Promise.reject(error);
-            });
-            console.log('loader');
-            axios.interceptors.response.use(function (response) {
-                this.$store.commit('LOADER',false);
-                return response;
-            }, function (error) {
-                this.$store.commit('LOADER',false);
-                return Promise.reject(error);
-            });
+
         }
 
     }

@@ -5,7 +5,7 @@
             <template>
                 <v-toolbar>
 
-                    <v-img contain  style="position: relative; height: 100%;
+                    <v-img contain style="position: relative; height: 100%;
                     left: 130px;" :src="companyInfo.logo"></v-img>
                     <v-toolbar-title style="position: relative;
                     left: 230px;">
@@ -14,7 +14,7 @@
                         </a>
                     </v-toolbar-title>
                     <v-spacer></v-spacer>
-                    <v-toolbar-items class="hidden-sm-and-down">
+                    <v-toolbar-items >
                         <v-btn flat>فرصتهای شغلی</v-btn>
                         <v-btn flat>درباره ما</v-btn>
                         <v-btn flat>رویدادها</v-btn>
@@ -111,6 +111,7 @@
             this.$store.dispatch('retrieveCompany', this.id);
 
         },
+        methods: {}
 
 
     }

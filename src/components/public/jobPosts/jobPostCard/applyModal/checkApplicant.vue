@@ -30,7 +30,7 @@
             ...mapGetters(['applyJobPost'])
         },
         created(){
-            this.$store.dispatch('applyJobPostQuestions',this.applyJobPost.id);
+            // this.$store.dispatch('applyJobPostQuestions',this.applyJobPost.id);
         },
         methods:{
             checkApplicant(){

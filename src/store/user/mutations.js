@@ -14,7 +14,11 @@ export default {
     },
     [types.USER_INFO]: function (state, response) {
         state.user = response.data.data;
+        if(state.user.company_id){
         router.push({name: 'userDashboard'});
+        } else {
+            router.push({name: 'chooseCompany'});
+        }
     },
 
 }

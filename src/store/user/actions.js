@@ -37,20 +37,14 @@ export default {
     },
 
     register(context, credentials) {
-        return new Promise((resolve, reject) => {
-            axios.post('/api/user', {
+            request.post('/api/user', {
                 name: credentials.name,
                 email: credentials.email,
                 password: credentials.password,
                 password_confirmation: credentials.confirmPassword
             }).then(response => {
-                resolve(response)
+
             })
-                .catch(error => {
-                    console.log(error);
-                    reject(error)
-                })
-        })
     },
 
     checkUser(context) {

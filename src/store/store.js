@@ -27,7 +27,6 @@ export const store = new Vuex.Store({
         },
         getters: {
             loader(state){
-                console.log('here',state.loader);
                 return state.loader
             },
             loggedIn(state) {

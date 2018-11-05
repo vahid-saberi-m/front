@@ -256,10 +256,6 @@
                     Email: this.Email,
                     phone_number: this.phone_number,
                     location: this.location,
-                }).then(response=>{
-                    this.companyId=response.id;
-                    console.log(response);
-                    this.$router.push('/user/dashboard')
                 })
             }
 
