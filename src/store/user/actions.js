@@ -8,7 +8,7 @@ export default {
         const self = this;
         request.post('/oauth/token', {
             grant_type: 'password',
-            client_secret: 'LfztswTcawhXhkXydwf4X0YReFcqa5jFlPVoj0eE',
+            client_secret: process.env.CLIENT_SECRET,
             client_id: '2',
             username: credentials.username,
             password: credentials.password
