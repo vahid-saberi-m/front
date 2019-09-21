@@ -1,0 +1,25 @@
+.container {
+  font-family: "iransans";
+  direction: rtl;
+}
+
+.main_photo {
+  background: url("https://ja-company.demo.joomlart.com/images/joomlart/slideshow/item-3.jpg") no-repeat top fixed;
+  min-height: 500px;
+  background-size: 100% 100%, cover;
+}
+
+#main {
+  height: 100%;
+}
+
+#template .main_card {
+  margin: 10% auto;
+  opacity: .93;
+  border-radius: 20px;
+}
+
+#template p {
+  text-align: center;
+  font-size: medium;
+}

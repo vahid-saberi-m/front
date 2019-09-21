@@ -154,8 +154,8 @@
                         </div>
                     </div>
                     <div class=" border " style="margin-bottom: 1%; margin-top: 1%">
-                        <button class="btn btn-success col-centered " @click="nextStep" v-if="step<3"> بعدی</button>
-                        <button class="btn btn-warning col-centered" @click="previous" v-if="step>1"> قبلی</button>
+                        <button class="btn btn-success col-centered " @click.prevent="nextStep" v-if="step<3"> بعدی</button>
+                        <button class="btn btn-warning col-centered" @click.prevent="previous" v-if="step>1"> قبلی</button>
                     </div>
                     <button type="submit" class="btn btn-primary col-centered" v-if="step===3"
                             @click.prevent="makeCompany">ساخت شرکت
@@ -233,6 +233,7 @@
             },
 
             nextStep() {
+                console.log('next step ==>',this.step)
                 this.step = this.step + 1;
             },
             previous() {
@@ -240,6 +241,7 @@
             },
 
             makeCompany() {
+                console.log('check make company func',this.step)
                 this.$store.dispatch('makeCompany', {
                     Name: this.Name,
                     company_size: this.company_size,
