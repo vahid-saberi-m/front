@@ -5,12 +5,26 @@
         <div class="card bg-warning" v-if="companyId">
             <div class="card-body">{{name}} عزیز تقاضای افزوده شدن شما در انتظار تایید مسوول مربوطه می باشد.</div>
         </div>
-        <div class="card " v-if="!companyId" style=" border-radius: 10px ">
-            <div class="card" v-if="!set">
-                <p>{{name}} عزیز. آیا می خواهید یک سایت استخدامی جدید بسازید یا اینکه دوست دارید به جمع کاربران سایت
-                    استخدامی شرکتی بپیوندید؟</p>
-                <button class="btn btn-success" @click="set=1 ; newCompany=1">سایت استخدامی جدید</button>
-                <button class="btn btn-success" @click="set=1 ; newCompany=0">پیوستن به سایت استخدامی</button>
+        <div class="card  choose-company-container" v-if="!companyId" style=" border-radius: 10px ">
+            <p v-if="!set">{{name}} عزیز. آیا می خواهید یک سایت استخدامی جدید بسازید یا اینکه دوست دارید به جمع کاربران سایت
+                استخدامی شرکتی بپیوندید؟</p>
+            <div class=" choose-action" v-if="!set">
+                <div class="card explanation">
+                    <b>ساخت یک سایت استخدامی جدید</b>
+                    <img src="../../assets/images/buildPage.png" class="action-img" />
+                    <p>
+                        چنانچه شرکت یا سازمان شما نیاز به ایجاد یک سایت استخدامی دارد از این طریق می توانید یک سایت استخدامی بسازید.
+                    </p>
+                    <button class="btn btn-success success" @click="set=1 ; newCompany=1">سایت استخدامی جدید</button>
+                </div>
+                <div class="card explanation">
+                    <b>عضویت در سایت استخدامی ساخته شده </b>
+                    <img src="../../assets/images/joinPage.jpg" class="action-img"/>
+                    <p>
+                        چنانچه شرکت یا سازمان شما از مشتریان ما است و می خواهید بعنوان کاربر به سایت استخدامی سازمان خود اضافه گردید از این طریق اقدام فرمایید.
+                    </p>
+                    <button class="btn btn-success" @click="set=1 ; newCompany=0">پیوستن به سایت استخدامی</button>
+                </div>
             </div>
 
 
@@ -153,9 +167,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class=" border " style="margin-bottom: 1%; margin-top: 1%">
-                        <button class="btn btn-success col-centered " @click.prevent="nextStep" v-if="step<3"> بعدی</button>
-                        <button class="btn btn-warning col-centered" @click.prevent="previous" v-if="step>1"> قبلی</button>
+                    <div class=" choose-company-pagination border " >
+                        <button class="btn btn-success col-centered " @click.prevent="nextStep" v-if="step<3"> بعدی
+                        </button>
+                        <button class="btn btn-warning col-centered" @click.prevent="previous" v-if="step>1"> قبلی
+                        </button>
                     </div>
                     <button type="submit" class="btn btn-primary col-centered" v-if="step===3"
                             @click.prevent="makeCompany">ساخت شرکت
@@ -233,7 +249,7 @@
             },
 
             nextStep() {
-                console.log('next step ==>',this.step)
+                console.log('next step ==>', this.step)
                 this.step = this.step + 1;
             },
             previous() {
@@ -241,7 +257,7 @@
             },
 
             makeCompany() {
-                console.log('check make company func',this.step)
+                console.log('check make company func', this.step)
                 this.$store.dispatch('makeCompany', {
                     Name: this.Name,
                     company_size: this.company_size,
@@ -265,17 +281,8 @@
     }
 </script>
 
-<style scoped>
-    input {
-        border-radius: 3px;
-    }
+<style scoped lang="scss">
+    @import "../../styles/user/chooseCompany.scss";
 
-    label {
-        text-align: right;
-    }
 
-    .col-centered {
-        float: none;
-        margin: 0 auto;
-    }
 </style>
