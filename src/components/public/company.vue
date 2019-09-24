@@ -118,6 +118,6 @@
 
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+  @import "../../styles/public/company";
 </style>

@@ -22,18 +22,33 @@
                     </h2>
                 </div>
                 <div class="card-body plan-disc">
-
+                  <p>2 آگهی شغلی همزمان</p>
+                  <p>دریافت روزانه حد اکثر 5 رزومه</p>
+                  <p>قابلیت تعریف حداکثر 1 سوال برای هر آگهی شغلی</p>
+                  <p>حد اکثر 14 روز نمایش هر آگهی</p>
+                  <p>گزارش حداکثر 2 رویداد دخلی </p>
+                  <p>بارگذاری حداکثر 5 عکس از محیط شرکت </p>
                 </div>
+              <button class="btn hover plan-buy">بیشتر...</button>
+
             </div>
 
-            <div class="plan card">
-                <div class=" plan-name">
+            <div class="plan card " id="recommended">
+              <div class="annotation" >recommended</div>
+              <div class=" plan-name ">
                     <h2>
                        طلایی
                     </h2>                </div>
                 <div class="card-body plan-disc">
-
+                  <p> بدون محدودیت در آگهی شغلی همزمان </p>
+                  <p>بدون محدودیت در دریافت رزومه</p>
+                  <p>بدون محدودیت در تعریف سوال برای هر آگهی شغلی</p>
+                  <p>بدون محدودیت در تعیین زمان انقضاء آگهی</p>
+                  <p>گزارش تمامی رویدادهای داخلی </p>
+                  <p>بارگذاری نامحدود عکس از محیط شرکت </p>
                 </div>
+              <button class="btn hover plan-buy">بیشتر...</button>
+
             </div>
             <div class="plan card">
                 <div class=" plan-name">
@@ -42,41 +57,14 @@
                     </h2>
                 </div>
                 <div class="card-body plan-disc">
-
+                  <p>5 آگهی شغلی همزمان</p>
+                  <p>دریافت روزانه حد اکثر 30 رزومه</p>
+                  <p>قابلیت تعریف حداکثر 3 سوال برای هر آگهی شغلی</p>
+                  <p>حد اکثر 30 روز نمایش هر آگهی</p>
+                  <p>گزارش حداکثر 5 رویداد دخلی </p>
+                  <p>بارگذاری حداکثر 50 عکس از محیط شرکت </p>
                 </div>
-            </div>
-        </div>
-        <div class="card" style="margin-top: 1%; width: 100%">
-            <div class="card-header" style="text-align: right">
-                <h5 style="color: #173c77 ">بسته های قابل عرضه برای شرکت شما:</h5>
-            </div>
-            <div class="card-body">
-                <table class="table table-striped table-dark">
-                    <thead>
-                    <tr>
-                        <th scope="col">نام بسته</th>
-                        <th scope="col"> رزومه های قابل مشاهده در هر روز</th>
-                        <th scope="col"> رزومه های قابل مشاهده در هر ماه</th>
-                        <th scope="col"> رزومه های قابل مشاهده برای هر موقعیت شغلی</th>
-                        <th scope="col">آگهی های استخدامی همزمان</th>
-                        <th scope="col">حداکثر تعداد سوال قابل طرح برای هر آگهی</th>
-                        <th scope="col">حداکثر عمر هر آگهی</th>
-                        <th scope="col">زمان اعتبار</th>
-                        <th scope="col">قیمت</th>
-                    </tr>
-                    </thead>
-                    <tr v-for="thisPackage in packages">
-                        <td>{{thisPackage.name}}</td>
-                        <td>{{thisPackage.daily_cv_view}}عدد</td>
-                        <td>{{thisPackage.monthly_cv_view}}عدد</td>
-                        <td>{{thisPackage.per_job_post_cv_view}}عدد</td>
-                        <td>{{thisPackage.active_job_post_limit}}عدد</td>
-                        <td>{{thisPackage.question_per_job_post_limit}}عدد</td>
-                        <td>{{thisPackage.package_lifetime}}روز</td>
-                        <td>{{thisPackage.job_post_lifetime_limit}}روز</td>
-                        <td>{{thisPackage.price}}تومان</td>
-                    </tr>
-                </table>
+              <button class="btn hover plan-buy">بیشتر...</button>
             </div>
         </div>
     </div>
@@ -108,11 +96,7 @@
         },
 
         mounted() {
-            fetch('http://api.balatar.inpin.co/api/packages')
-                .then(response => response.json())
-                .then((data) => {
-                    this.packages = data;
-                })
+
         }
     }
 
