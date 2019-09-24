@@ -1,71 +1,90 @@
-.choose-company-container {
-  width: 90vw;
-  margin: auto;
+.whole-page {
   display: flex;
   flex-direction: column;
-  //align-items: center;
-}
-
-.choose-action {
-
-  font-size: 1rem;
-  display: flex;
-  flex-flow: row wrap;
-  margin: 1rem 2rem;
   justify-content: space-between;
 
-  .explanation {
-    //height: 30vh;
-    width: 30vw;
+  .choose-company-container {
+    width: 90vw;
+    margin: auto;
     display: flex;
     flex-direction: column;
-    b {
-      text-align: center;
-      margin: 1rem;
-    }
-    img{
-      margin: auto;
-      height: 20vh;
+    //align-items: center;
+  }
+
+  .choose-action {
+
+    font-size: 1rem;
+    display: flex;
+    flex-flow: row wrap;
+    margin: 1rem 2rem;
+    justify-content: space-between;
+
+    .explanation {
+      //height: 30vh;
       width: 30vw;
-    }
-    p {
-      margin: 1rem 2rem;
-      text-align: center;
-    }
-    button {
-      width: 20vw;
-      margin: 1rem auto;
-      justify-self: end;
+      display: flex;
+      flex-direction: column;
+      b {
+        text-align: center;
+        margin: 1rem;
+      }
+      img {
+        margin: auto;
+        height: 20vh;
+        width: 30vw;
+      }
+      p {
+        margin: 1rem 2rem;
+        text-align: center;
+      }
+      button {
+        width: 20vw;
+        margin: 1rem auto;
+        justify-self: end;
+      }
     }
   }
-}
+  .main-form{
+    height: 55vh;
+    display: flex;
+    justify-content: space-between;
 
-input {
-  border-radius: 3px;
-}
+    .form-section{
+      height: 40vh;
 
-label {
-  text-align: right;
-}
+    }
+  }
 
-.col-centered {
-  float: none;
-  margin: 0 auto;
-}
+  input {
+    border-radius: 3px;
+  }
 
-body {
-  background: #00b0ff;
-}
-form{
-  height: 50vh;
-}
-input{
-  width: 40vw;
-}
+  label {
+    text-align: right;
+  }
 
-.choose-company-pagination{
-  display: flex;
-  justify-content: center;
-  align-self: end;
+  .col-centered {
+    float: none;
+    margin: 0 auto;
+  }
 
+  form {
+    height: 50vh;
+  }
+  input {
+    width: 40vw;
+  }
+  .step3{
+    width: 80vw;
+  }
+
+  .choose-company-pagination {
+    display: flex;
+    justify-content: center;
+
+    button{
+      width: 6vw;
+      margin: 1px 4px;
+    }
+  }
 }
