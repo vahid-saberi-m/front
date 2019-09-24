@@ -1,8 +1,21 @@
 
-.row {
-  margin-bottom: 10px;
+.balatar-header {
+  padding: 0.3rem 3rem;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 0.5vh;
+  justify-content: space-between;
+  //width:100%;
+  button {
+    justify-self: flex-start;
+    height: 5vh;
+  }
+
+  img {
+    justify-self: flex-end;
+    filter: blur(80%);
+    height: 5vh;
+  }
 }
 
-#login {
-  text-align: right;
-}
+
