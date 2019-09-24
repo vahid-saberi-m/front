@@ -22,29 +22,54 @@
   border-radius: 20px;
 }
 
-#template p {
+template p {
   text-align: center;
   font-size: medium;
+
 }
 
 .plans{
   display: flex;
-  width: 100vw;
+  vertical-align: center;
   flex-direction: row;
   justify-content: center;
   margin: 2vh auto;
   .plan{
     width: 30vw;
-    height: 40vh;
+    height: 60vh;
     margin: 0 1vw;
+    border-radius: 1rem;
+    border-color: rgba(0, 128, 0, 0.78);
+    background: rgba(46, 214, 86, 0.19);
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.6);
+
     .plan-name{
       h2{
-        margin: 1.5vh auto;
+        margin: 2vh auto;
       }
     }
-
     .plan-disc{
 
     }
+  }
+  p{
+    font-size: 1rem;
+    margin: 0.7rem auto;
+  }
+}
+#recommended{
+  background-color: rgba(16, 128, 103, 1);
+  color: azure;
+  overflow: hidden;
+  width: 35vw;
+  button{
+    position: absolute;
+    color: black;
+    background: gold;
+    padding: 0 2rem;
+    transform: rotate(45deg) translate(2.5rem, -0.5rem);
+    transform-origin: center;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.6);
+
   }
 }
