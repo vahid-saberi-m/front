@@ -1,3 +1,4 @@
+
 .container {
   font-family: "iransans";
   direction: rtl;
@@ -7,6 +8,8 @@
   background: url("https://ja-company.demo.joomlart.com/images/joomlart/slideshow/item-3.jpg") no-repeat top fixed;
   min-height: 500px;
   background-size: 100% 100%, cover;
+  vertical-align: center;
+
 }
 
 #main {
@@ -22,4 +25,26 @@
 #template p {
   text-align: center;
   font-size: medium;
+}
+
+.plans{
+  display: flex;
+  width: 100vw;
+  flex-direction: row;
+  justify-content: center;
+  margin: 2vh auto;
+  .plan{
+    width: 30vw;
+    height: 40vh;
+    margin: 0 1vw;
+    .plan-name{
+      h2{
+        margin: 1.5vh auto;
+      }
+    }
+
+    .plan-disc{
+
+    }
+  }
 }
