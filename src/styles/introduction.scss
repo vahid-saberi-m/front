@@ -28,48 +28,60 @@ template p {
 
 }
 
-.plans{
+.plans {
   display: flex;
   vertical-align: center;
   flex-direction: row;
   justify-content: center;
   margin: 2vh auto;
-  .plan{
+  align-items: center;
+  .plan {
+    display: flex;
     width: 30vw;
-    height: 60vh;
+    height: 50vh;
     margin: 0 1vw;
     border-radius: 1rem;
     border-color: rgba(0, 128, 0, 0.78);
     background: rgba(46, 214, 86, 0.19);
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.6);
 
-    .plan-name{
-      h2{
+    .plan-name {
+      h2 {
         margin: 2vh auto;
       }
     }
-    .plan-disc{
+
+    .plan-disc {
 
     }
-  }
-  p{
-    font-size: 1rem;
-    margin: 0.7rem auto;
-  }
-}
-#recommended{
-  background-color: rgba(16, 128, 103, 1);
-  color: azure;
-  overflow: hidden;
-  width: 35vw;
-  button{
-    position: absolute;
-    color: black;
-    background: gold;
-    padding: 0 2rem;
-    transform: rotate(45deg) translate(2.5rem, -0.5rem);
-    transform-origin: center;
-    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.6);
 
+    .plan-buy {
+      background-color: #46c26a;
+      margin: 2rem 1rem;
+      font-size: large;
+      box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  #recommended {
+    background-color: rgba(16, 128, 103, 1);
+    color: azure;
+    overflow: hidden;
+    width: 35vw;
+    height: 55vh;
+
+    .annotation {
+      position: absolute;
+      color: black;
+      background: gold;
+      padding: 0 2rem;
+      transform: rotate(45deg) translate(2.5rem, -0.5rem);
+      transform-origin: center;
+      box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.6);
+    }
+
+    .plan-buy {
+      background-color: #2ed656;
+    }
   }
 }
