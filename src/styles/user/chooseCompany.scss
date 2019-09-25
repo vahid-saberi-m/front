@@ -9,6 +9,10 @@
     display: flex;
     flex-direction: column;
     //align-items: center;
+    .container-title{
+      font-size: large;
+      margin: 2vh 2vw;
+    }
   }
 
   .choose-action {
