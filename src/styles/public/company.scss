@@ -1,0 +1,56 @@
+#app {
+  color: black;
+  direction: rtl;
+  nav {
+    height: 5vh;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+
+    img {
+      width: 10vw;
+      margin: 0 1rem;
+    }
+
+    .page-links {
+      justify-self: end;
+
+      a {
+        margin: 0 1rem;
+      }
+    }
+
+  }
+
+  .company-intro {
+    position: relative;
+    height: 50vh;
+    width:100vw;
+    .background{
+      position: relative;
+      height: 50vh;
+      width:100vw;
+      z-index: 1;
+    }
+    .intro-card {
+      margin: 20vh auto;
+      border-radius: 15px;
+      background-color: rgba(249, 251, 255, 0.92);
+      color: black;
+      width: 30vw;
+      z-index: 100;
+
+      img {
+        margin: 3vh 2vw;
+      }
+    }
+
+  }
+  .company-massage{
+    margin: 1vh 2vw;
+    .card-header{
+      font-size: large;
+    }
+  }
+}

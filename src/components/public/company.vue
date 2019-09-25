@@ -1,92 +1,78 @@
 <template>
 
-    <div id="app">
-        <v-app dark class="text-right">
-            <template>
-                <v-toolbar>
+  <div id="app">
+    <div class="text-right">
+      <template>
+        <nav>
 
-                    <v-img contain style="position: relative; height: 100%;
-                    left: 130px;" :src="companyInfo.logo"></v-img>
-                    <v-toolbar-title style="position: relative;
-                    left: 230px;">
-                        <a :src="companyInfo.website">
-                            <h1>{{companyInfo.name}}</h1>
-                        </a>
-                    </v-toolbar-title>
-                    <v-spacer></v-spacer>
-                    <v-toolbar-items >
-                        <v-btn flat>فرصتهای شغلی</v-btn>
-                        <v-btn flat>درباره ما</v-btn>
-                        <v-btn flat>رویدادها</v-btn>
-                    </v-toolbar-items>
+          <img :src="companyInfo.logo">
 
-                </v-toolbar>
-            </template>
+          <div class="page-links">
+            <a>فرصتهای شغلی</a>
+            <a>درباره ما</a>
+            <a>رویدادها</a>
+          </div>
 
-            <v-divider></v-divider>
-            <v-content>
-                <section>
-                    <v-parallax :src="companyInfo.main_photo" >
-                        <v-layout
-                                column
-                                align-center
-                                justify-center
-                                class="white--text"
-                        >
-                            <v-card light style="border-radius: 15px; opacity: 0.92" width="40%">
+        </nav>
+      </template>
 
-                                <v-img :src="companyInfo.logo"
-                                       aspect-ratio="2.75"></v-img>
-                                <v-card-text style="opacity: 80%; " class="text-xs-center">
+      <section class="company-intro" v-bind:style='{ backgroundImage: "url(" + companyInfo.main_photo + ")", }'>
 
-                                    <h1 class=" mb-2 display-1 ">{{companyInfo.name}}</h1>
-                                    <div class="subheading mb-3 ">{{companyInfo.slogan}}</div>
-                                    <b>
-                                        {{companyInfo.message_title}}
-                                    </b><br>
-                                    {{companyInfo.message_content}}
-                                </v-card-text>
-                            </v-card>
-                        </v-layout>
-                    </v-parallax>
+        <!--        <img class="background" :src="companyInfo.main_photo"/>-->
+        <div class="white--text">
+          <div class="card intro-card">
 
-                </section>
-                <v-divider></v-divider>
-                <section>
-                    <v-card>
-                        <v-card-text>
-                            <about-company :company="companyInfo"></about-company>
-                        </v-card-text>
-                    </v-card>
-                </section>
-                <v-divider></v-divider>
-                <section>
-                    <v-card>
-                        <v-card-title>
-                        </v-card-title>
-                        <v-card-text>
-                            <jobPosts :job-posts="companyInfo.jobPosts" :companyId="id"></jobPosts>
-                        </v-card-text>
-                    </v-card>
-                    <apply-modal></apply-modal>
-                </section>
-                <v-divider></v-divider>
-                <section>
-                    <v-card>
-                        <v-card-text>
+            <img alt="company" :src="companyInfo.logo">
+            <div class=" text-xs-center">
 
-                            <public-events :events="companyInfo.events"></public-events>
-                        </v-card-text>
-                    </v-card>
-                </section>
-                <v-divider></v-divider>
-                <section>
-                    <company-footer></company-footer>
-                </section>
+              <h1 class=" mb-2 display-1 ">{{companyInfo.name}}</h1>
+              <div class="subheading mb-3 ">{{companyInfo.slogan}}</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <v-card class=" company-massage">
+        <v-card-title > <b>{{companyInfo.message_title}}</b></v-card-title>
+        <br>
+        <v-card-text >
+          {{companyInfo.message_content}}
+        </v-card-text>
+      </v-card>
+      <section>
+        <v-card>
+          <v-card-text>
+            <about-company :company="companyInfo"></about-company>
+          </v-card-text>
+        </v-card>
+      </section>
+      <v-divider></v-divider>
+      <section>
+        <v-card>
+          <v-card-title>
+          </v-card-title>
+          <v-card-text>
+            <jobPosts :job-posts="companyInfo.jobPosts" :companyId="id"></jobPosts>
+          </v-card-text>
+        </v-card>
+        <apply-modal></apply-modal>
+      </section>
+      <v-divider></v-divider>
+      <section>
+        <v-card>
+          <v-card-text>
 
-            </v-content>
-        </v-app>
+            <public-events :events="companyInfo.events"></public-events>
+          </v-card-text>
+        </v-card>
+      </section>
+      <v-divider></v-divider>
+      <section>
+        <company-footer></company-footer>
+      </section>
+
     </div>
+  </div>
+
 </template>
 
 <script>
@@ -95,26 +81,31 @@
     import ApplyModal from "./jobPosts/jobPostCard/applyModal";
     import PublicEvents from "./events/publicEvents";
     import AboutCompany from "./about/aboutCompany";
-    import CompanyFooter from "./companyFooter";
 
     export default {
         props: ['id'],
         components: {CompanyFooter, AboutCompany, PublicEvents, ApplyModal, jobPosts},
+
         computed: {
-            ...mapGetters(['companyInfo'])
+            ...mapGetters(['companyInfo']),
+
         },
         data() {
+
             return {}
         },
         name: "company",
+
+        // this.$store.dispatch('retrieveCompany', this.id);
         created() {
-            this.$store.dispatch('retrieveCompany', this.id);
 
         },
         methods: {}
 
 
     }
+
+    import CompanyFooter from "./companyFooter";
 
 </script>
 
