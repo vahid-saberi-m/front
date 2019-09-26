@@ -1,6 +1,6 @@
-<template>
+<template >
 
-  <div id="app">
+  <div id="app" :key="this.$route.params.id" >
     <div class="text-right">
       <template>
         <nav>
@@ -77,6 +77,7 @@
 
 <script>
     import {mapGetters} from 'vuex'
+    import {mapActions} from 'vuex'
     import jobPosts from './jobPosts/jobPosts'
     import ApplyModal from "./jobPosts/jobPostCard/applyModal";
     import PublicEvents from "./events/publicEvents";
@@ -88,7 +89,13 @@
 
         computed: {
             ...mapGetters(['companyInfo']),
+            ...mapActions(['retrieveCompany']),
 
+        },
+        watch:{
+            '$route' (to, from){
+                alert(this.$route.params.id)
+            }
         },
         data() {
 
@@ -98,20 +105,21 @@
 
         // this.$store.dispatch('retrieveCompany', this.id);
         created() {
-
+            this.$router.push({name: 'company', params: this.$route.params.id});
+            this.$store.dispatch('retrieveCompany',this.$route.params.id)
+            // store.dispach('retrieveCompany',28);
         },
-        methods: {}
+        methods: {
 
+        }
 
     }
 
+
     import CompanyFooter from "./companyFooter";
 
-<<<<<<< HEAD
 </script>
 
-=======
->>>>>>> 5f9323b6e0db7fafe9c5dd9a2394a34f50f2fdc0
 <style lang="scss" scoped>
   @import "../../styles/public/company";
 </style>
