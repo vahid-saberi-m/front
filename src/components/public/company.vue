@@ -107,11 +107,9 @@
 
     import CompanyFooter from "./companyFooter";
 
-<<<<<<< HEAD
 </script>
 
-=======
->>>>>>> 5f9323b6e0db7fafe9c5dd9a2394a34f50f2fdc0
+
 <style lang="scss" scoped>
   @import "../../styles/public/company";
 </style>
