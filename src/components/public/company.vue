@@ -1,77 +1,81 @@
-<template >
+<template>
 
-  <div id="app" :key="this.$route.params.id" >
-    <div class="text-right">
-      <template>
-        <nav>
+    <div id="app" :key="this.$route.params.id">
+        <div class="text-right">
+            <template>
+                <nav>
 
-          <img :src="companyInfo.logo">
+                    <img :src="companyInfo.logo">
 
-          <div class="page-links">
-            <a>فرصتهای شغلی</a>
-            <a>درباره ما</a>
-            <a>رویدادها</a>
-          </div>
+                    <div class="page-links">
+                        <a>فرصتهای شغلی</a>
+                        <a>درباره ما</a>
+                        <a>رویدادها</a>
+                    </div>
 
-        </nav>
-      </template>
+                </nav>
+            </template>
 
-      <section class="company-intro" v-bind:style='{ backgroundImage: "url(" + companyInfo.main_photo + ")", }'>
+            <div class="company-intro" v-bind:style='[{ backgroundImage :backgroundImage }]'>
 
-        <!--        <img class="background" :src="companyInfo.main_photo"/>-->
-        <div class="white--text">
-          <div class="card intro-card">
+                <!--        <img class="background" :src="companyInfo.main_photo"/>-->
+                <div class="white--text">
+                    <div class="card intro-card">
 
-            <img alt="company" :src="companyInfo.logo">
-            <div class=" text-xs-center">
+                        <img alt="company" :src="companyInfo.logo">
+                        <div class=" text-xs-center">
 
-              <h1 class=" mb-2 display-1 ">{{companyInfo.name}}</h1>
-              <div class="subheading mb-3 ">{{companyInfo.slogan}}</div>
+                            <h1 class=" mb-2 display-1 ">{{companyInfo.name}}</h1>
+                            <div class="subheading mb-3 ">{{companyInfo.slogan}}</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
+            <div style="background-color: Background">
+
+                <div class=" card company-massage">
+                    <div class="card-header"><b>{{companyInfo.message_title}}</b>
+                    </div>
+                    <br>
+                    <div class="card-body">
+                        {{companyInfo.message_content}}
+                    </div>
+                </div>
+            </div>
+            <section>
+                <v-card>
+                    <v-card-text>
+                        <about-company :company="companyInfo"></about-company>
+                    </v-card-text>
+                </v-card>
+            </section>
+            <v-divider></v-divider>
+            <section>
+                <v-card>
+                    <v-card-title>
+                    </v-card-title>
+                    <v-card-text>
+                        <jobPosts :job-posts="companyInfo.jobPosts" :companyId="id"></jobPosts>
+                    </v-card-text>
+                </v-card>
+                <apply-modal></apply-modal>
+            </section>
+            <v-divider></v-divider>
+            <section>
+                <v-card>
+                    <v-card-text>
+
+                        <public-events :events="companyInfo.events"></public-events>
+                    </v-card-text>
+                </v-card>
+            </section>
+            <v-divider></v-divider>
+            <section>
+                <company-footer></company-footer>
+            </section>
+
         </div>
-      </section>
-      <v-card class=" company-massage">
-        <v-card-title > <b>{{companyInfo.message_title}}</b></v-card-title>
-        <br>
-        <v-card-text >
-          {{companyInfo.message_content}}
-        </v-card-text>
-      </v-card>
-      <section>
-        <v-card>
-          <v-card-text>
-            <about-company :company="companyInfo"></about-company>
-          </v-card-text>
-        </v-card>
-      </section>
-      <v-divider></v-divider>
-      <section>
-        <v-card>
-          <v-card-title>
-          </v-card-title>
-          <v-card-text>
-            <jobPosts :job-posts="companyInfo.jobPosts" :companyId="id"></jobPosts>
-          </v-card-text>
-        </v-card>
-        <apply-modal></apply-modal>
-      </section>
-      <v-divider></v-divider>
-      <section>
-        <v-card>
-          <v-card-text>
-
-            <public-events :events="companyInfo.events"></public-events>
-          </v-card-text>
-        </v-card>
-      </section>
-      <v-divider></v-divider>
-      <section>
-        <company-footer></company-footer>
-      </section>
-
     </div>
-  </div>
 
 </template>
 
@@ -92,8 +96,8 @@
             ...mapActions(['retrieveCompany']),
 
         },
-        watch:{
-            '$route' (to, from){
+        watch: {
+            '$route'(to, from) {
                 alert(this.$route.params.id)
             }
         },
@@ -104,14 +108,17 @@
         name: "company",
 
         // this.$store.dispatch('retrieveCompany', this.id);
-        created() {
-            this.$router.push({name: 'company', params: this.$route.params.id});
-            this.$store.dispatch('retrieveCompany',this.$route.params.id)
-            // store.dispach('retrieveCompany',28);
-        },
-        methods: {
+        beforeMount() {
+            // this.backgroundImage= `url(${this.companyInfo.main_photo})`;
+            this.backgroundImage = `url(http://files.balatar.inpin.co/companies/main_photos/aGC5IZuGKFgTN516xxzfXgjH0BY0DPiVsmf6X0AC.jpeg)`;
 
-        }
+        },
+        created() {
+            this.$store.dispatch('retrieveCompany', this.$route.params.id);
+            // alert(this.backgroundImage1)
+            // this.backgroundImage1= "url(" + this.companyInfo.main_photo + ")"
+        },
+        methods: {}
 
     }
 
@@ -120,10 +127,7 @@
 
 </script>
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 465ba515bed8f67b80de7b11d0df830725831757
 <style lang="scss" scoped>
-  @import "../../styles/public/company";
+    @import "../../styles/public/company";
 </style>
