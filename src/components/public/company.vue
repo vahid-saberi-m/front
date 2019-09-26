@@ -120,6 +120,10 @@
 
 </script>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 465ba515bed8f67b80de7b11d0df830725831757
 <style lang="scss" scoped>
   @import "../../styles/public/company";
 </style>

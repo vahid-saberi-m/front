@@ -169,9 +169,9 @@
           </form>
         </div>
         <div class="  choose-company-pagination border " v-if="newCompany&&set">
-          <button class="btn btn-success " @click.prevent="nextStep"> بعدی
+          <button class="btn btn-success " @click.prevent="nextStep"  v-bind:class="{'disabled': step===3}"> بعدی
           </button>
-          <button class="btn btn-warning " @click.prevent="previous"> قبلی
+          <button class="btn btn-warning " @click.prevent="previous" v-bind:class="{'disabled': step===1}"> قبلی
           </button>
           <button type="submit" class="btn btn-primary "
                   @click.prevent="makeCompany">ساخت شرکت
