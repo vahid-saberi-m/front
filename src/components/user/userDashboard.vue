@@ -1,13 +1,11 @@
 <template>
-<v-container>
+<div class="user-dashboard">
     <userHeader></userHeader>
-    <transition>
     <router-view v-if="companyInfo.is_live"></router-view>
     <v-card v-if="!companyInfo.is_live" style="direction: rtl; color: red">
         <v-card-title >سایت استخدامی شما ساخته شده و در انتظار تایید مدیر سایت می باشد.</v-card-title>
     </v-card>
-    </transition>
-</v-container>
+</div>
 
 </template>
 
@@ -40,6 +38,6 @@
     }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+  @import "../../styles/user/userDashboard.scss";
 </style>
