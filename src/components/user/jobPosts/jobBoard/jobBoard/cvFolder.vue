@@ -1,12 +1,9 @@
 <template>
-    <v-flex xs3>
-        <v-card style="direction: rtl; height:100% ;" dark tile>
-
+    <div class="cv-folder">
             <v-card-title v-bind:style="{backgroundColor: color}">
                 <h5><b>{{cvFolder.name}}</b></h5>
             </v-card-title>
             <v-card-text @drop="changeApplicationCvFolder(cvFolder.id)"
-                         @dragover=""
                          v-scroll:#scroll-target=""
                          column
                          justify-center
@@ -29,9 +26,8 @@
                 </v-content>
             </v-card-text>
             <v-btn v-if="cvFolder.next_page" @click="loadMoreApplications(cvFolder.id)">بیشتر</v-btn>
-        </v-card>
         <v-spacer></v-spacer>
-    </v-flex>
+    </div>
 </template>
 
 <script>
@@ -96,6 +92,6 @@
     }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+  @import "../../../../../styles/user/jobBoard/jobBoard/cvFolder.scss";
 </style>

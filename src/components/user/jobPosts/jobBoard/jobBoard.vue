@@ -1,11 +1,11 @@
 <template>
-    <v-container >
+    <div >
         <cvView :dialog="applicationDialog" ></cvView>
 
-        <v-layout row wrap>
+        <div class="cv-folders">
             <cv-folder v-for="cvFolder in cvFolders" :key="cvFolder.id" :cvFolder="cvFolder"></cv-folder>
-        </v-layout>
-    </v-container>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -37,6 +37,6 @@
     }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+  @import "../../../../styles/user/jobBoard/jobBoard.scss";
 </style>
