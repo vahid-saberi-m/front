@@ -6,7 +6,6 @@
             <div @drop="changeApplicationCvFolder(cvFolder.id)"
                          v-scroll:#scroll-target=""
                          style=" overflow-y: auto;"
-                         class="scroll-y "
             >
                 <v-content style="min-width: 100px; height: 550px">
 

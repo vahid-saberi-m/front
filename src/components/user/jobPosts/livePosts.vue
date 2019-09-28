@@ -1,14 +1,9 @@
 <template>
-    <v-container  >
-        <v-form>
-
-            <v-card v-for="jobPost in liveJobPosts" style="direction: rtl;" :key="jobPost.id" v-on:removeJobPost="removeJobPost">
+    <div class="job-posts">
+            <v-expansion-panels class="card" v-for="jobPost in liveJobPosts" :key="jobPost.id" v-on:removeJobPost="removeJobPost">
                 <job-post-show :jobPost="jobPost" :postState="postState" v-if="!(jobPost.id === removedJobPost)"></job-post-show>
-                <v-card-text>
-                </v-card-text>
-            </v-card>
-        </v-form>
-    </v-container>
+            </v-expansion-panels>
+    </div>
 
 </template>
 
@@ -41,6 +36,9 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+  .job-posts{
+    margin: 10vh 20vw 0 20vw;
 
+  }
 </style>
