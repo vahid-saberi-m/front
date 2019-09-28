@@ -1,0 +1,28 @@
+.company-intro {
+  position: relative;
+  height: 70vh;
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .background {
+    position: relative;
+    width: 100vw;
+    z-index: 1;
+  }
+
+  .intro-card {
+
+    position: absolute;
+    margin: 17vh 33vw;
+    border-radius: 1rem;
+    background-color: rgba(249, 251, 255, 0.92);
+    color: black;
+    width: 33vw;
+
+    img {
+      margin: 3vh 2vw;
+    }
+  }
+
+}

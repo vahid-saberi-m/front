@@ -1,35 +1,22 @@
 <template>
-    <v-content>
         <div v-if="companyInfo">
-            <section >
-                <v-parallax :src="companyInfo.main_photo" >
-                    <v-layout
-                            column
-                            align-center
-                            justify-center
-                            class="white--text"
-                    >
-                        <v-card light style="border-radius: 15px; opacity: 0.92" width="40%">
 
-                            <v-img :src="companyInfo.logo"
-                                   aspect-ratio="2.75"></v-img>
-                            <v-card-text style="opacity: 80%; " class="text-xs-center">
+            <div class="company-intro" v-bind:style='[{ backgroundImage :backgroundImage }]'>
 
-                                <h1 class=" mb-2 display-1 ">{{companyInfo.name}}</h1>
-                                <div class="subheading mb-3 ">{{companyInfo.slogan}}</div>
-                                <b>
-                                    {{companyInfo.message_title}}
-                                </b><br>
-                                {{companyInfo.message_content}}
-                            </v-card-text>
-                        </v-card>
-                    </v-layout>
-                </v-parallax>
+                <!--        <img class="background" :src="companyInfo.main_photo"/>-->
+                <div class="white--text">
+                    <div class="card intro-card">
 
-            </section>
+                        <img alt="company" :src="companyInfo.logo">
+                        <div class=" text-xs-center">
 
+                            <h1 class=" mb-2 display-1 ">{{companyInfo.name}}</h1>
+                            <div class="subheading mb-3 ">{{companyInfo.slogan}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </v-content>
 </template>
 
 <script>
@@ -46,6 +33,6 @@
     }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+    @import "../../../styles/user/userDashboard/userCompany.scss";
 </style>

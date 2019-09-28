@@ -1,11 +1,25 @@
-
-.job-post-time{
-  display:flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  .div{
-    width: 30vw
+.job-post-show {
+  direction: rtl;
+  opacity: 70%;
+  .job-post-items {
+    background-color: rgba(238, 238, 238, 0.48);
+    .job-post-item-title {
+      font-weight: bold;
+    }
+    .job-post-item-content {
+      display: flex;
+      flex-direction: row;
+    }
   }
 
+  .job-post-time {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    .div {
+      width: 30vw
+    }
+
+  }
 }

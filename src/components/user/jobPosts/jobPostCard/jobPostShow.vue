@@ -1,5 +1,5 @@
   <template>
-    <div v-if="show">
+    <div v-if="show" class="job-post-show">
       <v-expansion-panel
         popout
       >
@@ -8,12 +8,10 @@
           <jobPostEdit v-if="editMode" @editOff="editMode=false" :jobPost="jobPost"></jobPostEdit>
           <template v-if="!editMode" >
             <slot slot="header">
-              <b>
                 {{jobPost.title}} {{role}}
-              </b>
               <v-spacer></v-spacer>
             </slot>
-            <v-card>
+            <v-card class="job-post-items">
               <v-card-title>
               </v-card-title>
               <v-card-text>
@@ -24,43 +22,43 @@
                   append-icon="edit"
                 >
                   <v-card>
-                    <v-card-title>
+                    <v-card-title class="job-post-item-title">
                       شرح شغل
                     </v-card-title>
-                    <v-card-text>
+                    <v-card-text class="job-post-item-content">
                       {{jobPost.description}}
                     </v-card-text>
 
                   </v-card>
 
                   <v-card>
-                    <v-card-title>
+                    <v-card-title class="job-post-item-title">
                       ویژگی های مورد نیاز
                     </v-card-title>
-                    <v-card-text>
+                    <v-card-text class="job-post-item-content">
                       {{jobPost.requirements}}
                     </v-card-text>
                   </v-card>
 
                   <v-card>
-                    <v-card-title>
+                    <v-card-title class="job-post-item-title">
                       حقوق و مزایای در نظر گرفته شده:
                     </v-card-title>
-                    <v-card-text>
+                    <v-card-text class="job-post-item-content">
                       {{jobPost.benefits}}
                     </v-card-text>
                   </v-card>
                   <v-card>
-                    <v-card-title>
+                    <v-card-title class="job-post-item-title">
                       محل کار:
                     </v-card-title>
-                    <v-card-text>
+                    <v-card-text class="job-post-item-content">
                       {{jobPost.location}}
                     </v-card-text>
                   </v-card>
                   <div class="job-post-time">
                     <div>
-                      <v-card-title>
+                      <v-card-title class="job-post-item-title">
                         تاریخ انتشار:
                       </v-card-title>
                       <v-card-text>
@@ -70,7 +68,7 @@
                     </div>
                     <v-spacer></v-spacer>
                     <v-card>
-                      <v-card-title>
+                      <v-card-title class="job-post-item-title">
                         تاریخ انقضا:
                       </v-card-title>
                       <v-card-text>
