@@ -6,4 +6,9 @@
   border-radius: 1rem;
   text-align: center;
   overflow: hidden;
+  .card-header{
+    opacity: 70%;
+    color: rgba(1,1,1,1);
+    border-bottom: white solid 1px;
+  }
 }

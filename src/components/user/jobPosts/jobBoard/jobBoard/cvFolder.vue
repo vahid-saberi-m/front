@@ -1,12 +1,10 @@
 <template>
     <div class="cv-folder">
-            <v-card-title v-bind:style="{backgroundColor: color}">
+            <div class="card-header" v-bind:style="{backgroundColor: color + ''}">
                 <h5><b>{{cvFolder.name}}</b></h5>
-            </v-card-title>
-            <v-card-text @drop="changeApplicationCvFolder(cvFolder.id)"
+            </div>
+            <div @drop="changeApplicationCvFolder(cvFolder.id)"
                          v-scroll:#scroll-target=""
-                         column
-                         justify-center
                          style=" overflow-y: auto;"
                          class="scroll-y "
             >
@@ -24,7 +22,7 @@
                         </v-card>
                     </draggable>
                 </v-content>
-            </v-card-text>
+            </div>
             <v-btn v-if="cvFolder.next_page" @click="loadMoreApplications(cvFolder.id)">بیشتر</v-btn>
         <v-spacer></v-spacer>
     </div>
@@ -61,24 +59,23 @@
             }
         },
         mounted() {
-            if (this.cvFolder.name === 'صف انتظار') {
-                this.color = '#0066cc'
+            if (this.cvFolder.name === 'در صف انتظار') {
+                this.color = 'rgba(49, 69, 247, 0.7)'
             }
             if (this.cvFolder.name === 'قابل تامل') {
-                this.color = 'yellowgreen'
+                this.color = 'rgba(139, 195, 74, 0.7)'
             }
-            if (this.cvFolder.name === 'رد شده') {
-                this.color = '#cc0000'
+            if (this.cvFolder.name === 'مردود') {
+                this.color = 'rgba(229, 28, 35, 0.7)'
             }
             if (this.cvFolder.name === 'دعوت به مصاحبه') {
-                this.color = '#00cc00'
+                this.color = 'rgba(37, 155, 36, 0.7)'
             }
 
         },
         methods: {
 
             changeApplicationCvFolder(cvFolderId) {
-                console.log('change');
                 this.$store.commit('TARGET_CV_FOLDER', cvFolderId);
                 this.$store.dispatch('changeApplicationCvFolder')
             },
