@@ -11,9 +11,9 @@
             <v-card-text >
                 <v-card v-for="jobPost in jobPosts" :key="jobPost.id">
                     <jobPostShow :jobPostInfo="jobPost" :key="jobPost.id"></jobPostShow>
-                </v-card>
-              <v-card v-if="jobPosts" :key="jobPost.id">
-                    در حال حاضر موقعیت شغلی خاصی در مجموعه ما وجود ندارد.
+                    <v-card v-if="jobPosts" :key="jobPost.id">
+                        در حال حاضر موقعیت شغلی خاصی در مجموعه ما وجود ندارد.
+                    </v-card>
                 </v-card>
             </v-card-text>
         </v-card>

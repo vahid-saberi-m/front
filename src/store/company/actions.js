@@ -53,6 +53,7 @@ export default {
         },
 
     retrieveCompany(context,id){
+        console.log('the id is'+id);
         request.get('/api/company/'+ id)
             .then(response=>{
                 context.commit(types.RETRIEVE_COMPANY,response)

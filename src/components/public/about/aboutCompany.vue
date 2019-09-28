@@ -22,7 +22,7 @@
                     </v-card-title>
                 </v-card>
         <v-card-text>
-            <v-card style="height: 100px">
+            <v-card style="min-height: 20vh">
                 <v-card-text v-if="show===1">
                     {{company.about_us}}
                 </v-card-text>

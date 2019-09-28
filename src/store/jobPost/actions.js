@@ -47,6 +47,7 @@ export default ({
                 })
     },
     liveJobPosts(context) {
+        console.log('live jobpost')
         request.get('/api/job-post/index-live' )
             .then(response => {
                 context.commit(types.LIVE_JOB_POSTS,response)

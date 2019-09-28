@@ -25,21 +25,23 @@
 
   .company-intro {
     position: relative;
-    height: 50vh;
+    height: 70vh;
     width:100vw;
+    background-repeat: no-repeat ;
+    background-size: cover;
     .background{
       position: relative;
-      height: 50vh;
       width:100vw;
       z-index: 1;
     }
     .intro-card {
-      margin: 20vh auto;
-      border-radius: 15px;
+
+      position: absolute;
+      margin: 17vh 33vw;
+      border-radius: 1rem;
       background-color: rgba(249, 251, 255, 0.92);
       color: black;
-      width: 30vw;
-      z-index: 100;
+      width: 33vw;
 
       img {
         margin: 3vh 2vw;
@@ -47,10 +49,15 @@
     }
 
   }
-  .company-massage{
-    margin: 1vh 2vw;
-    .card-header{
+  .company-massage {
+    color: black;
+    text-align: center;
+    margin: 1vh 20vw;
+    border-radius: 1rem ;
+    .card-header {
       font-size: large;
+      margin-bottom: 2vh;
     }
+
   }
 }

@@ -18,7 +18,13 @@
         Loader
 
 
-    }
+    },
+      // watch:{
+      //     '$route' (to, from){
+      //         alert(this.$route.params.id);
+      //         this.$router.push({name: 'company', params: this.$route.params.id})
+      //     }
+      // },
 }
 </script>
 
