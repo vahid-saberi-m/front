@@ -1,53 +1,26 @@
 <template>
-    <v-footer
-            height="auto"
-            color="Background lighten-1"
-    >
-        <v-layout
-                justify-center
-                row
-                wrap
-        >
-            <v-btn
-                    color="white"
-                    flat
-                    round
-            >
-                خانه
-            </v-btn>
-            <v-btn
-                    color="white"
-                    flat
-                    round
-            >
-                درباره ما
-            </v-btn>
-            <v-btn
-                    color="white"
-                    flat
-                    round
-            >
-                فرصتهای شغلی
-            </v-btn>
-            <v-btn
-                    color="white"
-                    flat
-                    round
-            >
-                رویدادها
-            </v-btn>
-            <v-flex
-                    Background
-                    lighten-2
-                    py-3
-                    text-xs-center
-                    white--text
-                    xs12
-            >
-                &copy;2018 — <strong>بالاتر</strong>
-            </v-flex>
-        </v-layout>
-    </v-footer>
+  <div class="card card-header ">
+    <div class="footer">
+      <button class="btn">
+        خانه
+      </button>
+      <button class="btn">
+        درباره ما
+      </button>
+      <button
+
+      >
+        فرصتهای شغلی
+      </button>
+      <button class="btn">
+        رویدادها
+      </button>
+    </div>
+    <div class=" balatar-license">
+      &copy;2018 — <a >بالاتر</a>
+    </div>
+
+  </div>
 </template>
 
 <script>
@@ -56,6 +29,6 @@
     }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+  @import "../../styles/public/companyFooter.scss";
 </style>

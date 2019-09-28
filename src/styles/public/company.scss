@@ -1,6 +1,7 @@
 #app {
   color: black;
   direction: rtl;
+
   nav {
     height: 5vh;
     display: flex;
@@ -26,14 +27,16 @@
   .company-intro {
     position: relative;
     height: 70vh;
-    width:100vw;
-    background-repeat: no-repeat ;
+    width: 100vw;
+    background-repeat: no-repeat;
     background-size: cover;
-    .background{
+
+    .background {
       position: relative;
-      width:100vw;
+      width: 100vw;
       z-index: 1;
     }
+
     .intro-card {
 
       position: absolute;
@@ -49,14 +52,20 @@
     }
 
   }
-  .company-massage {
-    color: black;
-    text-align: center;
-    margin: 1vh 20vw;
-    border-radius: 1rem ;
-    .card-header {
-      font-size: large;
-      margin-bottom: 2vh;
+
+  .company-massage-container {
+    margin: 1rem auto;
+    padding: 1rem;
+    .company-massage {
+      color: black;
+      text-align: center;
+      margin: 1vh 20vw;
+      border-radius: 1rem;
+
+      .card-header {
+        font-size: large;
+        margin-bottom: 2vh;
+      }
     }
 
   }

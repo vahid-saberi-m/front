@@ -31,7 +31,8 @@
                     </div>
                 </div>
             </div>
-            <div style="background-color: Background">
+          <v-divider></v-divider>
+            <div class="company-massage-container" style="background-color: Background">
 
                 <div class=" card company-massage">
                     <div class="card-header"><b>{{companyInfo.message_title}}</b>
@@ -61,10 +62,9 @@
                 <apply-modal></apply-modal>
             </section>
             <v-divider></v-divider>
-            <section>
+            <section v-if="companyInfo.events.length>0">
                 <v-card>
                     <v-card-text>
-
                         <public-events :events="companyInfo.events"></public-events>
                     </v-card-text>
                 </v-card>
@@ -97,11 +97,7 @@
             ...mapActions(['retrieveCompany']),
 
         },
-        watch: {
-            '$route'(to, from) {
-                alert(this.$route.params.id)
-            }
-        },
+
         data() {
 
             return {}
