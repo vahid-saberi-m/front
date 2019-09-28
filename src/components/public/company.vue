@@ -77,6 +77,7 @@
 
 <script>
     import {mapGetters} from 'vuex'
+    import {mapActions} from 'vuex'
     import jobPosts from './jobPosts/jobPosts'
     import ApplyModal from "./jobPosts/jobPostCard/applyModal";
     import PublicEvents from "./events/publicEvents";
@@ -88,7 +89,6 @@
 
         computed: {
             ...mapGetters(['companyInfo']),
-
         },
         data() {
 
@@ -96,11 +96,13 @@
         },
         name: "company",
 
+        methods: {
+            ...mapActions(['retrieveCompany'])
+        },
         // this.$store.dispatch('retrieveCompany', this.id);
         created() {
-
-        },
-        methods: {}
+            this.retrieveCompany(this.id)
+        }
 
 
     }
