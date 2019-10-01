@@ -1,3 +1,9 @@
+$mobile-view: 600px;
+$mobile-width: 90vw;
+.intro-card {
+  text-align: center;
+
+}
 
 .container {
   font-family: "iransans";
@@ -16,10 +22,14 @@
   height: 100%;
 }
 
-#template .main_card {
+#template .main-card {
   margin: 10% auto;
   opacity: .93;
   border-radius: 20px;
+  width: 30vw;
+  @media (max-width: $mobile-view) {
+    width: $mobile-width;
+  }
 }
 
 template p {
@@ -33,17 +43,27 @@ template p {
   vertical-align: center;
   flex-direction: row;
   justify-content: center;
-  margin: 2vh auto;
+  margin: 5vh auto;
   align-items: center;
+
+  @media (max-width: $mobile-view) {
+    flex-direction: column;
+  }
+
   .plan {
     display: flex;
     width: 30vw;
-    min-height: 50vh;
+    min-height: 40vh;
     margin: 0 1vw;
     border-radius: 1rem;
-    border-color: rgba(0, 128, 0, 0.78);
-    background: rgba(46, 214, 86, 0.19);
+    border: solid 2px #002E65;
+    background: white;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.6);
+    @media (max-width: $mobile-view) {
+      width: $mobile-width;
+      margin: 2vh auto;
+      order: 2;
+    }
 
     .plan-name {
       h2 {
@@ -60,20 +80,21 @@ template p {
       margin: 2rem auto;
       font-size: large;
       box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.6);
+      display: none;
     }
   }
 
   #recommended {
-    background-color: rgba(16, 128, 103, 1);
-    color: azure;
+    background-color: #002E65;
+    color: white;
     overflow: hidden;
     width: 35vw;
-    height: 55vh;
+    min-height: 40vh;
 
     .annotation {
       position: absolute;
-      color: black;
-      background: gold;
+      color: white;
+      background: #BF1238;
       padding: 0 2rem;
       transform: rotate(45deg) translate(2.5rem, -0.5rem);
       transform-origin: center;
@@ -82,6 +103,58 @@ template p {
 
     .plan-buy {
       background-color: #2ed656;
+      display: none;
+    }
+
+    @media (max-width: $mobile-view) {
+      width: $mobile-width;
+      margin: 2vh auto;
+      order: 1;
+    }
+  }
+}
+
+.description {
+  margin: 5vh auto;
+
+  .recruiting-website {
+    margin: 2vh auto;
+    display: flex;
+    @media (max-width: $mobile-view) {
+      flex-direction: column;
+    }
+
+    .recruiting-website-image {
+      height: 30vh;
+      width: 40vw;
+      border-radius: 1rem;
+      @media (max-width: $mobile-view) {
+        width: $mobile-width;
+        order: 1;
+        margin-bottom: 2vh;
+      }
+
+    }
+
+    .recruiting-website-description {
+      text-align: justify;
+      min-height: 30vh;
+
+      .title {
+        background-color: white;
+        margin-bottom: 2vh;
+        line-height: 2;
+      }
+
+      p {
+        font-size: 1rem;
+        margin: 1vh 1vw;
+      }
+      @media (max-width: $mobile-view) {
+        order: 2;
+        width: $mobile-width;
+      }
+
     }
   }
 }

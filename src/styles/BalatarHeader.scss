@@ -1,21 +1,44 @@
-
+$mobile-view: 600px;
+$mobile-width: 90vw;
 .balatar-header {
   padding: 0.3rem 3rem;
+  height: 7vh;
   display: flex;
   flex-direction: row;
+  position: relative;
   margin-bottom: 0.5vh;
   justify-content: space-between;
   //width:100%;
-  button {
-    justify-self: flex-start;
-    height: 5vh;
+  @media (max-width: $mobile-view) {
+
   }
 
-  img {
-    justify-self: flex-end;
-    filter: blur(80%);
-    height: 5vh;
+  .buttons {
+    vertical-align: center;
+
+    position: absolute;
+    top:0.5rem;
+    right:0;
+    @media (max-width: $mobile-view) {
+      display: flex;
+    }
+    button {
+      justify-self: flex-start;
+      height: 5vh;
+      @media (max-width: $mobile-view) {
+      }
+
+    }
   }
+    .logo {
+      position: absolute;
+      top:0;
+      left: 0;
+      justify-self: flex-end;
+      height: 6vh;
+    }
+
+
 }
 
 
