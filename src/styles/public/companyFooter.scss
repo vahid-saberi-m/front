@@ -1,5 +1,5 @@
 
-$bg-color: gray;
+$bg-color: white;
 .footer{
   background: $bg-color;
   display: flex;
@@ -8,11 +8,11 @@ $bg-color: gray;
   align-items: center;
   button{
   margin: 1vh 2vw;
-    background-color: gray;
     height: 4vh;
     width: 8vw;
     &:hover{
       background-color: background;
+      color: white;
     }
   }
 }

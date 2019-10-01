@@ -30,10 +30,10 @@ export default {
                 state.candidateExist = response.data.data.candidate;
                 state.candidateInfo = response.data.data;
                 console.log('router');
-                router.push({name: 'applyForm'});
+                router.replace({name: 'applyForm'});
             } else {
                 console.log(response);
-                router.push({name: 'appliedBefore'})
+                router.replace({name: 'appliedBefore'})
             }
         }
     },

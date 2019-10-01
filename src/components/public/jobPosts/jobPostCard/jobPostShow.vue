@@ -67,7 +67,7 @@
                                 <hr>
                                 <v-container row wrap align-center>
                                     <v-flex class="text-xs-center">
-                                        <v-btn color="blue" dark @click="apply(jobPostInfo)">ارسال رزومه</v-btn>
+                                        <v-btn color="blue" dark @click.prevent="apply(jobPostInfo)">ارسال رزومه</v-btn>
 
                                     </v-flex>
                                 </v-container>
@@ -95,7 +95,7 @@
             apply(jobPost) {
                 this.$store.commit('APPLY_JOB_POST', jobPost);
                 this.$store.commit('APPLY_MODAL');
-                this.$router.push({name: 'checkApplicant', params: jobPost.id})
+                this.$router.replace({name: 'checkApplicant', params: jobPost.id})
             }
         }
 

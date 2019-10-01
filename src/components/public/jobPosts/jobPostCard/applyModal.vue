@@ -6,7 +6,9 @@
         >
 
             <v-card>
-            <router-view></router-view>
+            <router-view>
+
+            </router-view>
 
                 <v-card-actions>
                     <v-spacer></v-spacer>

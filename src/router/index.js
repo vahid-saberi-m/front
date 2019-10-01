@@ -40,32 +40,32 @@ const router = new Router({
             component: company,
             children:[
                 {
-                    path: '/check-applicant/:jobPostId',
+                    path: 'check-applicant/:jobPostId',
                     component: checkApplicant,
                     name:'checkApplicant'
                 },
                 {
-                    path: '/apply/:jobPostId',
+                    path: 'apply/:jobPostId',
                     component: applyModal,
                     name:'applyModal'
                 },
                 {
-                    path: '/apply/applied-before',
+                    path: 'apply/applied-before',
                     component: appliedBefore,
                     name:'appliedBefore'
                 },
                 {
-                    path: '/apply/applied-successfully',
+                    path: 'apply/applied-successfully',
                     component: appliedSuccessfully,
                     name:'appliedSuccessfully'
                 },
                 {
-                    path: '/apply/apply-form',
+                    path: 'apply/apply-form',
                     component: applyForm,
                     name:'applyForm'
                 },
                 {
-                    path: '/apply/questions',
+                    path: 'apply/questions',
                     component: questions,
                     name:'questions'
                 },

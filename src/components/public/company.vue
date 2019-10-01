@@ -31,7 +31,7 @@
                     </div>
                 </div>
             </div>
-          <v-divider></v-divider>
+            <v-divider></v-divider>
             <div class="company-massage-container" style="background-color: Background">
 
                 <div class=" card company-massage">
@@ -61,8 +61,8 @@
                 </v-card>
                 <apply-modal></apply-modal>
             </section>
-            <v-divider></v-divider>
             <section v-if="companyInfo.events.length>0">
+                <v-divider></v-divider>
                 <v-card>
                     <v-card-text>
                         <public-events :events="companyInfo.events"></public-events>
@@ -93,8 +93,6 @@
 
         computed: {
             ...mapGetters(['companyInfo']),
-
-            ...mapActions(['retrieveCompany']),
 
         },
 

@@ -5,7 +5,7 @@
                 لطفا آدرس ایمیل خود را وارد نمایید:
                 <v-text-field type="email" style="direction: ltr" v-model="email"></v-text-field>
                 <v-btn
-                        @click="checkApplicant()"
+                        @click.prevent="checkApplicant()"
                 >ارسال</v-btn>
             </v-card-text>
 

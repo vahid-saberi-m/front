@@ -3,17 +3,17 @@
         <v-card>
             <v-card-title>
                 <h5>
-                    <b >
+                    <b>
                         موقعیت های شغلی:
                     </b>
                 </h5>
             </v-card-title>
-            <v-card-text >
+            <v-card-text>
+                <div class="no-jobpost" v-if="jobPosts.length===0">
+                    در حال حاضر موقعیت شغلی خاصی در مجموعه ما وجود ندارد.
+                </div>
                 <v-card v-for="jobPost in jobPosts" :key="jobPost.id">
                     <jobPostShow :jobPostInfo="jobPost" :key="jobPost.id"></jobPostShow>
-                    <div class="card-header" v-if="!jobPosts" :key="jobPost.id">
-                        در حال حاضر موقعیت شغلی خاصی در مجموعه ما وجود ندارد.
-                    </div>
                 </v-card>
             </v-card-text>
         </v-card>
@@ -39,5 +39,9 @@
 </script>
 
 <style scoped>
-
+    .no-jobpost {
+        text-align: center;
+        font-weight: bold;
+        font-size: large;
+    }
 </style>
