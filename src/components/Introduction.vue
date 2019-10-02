@@ -16,6 +16,7 @@
     </div>
     <div class=" plans ">
       <div class="plan card">
+        <div class="annotation">free</div>
         <div class=" plan-name">
           <h2>
             برنزی

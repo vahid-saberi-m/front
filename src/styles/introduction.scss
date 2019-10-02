@@ -51,6 +51,7 @@ template p {
   }
 
   .plan {
+    overflow: hidden;
     display: flex;
     width: 30vw;
     min-height: 40vh;
@@ -63,6 +64,15 @@ template p {
       width: $mobile-width;
       margin: 2vh auto;
       order: 2;
+    }
+    .annotation {
+      position: absolute;
+      color: white;
+      background: grey;
+      padding: 0 3rem;
+      transform: rotate(45deg) translate(2.2rem, 0rem);
+      transform-origin: center;
+      box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.6);
     }
 
     .plan-name {
