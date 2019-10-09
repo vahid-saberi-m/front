@@ -1,30 +1,31 @@
 <template>
-    <div class="cv-folder">
-            <div class="card-header" v-bind:style="{backgroundColor: color + ''}">
-                <h5><b>{{cvFolder.name}}</b></h5>
-            </div>
-            <div @drop="changeApplicationCvFolder(cvFolder.id)"
-                         v-scroll:#scroll-target=""
-                         style=" overflow-y: auto;"
-            >
-                <v-content style="min-width: 100px; height: 550px">
-
-                    <draggable v-model="cvFolderApplication" :options="{group:'people'}"
-                               style=" min-height: 15px;" @start="drag=true "
-                               @end="drag=false">
-                        <v-card v-for="application in cvFolderApplication" :key="application.id"
-                                style="min-width: 100px;">
-
-                                <application :info="application"
-                                ></application>
-
-                        </v-card>
-                    </draggable>
-                </v-content>
-            </div>
-            <v-btn v-if="cvFolder.next_page" @click="loadMoreApplications(cvFolder.id)">بیشتر</v-btn>
-        <v-spacer></v-spacer>
+  <div class="cv-folder">
+    <div class="card-header" v-bind:style="{backgroundColor: color + ''}">
+      <h5><b>{{cvFolder.name}}</b></h5>
     </div>
+    <div @drop="changeApplicationCvFolder(cvFolder.id)"
+         v-scroll:#scroll-target=""
+         style=" overflow-y: auto;"
+    >
+      <div class="cv-folder-body">
+
+        <draggable v-model="cvFolderApplication" :options="{group:'people'}"
+                   style=" min-height: 15px;" @start="drag=true "
+                   @end="drag=false">
+          <div  v-for="application in cvFolderApplication" :key="application.id"
+                  style="min-width: 100px;">
+
+            <application :info="application"
+            ></application>
+
+          </div>
+        </draggable>
+      </div>
+    </div>
+      <button :disabled="!cvFolder.next_page " class=" btn btn-secondary more-button "
+              @click="loadMoreApplications(cvFolder.id)">بیشتر
+      </button>
+  </div>
 </template>
 
 <script>
@@ -89,5 +90,5 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "../../../../../styles/user/jobBoard/jobBoard/cvFolder.scss";
+  @import "../../../../../styles/user/jobBoard/cvFolder";
 </style>

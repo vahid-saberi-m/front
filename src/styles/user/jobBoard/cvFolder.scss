@@ -5,10 +5,25 @@
   background-color: rgba(206, 207, 206, 0.81);
   border-radius: 1rem;
   text-align: center;
-  overflow: hidden;
+  overflow: auto;
+
   .card-header{
     opacity: 70%;
     color: rgba(1,1,1,1);
     border-bottom: white solid 1px;
+  }
+  .cv-folder-body{
+    height: 90vh;
+
+  }
+
+
+  .more-button {
+    bottom: 2vh;
+    margin: 1vh auto;
+
+  }
+  .disabled-button{
+    background-color: #173c77;
   }
 }

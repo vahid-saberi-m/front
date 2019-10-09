@@ -1,16 +1,16 @@
 <template>
 
-    <v-card draggable hover @drag="setMovingApplication(info)"  >
-        <v-card-title   @click="viewCv(info.id)" >
+    <div draggable class="application"  @drag="setMovingApplication(info)"  >
+        <div  class="card-header" @click="viewCv(info.id)" >
             <b>{{info.name}}</b>
-            <v-spacer></v-spacer>
-            <v-icon small @click="deleteApplication(info.id)" >delete</v-icon>
-        </v-card-title>
-        <v-card-text class="text-right">
-           <small>{{info.company}}</small><br>
-           <small>{{info.position}}</small>
-        </v-card-text>
-    </v-card>
+
+            <v-icon class="delete-icon" small @click="deleteApplication(info.id)" >delete</v-icon>
+        </div>
+      <div class="card-body">
+        <div class="">{{info.position}}</div>
+        <div class="">{{info.company}}</div>
+      </div>
+    </div>
 </template>
 
 <script>
@@ -40,6 +40,6 @@
     }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+  @import "../../../../../../styles/user/jobBoard/cvFolders/application";
 </style>

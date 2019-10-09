@@ -38,5 +38,5 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "../../../../styles/user/jobBoard/jobBoard.scss";
+  @import "../../../../styles/user/jobBoard";
 </style>
