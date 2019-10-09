@@ -1,23 +1,31 @@
-
+$mobile-view: 600px;
+$mobile-width: 90vw;
 $bg-color: white;
-.footer{
+.footer {
   background: $bg-color;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  button{
-  margin: 1vh 2vw;
+
+  button {
+    margin: 1vh 2vw;
     height: 4vh;
     width: 8vw;
-    &:hover{
+    @media (max-width: $mobile-view) {
+      align-self: start;
+      width: 100vw;
+      margin-bottom: 4vh;
+    }
+
+    &:hover {
       background-color: background;
       color: white;
     }
   }
 }
 
-.balatar-license{
+.balatar-license {
   background: $bg-color;
   text-align: center;
   padding-bottom: 1rem;

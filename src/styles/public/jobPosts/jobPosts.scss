@@ -1,0 +1,16 @@
+$mobile-view: 600px;
+$mobile-width: 90vw;
+.job-posts-container {
+
+  @media (max-width: $mobile-view) {
+    width: $mobile-width;
+  }
+
+  .job-posts {
+    padding-bottom: 1vh;
+  }
+  .no-jobpost{
+    text-align: center;
+
+  }
+}

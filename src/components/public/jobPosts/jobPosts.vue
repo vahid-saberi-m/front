@@ -1,23 +1,17 @@
 <template>
-    <v-content>
-        <v-card>
+        <v-card class="job-posts-container">
             <v-card-title>
-                <h5>
                     <b>
                         موقعیت های شغلی:
                     </b>
-                </h5>
             </v-card-title>
-            <v-card-text>
+            <div class="job-posts">
                 <div class="no-jobpost" v-if="jobPosts.length===0">
                     در حال حاضر موقعیت شغلی خاصی در مجموعه ما وجود ندارد.
                 </div>
-                <v-card v-for="jobPost in jobPosts" :key="jobPost.id">
-                    <jobPostShow :jobPostInfo="jobPost" :key="jobPost.id"></jobPostShow>
-                </v-card>
-            </v-card-text>
+                    <jobPostShow v-for="jobPost in jobPosts" :key="jobPost.id" :jobPostInfo="jobPost" ></jobPostShow>
+            </div>
         </v-card>
-    </v-content>
 </template>
 
 <script>
@@ -38,10 +32,7 @@
     }
 </script>
 
-<style scoped>
-    .no-jobpost {
-        text-align: center;
-        font-weight: bold;
-        font-size: large;
-    }
+<style lang="scss" scoped>
+  @import "../../../styles/public/jobPosts/jobPosts";
+
 </style>

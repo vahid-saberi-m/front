@@ -1,0 +1,13 @@
+$mobile-view: 600px;
+$mobile-width: 90vw;
+.about{
+  background-color: Background;
+  .buttons{
+    overflow: auto;
+    background-color: white;
+    //border: solid 1px gray;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+  }
+}

@@ -1,7 +1,7 @@
 <template>
     <div>
 
-        <v-expansion-panel dark inset focusable
+        <v-expansion-panel dark inset focusable class="job-post"
         >
             <v-expansion-panel-content
             >
@@ -12,58 +12,50 @@
                         </v-card-title>
                         <v-spacer></v-spacer>
                     </slot>
-                    <v-card >
+                    <div class="job-post-content">
                         <v-card-title>
                         </v-card-title>
-                        <v-card-text>
-                            <v-card-text
-                                    name="input-7-1"
-                                    label="شرح موقعیت شغلی"
-                                    :value=jobPostInfo.description
-                                    hint=""
-                                    append-icon="edit"
-                                    class="text-xs-right"
+                        <div>
 
-                            >
-                                <v-card>
-                                    <v-card-title>
+                                <div class="card">
+                                    <div class="label">
                                         <h6>
                                         شرح شغل
                                         </h6>
-                                    </v-card-title>
+                                    </div>
                                     <v-container>
-                                        <v-card-text>
+                                        <div class="content">
                                             {{jobPostInfo.description}}
-                                        </v-card-text>
+                                        </div>
                                     </v-container>
 
-                                </v-card>
+                                </div>
                                 <v-divider></v-divider>
-                                <v-card>
-                                    <v-card-title>
+                                <div class="card">
+                                    <div>
                                         <h6>
                                                 ویژگی های مورد نیاز
                                         </h6>
-                                    </v-card-title>
+                                    </div>
                                     <v-container>
-                                        <v-card-text>
+                                        <div>
                                             {{jobPostInfo.requirements}}
-                                        </v-card-text>
+                                        </div>
                                     </v-container>
-                                </v-card>
+                                </div>
                                 <v-divider></v-divider>
-                                <v-card>
-                                    <v-card-title>
+                                <div class="card">
+                                    <div>
                                         <h6>
                                         حقوق و مزایای در نظر گرفته شده:
                                         </h6>
-                                    </v-card-title>
+                                    </div>
                                     <v-container>
-                                        <v-card-text>
+                                        <div>
                                             {{jobPostInfo.benefits}}
-                                        </v-card-text>
+                                        </div>
                                     </v-container>
-                                </v-card>
+                                </div>
                                 <hr>
                                 <v-container row wrap align-center>
                                     <v-flex class="text-xs-center">
@@ -71,9 +63,9 @@
 
                                     </v-flex>
                                 </v-container>
-                            </v-card-text>
-                        </v-card-text>
-                    </v-card>
+
+                        </div>
+                    </div>
                 </template>
             </v-expansion-panel-content>
         </v-expansion-panel>
@@ -102,6 +94,7 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+  @import "../../../../styles/public/jobPosts/jobPostCard/jobPostShow.scss";
 
 </style>

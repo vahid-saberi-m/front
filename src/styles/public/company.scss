@@ -1,3 +1,5 @@
+$mobile-view: 600px;
+$mobile-width: 90vw;
 #app {
   color: black;
   direction: rtl;
@@ -12,10 +14,16 @@
     img {
       width: 10vw;
       margin: 0 1rem;
+      @media (max-width: $mobile-view) {
+        width: 30vw;
+      }
     }
 
     .page-links {
       justify-self: end;
+      @media (max-width: $mobile-view) {
+        display: none;
+      }
 
       a {
         margin: 0 1rem;
@@ -30,6 +38,9 @@
     width: 100vw;
     background-repeat: no-repeat;
     background-size: cover;
+    @media (max-width: $mobile-view) {
+      height: 90vw;
+    }
 
     .background {
       position: relative;
@@ -45,6 +56,10 @@
       background-color: rgba(249, 251, 255, 0.92);
       color: black;
       width: 33vw;
+      @media (max-width: $mobile-view) {
+        width: 90vw;
+        margin: 10vh 5vw;
+      }
 
       img {
         margin: 3vh 2vw;
@@ -55,12 +70,18 @@
 
   .company-massage-container {
     margin: 1rem auto;
-    padding: 1rem;
+    //padding: 1rem;
+    display: flex;
+    justify-content:center;
     .company-massage {
       color: black;
       text-align: center;
       margin: 1vh 20vw;
       border-radius: 1rem;
+      @media (max-width: $mobile-view) {
+        width: $mobile-width;
+        margin: 10vh 5vw;
+      }
 
       .card-header {
         font-size: large;

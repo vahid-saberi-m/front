@@ -1,0 +1,32 @@
+$mobile-view: 600px;
+$mobile-width: 90vw;
+.job-post {
+  text-align: right;
+  width: $mobile-width;
+  margin: 1vh auto ;
+  @media (max-width: $mobile-view) {
+    width: $mobile-width;
+  }
+
+  .job-post-content {
+    color: black;
+    @media (max-width: $mobile-view) {
+      width: 90%;
+      margin:auto;
+    }
+
+    .title {
+      @media (max-width: $mobile-view) {
+        width: $mobile-width !important;
+      }
+    }
+
+    .content {
+      color: #173c77;
+      @media (max-width: $mobile-view) {
+        width: $mobile-width !important;
+      }
+    }
+
+  }
+}
