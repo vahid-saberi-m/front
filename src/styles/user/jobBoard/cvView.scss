@@ -1,0 +1,14 @@
+.application-modal{
+  background-color: white;
+
+  .card-body{
+    display: flex;
+    flex-direction: row-reverse ;
+    .cv-info{
+      width: 30vw;
+    }
+    .pdf-view{
+      width: 60vw;
+    }
+  }
+}

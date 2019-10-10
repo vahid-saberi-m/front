@@ -2,48 +2,35 @@
     <div class="text-xs-center" v-if="applicationViewCv">
         <v-dialog
                 v-model="dialog"
-                width="100%"
+                width="96vw"
         >
 
 
-            <v-card style="direction: rtl">
-                <v-card-title
-                        class="headline grey lighten-2"
-                        primary-title
+            <div class="application-modal">
+                <div class="card-header"
                 >
 
-                </v-card-title>
+                </div>
 
-                <v-card-text>
-                    <v-container  text-xs-center>
+                <div class="card-body">
+                    <div class="cv-info">
 
-                        <v-layout row >
-                            <v-flex xs5>
-
-                                <applicant-info-card></applicant-info-card>
-                                <cv-view-cv-folder  :id="applicationViewCv.cv_folder_id"></cv-view-cv-folder>
-                            </v-flex>
-                            <v-flex xs 7>
-                                <cv-pdf-viewer :address="applicationViewCv.cv"></cv-pdf-viewer>
-                                <cv-foldr-stash :id="applicationViewCv.cv_folder_id" ></cv-foldr-stash>
-                            </v-flex>
-                        </v-layout>
-                    </v-container>
-                </v-card-text>
-
-                <v-divider></v-divider>
-
-                <v-card-actions>
-                    <v-spacer></v-spacer>
-                    <v-btn
-                            color="primary"
-                            flat
+                        <applicant-info-card></applicant-info-card>
+                        <cv-foldr-stash :id="applicationViewCv.cv_folder_id"></cv-foldr-stash>
+                        <cv-view-cv-folder :id="applicationViewCv.cv_folder_id"></cv-view-cv-folder>
+                    </div>
+                    <div class="pdf-view">
+                        <cv-pdf-viewer :address="applicationViewCv.cv"></cv-pdf-viewer>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-secondary"
                             @click="dialog = false"
                     >
                         خروج
-                    </v-btn>
-                </v-card-actions>
-            </v-card>
+                    </button>
+                </div>
+            </div>
         </v-dialog>
     </div>
 </template>
@@ -70,12 +57,12 @@
                 },
             }
         },
-        created(){
+        created() {
         }
 
     }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+    @import "../../../../styles/user/jobBoard/cvView";
 </style>

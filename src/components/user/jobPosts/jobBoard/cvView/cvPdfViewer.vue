@@ -1,15 +1,9 @@
 <template>
     <div>
-        <!--<pdf v-for="i in numPages"-->
-             <!--:key="i"-->
-             <!--:src="address"-->
-             <!--:page="i"-->
-             <!--@progress=""-->
-        <!--/>-->
-        <div style="width: 100%">
-            <div v-if="loadedRatio > 0 && loadedRatio < 1"
-                 style="background-color: green; color: white; text-align: center"
-                 :style="{ width: loadedRatio * 100 + '%' }">{{ Math.floor(loadedRatio * 100) }}%</div>
+        <div style="width: 50vw; height: 100vh">
+            <!--<div v-if="loadedRatio > 0 && loadedRatio < 1"-->
+                 <!--style="background-color: green; color: white; text-align: center"-->
+                 <!--:style="{ width: loadedRatio * 100 + '%' }">{{ Math.floor(loadedRatio * 100) }}%</div>-->
             <pdf v-if="show" ref="pdf"
                  style="border: 1px solid black"
                  :src="src" :page="page"

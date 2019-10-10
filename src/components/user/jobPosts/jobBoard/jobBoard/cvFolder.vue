@@ -4,7 +4,6 @@
       <h5><b>{{cvFolder.name}}</b></h5>
     </div>
     <div @drop="changeApplicationCvFolder(cvFolder.id)"
-         v-scroll:#scroll-target=""
          style=" overflow-y: auto;"
     >
       <div class="cv-folder-body">

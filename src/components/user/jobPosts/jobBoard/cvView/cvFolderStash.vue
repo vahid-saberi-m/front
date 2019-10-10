@@ -1,36 +1,38 @@
 <template>
-    <v-card>
-        <v-card-title>
+    <div class="card">
+        <div class="card-header">
             انتقال به یکی از پوشه ها:
-        </v-card-title>
-        <v-layout row>
-        <v-card-text v-for="cvFolder in cvFolders" :key="cvFolder.id">
-            <v-btn v-if="cvFolder.id!==id" @click="changeApplicationCvFolder(cvFolder.id)">
-                {{cvFolder.name}}
-            </v-btn>
-        </v-card-text>
-        </v-layout>
-    </v-card>
-    
+        </div>
+        <div class="card-body">
+            <div class="button-div" v-for="cvFolder in cvFolders" :key="cvFolder.id">
+                <button class="btn btn-secondary" v-if="cvFolder.id!==id"
+                        @click="changeApplicationCvFolder(cvFolder.id)">
+                    {{cvFolder.name}}
+                </button>
+            </div>
+        </div>
+    </div>
+
 </template>
 
 <script>
     import {mapGetters} from 'vuex'
+
     export default {
         name: "cvFoldrStash",
-        props:['id'],
-        computed:{
+        props: ['id'],
+        computed: {
             ...mapGetters(['cvFolders'])
         },
-        methods:{
-            changeApplicationCvFolder(cvFolderId){
-                this.$store.commit('TARGET_CV_FOLDER',cvFolderId);
+        methods: {
+            changeApplicationCvFolder(cvFolderId) {
+                this.$store.commit('TARGET_CV_FOLDER', cvFolderId);
                 this.$store.dispatch('changeApplicationCvFolder')
             },
         }
     }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+    @import "../../../../../styles/user/jobBoard/cvView/cvFolderStash";
 </style>
