@@ -5,7 +5,7 @@
                  <!--style="background-color: green; color: white; text-align: center"-->
                  <!--:style="{ width: loadedRatio * 100 + '%' }">{{ Math.floor(loadedRatio * 100) }}%</div>-->
             <pdf v-if="show" ref="pdf"
-                 style="border: 1px solid black"
+                 style="border: 1px solid black; height: 83vh"
                  :src="src" :page="page"
                  @progress="loadedRatio = $event"
                  @error="error"

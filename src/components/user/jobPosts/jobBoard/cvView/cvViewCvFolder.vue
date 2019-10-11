@@ -1,41 +1,28 @@
 <template>
-    <v-card style="direction: rtl">
-
         <div class="cv-folder-body">
+                <div  class="application"  v-for="application in jobPostApplications" :key="application.id">
 
+                        <div  class="card-header" @click="viewCv(application.id)" >
+                            <b>{{application.name}}</b>
 
-                <div  v-for="application in jobPostApplications" :key="application.id"
-                      style="min-width: 100px;">
-
-                    <application :info="application"
-                    ></application>
+                            <v-icon class="delete-icon" small @click="deleteApplication(application.id)" >delete</v-icon>
+                        </div>
+                        <div class="card-body">
+                            <div class="">{{application.position}}</div>
+                            <div class="">{{application.company}}</div>
+                        </div>
 
                 </div>
         </div>
-
-        <!--<v-card-title>-->
-            <!--{{name}}-->
-        <!--</v-card-title>-->
-        <!--<v-card-text>-->
-            <!--<v-content v-for="application in jobPostApplications" :key="application.id">-->
-                <!--<v-card v-if="application.cv_folder_id===id">-->
-                    <!--<cv-view-application :info="application" :key="application.id"-->
-                    <!--&gt;</cv-view-application>-->
-                <!--</v-card>-->
-            <!--</v-content>-->
-        <!--</v-card-text>-->
-    </v-card>
 </template>
 
 <script>
     import {mapGetters} from 'vuex'
     import draggable from 'vuedraggable'
     import CvViewApplication from "./cvViewCvFolder/cvViewApplication";
-    import application from "../jobBoard/cvFolders/application"
-
     export default {
         name: "cvViewCvFolder",
-        components: {CvViewApplication,application, draggable},
+        components: {CvViewApplication, draggable},
         props: ['id', 'name',],
         computed: {
             ...mapGetters(['cvFolderApplications', 'jobPostApplications']),
@@ -66,11 +53,17 @@
                 this.$store.dispatch('changeApplicationCvFolder')
             },
 
+            deleteApplication(id){
+                this.$store.dispatch('deleteApplication',id)
+            },
+            viewCv(id){
+                this.$store.dispatch('applicationViewCv',id);
+            },
 
         }
     }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+    @import "../../../../../styles/user/jobBoard/cvView/cvViewCvFolder";
 </style>

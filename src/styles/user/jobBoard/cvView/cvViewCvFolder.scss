@@ -1,0 +1,36 @@
+$card-color: rgb(238, 238, 238);
+.cv-folder-body {
+  margin: 1vh 0;
+  overflow: auto;
+  height: 60vh;
+  border: grey solid 1px;
+  .application {
+    background-color:$card-color ;
+    margin: 3px 1vw;
+    min-width: 100px;
+    display: flex;
+    flex-direction: column;
+    //border: 1px solid gray;
+    //width: auto;
+    direction: rtl;
+
+    .card-header {
+
+      background-color: $card-color;
+      border: none;
+      display: flex;
+      justify-content: space-between;
+      .delete-icon {
+        justify-self: flex-end;
+      }
+    }
+    .card-body {
+      display: flex;
+      justify-content: space-between;
+    }
+    &:hover {
+      border: 1px solid #173c77;
+      cursor: pointer;
+    }
+  }
+}
