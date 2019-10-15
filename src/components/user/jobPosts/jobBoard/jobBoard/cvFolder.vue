@@ -1,15 +1,13 @@
 <template>
-  <div class="cv-folder">
+  <div  @drop="changeApplicationCvFolder(cvFolder.id)" class="cv-folder">
     <div class="card-header" v-bind:style="{backgroundColor: color + ''}">
       <h5><b>{{cvFolder.name}}</b></h5>
     </div>
-    <div @drop="changeApplicationCvFolder(cvFolder.id)"
-         style=" overflow-y: auto;"
-    >
+    <div>
       <div class="cv-folder-body">
 
         <draggable v-model="cvFolderApplication" :options="{group:'people'}"
-                   style=" min-height: 15px;" @start="drag=true "
+                   style=" min-height: 80vh;" @start="drag=true "
                    @end="drag=false">
           <div  v-for="application in cvFolderApplication" :key="application.id"
                   style="min-width: 100px;">
