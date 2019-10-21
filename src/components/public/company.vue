@@ -108,8 +108,8 @@
         // this.$store.dispatch('retrieveCompany', this.id);
 
         beforeMount() {
-            // this.backgroundImage= `url(${this.companyInfo.main_photo})`;
-            this.backgroundImage = `url(http://files.balatar.inpin.co/companies/main_photos/aGC5IZuGKFgTN516xxzfXgjH0BY0DPiVsmf6X0AC.jpeg)`;
+            this.backgroundImage= `url(${this.companyInfo.main_photo})`;
+            // this.backgroundImage = `url(http://files.balatar.inpin.co/companies/main_photos/aGC5IZuGKFgTN516xxzfXgjH0BY0DPiVsmf6X0AC.jpeg)`;
 
         },
         created() {
