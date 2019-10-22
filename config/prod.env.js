@@ -2,6 +2,6 @@
 module.exports = {
   NODE_ENV: '"production"',
     BASE_URL:'"http://api.bala-tar.ir"',
-    CLIENT_SECRET:'"J6rTcjFWJTFSYzIb8XVQd9Y2RnFL9RCWQUr6PFUw"',
-    CLIENT_ID:'1'
+    CLIENT_SECRET:'"umAv3VxpYspaUPdZzZhzQ36M74ljuKmKaouBuU0w"',
+    CLIENT_ID:'2'
 };
