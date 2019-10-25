@@ -1,7 +1,16 @@
 <template>
     <div >
         <cvView :dialog="applicationDialog" ></cvView>
+        <div class="tools">
+            <button class="btn ">
+                <i class="material-icons">mail</i>
+                <br>
+                <b>
+                    ایمیل دریافت رزومه
+                </b>
 
+            </button>
+        </div>
         <div class="cv-folders">
             <cv-folder v-for="cvFolder in cvFolders" :key="cvFolder.id" :cvFolder="cvFolder"></cv-folder>
         </div>

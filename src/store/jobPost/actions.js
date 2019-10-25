@@ -15,6 +15,7 @@ export default ({
     jobBoard(context, jobPostId) {
         request.get('/api/job-post/job-board/' + jobPostId)
             .then(response => {
+                context.commit('JOB_BOARD_JOB_EMAIL_TEMPLATE', response)
                 context.commit('JOB_BOARD_CV_FOLDERS', response)
             })
     },

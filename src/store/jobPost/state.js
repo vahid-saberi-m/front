@@ -5,4 +5,5 @@ export default {
     waitingJobPosts:null,
     expiredJobPosts:null,
     publicJobPosts:null,
+    emailTemplate:null,
 };

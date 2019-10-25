@@ -18,5 +18,8 @@ export default {
     [types.PUBLIC_JOB_POSTS]: function (state, response) {
         state.publicJobPosts = response.data.data;
     },
+    [types.JOB_BOARD_JOB_EMAIL_TEMPLATE]: function (state, response) {
+        state.jobPostEmailTemplate = response.data.data.email_template;
+    },
 
 };
