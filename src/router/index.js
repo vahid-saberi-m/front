@@ -22,6 +22,10 @@ import applyForm from '@/components/public/jobPosts/jobPostCard/applyModal/apply
 import questions from '@/components/public/jobPosts/jobPostCard/applyModal/questions'
 import checkApplicant from '@/components/public/jobPosts/jobPostCard/applyModal/checkApplicant'
 import appliedBefore from '@/components/public/jobPosts/jobPostCard/applyModal/appliedBefore'
+import jobPostEmailTemplate
+  from "../components/user/jobPosts/jobBoard/jobBoard/cvFolders/emailTemplateModl/jobPostEmailTemplate";
+import cvFolderEmailTemplate
+  from "../components/user/jobPosts/jobBoard/jobBoard/cvFolders/emailTemplateModl/cvFolderEmailTemplate";
 
 Vue.use(Router);
 
@@ -136,7 +140,25 @@ const router = new Router({
                     meta: {
                         requiresAuth: true
                     },
-                    component: jobBoard
+                    component: jobBoard,
+                  children:[
+                    {
+                      path: '/job_board/:id/email/job-post-email',
+                      name: 'jobPostEmail',
+                      meta: {
+                        requiresAuth: true
+                      },
+                      component: jobPostEmailTemplate
+                    },
+                    {
+                      path: '/job_board/:id/email/cv-folder-email/:cv-folder',
+                      name: 'cvFolderEmail',
+                      meta: {
+                        requiresAuth: true
+                      },
+                      component: cvFolderEmailTemplate
+                    },
+                  ]
                 },
                 {
                     path: '/admin/company/edit',

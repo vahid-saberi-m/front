@@ -21,8 +21,12 @@ export default {
     [types.JOB_BOARD_JOB_EMAIL_TEMPLATE]: function (state, response) {
         state.jobPostEmailTemplate = response.data.data.email_template;
     },
-    [types.EMAIL_TEMPLATE_MODAL]: function (state, modal) {
-        state.emailTemplateModal = modal;
+  [types.JOB_BOARD_JOB_EMAIL_TEMPLATE_SETTER]: function (state, $payload) {
+        state.jobPostEmailTemplate = $payload;
     },
+    [types.EMAIL_TEMPLATE_MODAL]: function (state) {
+        state.emailTemplateModal = !state.emailTemplateModal;
+    },
+
 
 };

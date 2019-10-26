@@ -19,4 +19,7 @@ export default {
     emailTemplateModal(state){
         return state.emailTemplateModal
     },
+  jobPostEmailTemplate(state){
+        return state.jobPostEmailTemplate
+    },
 };

@@ -1,7 +1,7 @@
 <template>
     <div >
         <cvView :dialog="applicationDialog" ></cvView>
-        <div @click.prevent="onEmailTemplateModal " class="tools">
+        <div @click.prevent="onJobPostEmailTemplateModal " class="tools">
             <button  class="btn ">
                 <i class="material-icons">mail</i>
                 <br>
@@ -11,10 +11,21 @@
 
             </button>
         </div>
-        <email-template-modal></email-template-modal>
-        <div class="modal" id="myModal">
-            <input type="text"/>
+      <v-dialog
+        v-model="emailTemplateModal"
+        width="96vw"
+      >
+
+
+        <router-view></router-view>
+        <div class="card-footer">
+          <button class="btn btn-secondary"
+                  @click="emailTemplateModal = false"
+          >
+            خروج
+          </button>
         </div>
+      </v-dialog>
         <div class="cv-folders">
             <cv-folder v-for="cvFolder in cvFolders" :key="cvFolder.id" :cvFolder="cvFolder"></cv-folder>
         </div>
@@ -25,16 +36,12 @@
     import {mapGetters} from 'vuex'
     import cvFolder from "./jobBoard/cvFolder";
     import cvView from "./cvView"
-    import application from './jobBoard/cvFolders/application'
-    import emailTemplateModal from './jobBoard/emailTemplateModal'
-
     export default {
         name: "jobBoard",
-        components: {cvFolder, cvView,application,emailTemplateModal},
+        components: {cvFolder, cvView},
         data() {
             return {
                 id: this.$route.params.id,
-                // dialog: false
             }
         },
         computed: {
@@ -44,7 +51,7 @@
                     return this.$store.getters['emailTemplateModal']
                 },
                 set() {
-                    this.$store.commit('EMAIL_TEMPLATE_MODAL',true)
+                    this.$store.commit('EMAIL_TEMPLATE_MODAL')
                 },
             }
         },
@@ -55,9 +62,9 @@
         mounted(){
     },
         methods:{
-            onEmailTemplateModal(){
-                this.emailTemplateModal=false;
-                console.log(emailTemplateModal);
+            onJobPostEmailTemplateModal(){
+                this.$store.commit('EMAIL_TEMPLATE_MODAL');
+                this.$router.push({name: 'jobPostEmail', params:{id: this.id} })
             }
         }
     }

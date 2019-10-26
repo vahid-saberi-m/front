@@ -99,6 +99,13 @@ export default ({
             .then(response=>{
                 context.commit(types.PUBLIC_JOB_POSTS,response)
             })
-    }
+    },
+  updateJobPostEmailTemplate(context, payload){
+      console.log(payload);
+    request.post('/api/job-post/add-email-template/'+ payload.id,payload.template)
+      .then(response=>{
+        context.commit(types.JOB_BOARD_JOB_EMAIL_TEMPLATE,response)
+      })
+  }
 });
 
