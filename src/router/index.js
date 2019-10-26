@@ -26,6 +26,7 @@ import jobPostEmailTemplate
   from "../components/user/jobPosts/jobBoard/jobBoard/cvFolders/emailTemplateModl/jobPostEmailTemplate";
 import cvFolderEmailTemplate
   from "../components/user/jobPosts/jobBoard/jobBoard/cvFolders/emailTemplateModl/cvFolderEmailTemplate";
+import cvView from "../components/user/jobPosts/jobBoard/cvView";
 
 Vue.use(Router);
 
@@ -141,6 +142,7 @@ const router = new Router({
                         requiresAuth: true
                     },
                     component: jobBoard,
+
                   children:[
                     {
                       path: '/job_board/:id/email/job-post-email',

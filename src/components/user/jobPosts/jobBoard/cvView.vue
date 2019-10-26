@@ -1,9 +1,6 @@
 <template>
     <div class="text-xs-center" v-if="applicationViewCv">
-        <v-dialog
-                v-model="dialog"
-                width="96vw"
-        >
+
 
 
             <div class="application-modal">
@@ -31,7 +28,6 @@
                     </button>
                 </div>
             </div>
-        </v-dialog>
     </div>
 </template>
 
@@ -48,14 +44,7 @@
         components: {CvViewCvFolder, CvPdfViewer, CvFoldrStash, CvFolder, ApplicantInfoCard},
         computed: {
             ...mapGetters(['applicationDialog', 'applicationViewCv']),
-            dialog: {
-                get() {
-                    return this.$store.getters['applicationDialog']
-                },
-                set() {
-                    this.$store.commit('APPLICATION_DIALOG')
-                },
-            }
+
         },
         created() {
         }

@@ -1,7 +1,7 @@
 <template>
 
-    <div draggable class="application"  @drag="setMovingApplication(info)"  >
-        <div  class="card-header" @click="viewCv(info.id)" >
+    <div draggable class="application"  @drag="setMovingApplication(info)" @click="viewCv(info.id)" >
+        <div  class="card-header"  >
             <b>{{info.name}}</b>
 
             <v-icon class="delete-icon" small @click="deleteApplication(info.id)" >delete</v-icon>
@@ -33,6 +33,7 @@
             viewCv(id){
                 this.$store.dispatch('applicationViewCv',id);
                 this.$store.commit('APPLICATION_DIALOG');
+                this.$router.push()
             },
 
         },

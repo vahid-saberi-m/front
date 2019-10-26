@@ -1,7 +1,13 @@
 <template>
     <div >
-        <cvView :dialog="applicationDialog" ></cvView>
-        <div @click.prevent="onJobPostEmailTemplateModal " class="tools">
+      <v-dialog
+        v-model="dialog"
+        width="96vw"
+      >
+        <router-view name="cvView"></router-view>
+      </v-dialog>
+
+      <div @click.prevent="onJobPostEmailTemplateModal " class="tools">
             <button  class="btn ">
                 <i class="material-icons">mail</i>
                 <br>
@@ -52,6 +58,14 @@
                 },
                 set() {
                     this.$store.commit('EMAIL_TEMPLATE_MODAL')
+                },
+            },
+            dialog: {
+                get() {
+                    return this.$store.getters['applicationDialog']
+                },
+                set() {
+                    this.$store.commit('APPLICATION_DIALOG')
                 },
             }
         },
