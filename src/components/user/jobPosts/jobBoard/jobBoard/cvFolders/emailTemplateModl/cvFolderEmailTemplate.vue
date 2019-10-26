@@ -25,6 +25,13 @@
     import {mapGetters} from 'vuex'
     export default {
         name: "cvFolderEmailTemplate",
+        watch: {
+            '$route': function (refreshPage) {
+                var cvFolder = this.$store.state.route.params.cvFolder;
+                this.$store.dispatch('retrieveCvFolderEmail', cvFolder)
+
+            },
+        },
         data() {
             return {
                 id: this.$route.params.cvFolder,
