@@ -1,7 +1,20 @@
 <template>
     <div >
         <cvView :dialog="applicationDialog" ></cvView>
+        <div @click.prevent="onEmailTemplateModal " class="tools">
+            <button  class="btn ">
+                <i class="material-icons">mail</i>
+                <br>
+                <b>
+                    ایمیل دریافت رزومه
+                </b>
 
+            </button>
+        </div>
+        <email-template-modal></email-template-modal>
+        <div class="modal" id="myModal">
+            <input type="text"/>
+        </div>
         <div class="cv-folders">
             <cv-folder v-for="cvFolder in cvFolders" :key="cvFolder.id" :cvFolder="cvFolder"></cv-folder>
         </div>
@@ -13,18 +26,27 @@
     import cvFolder from "./jobBoard/cvFolder";
     import cvView from "./cvView"
     import application from './jobBoard/cvFolders/application'
+    import emailTemplateModal from './jobBoard/emailTemplateModal'
 
     export default {
         name: "jobBoard",
-        components: {cvFolder, cvView,application},
+        components: {cvFolder, cvView,application,emailTemplateModal},
         data() {
             return {
                 id: this.$route.params.id,
-                dialog: false
+                // dialog: false
             }
         },
         computed: {
-            ...mapGetters(['cvFolders','applicationDialog'])
+            ...mapGetters(['cvFolders','applicationDialog','emailTemplateModal', ]),
+            emailTemplateModal: {
+                get() {
+                    return this.$store.getters['emailTemplateModal']
+                },
+                set() {
+                    this.$store.commit('EMAIL_TEMPLATE_MODAL',true)
+                },
+            }
         },
         created() {
             // this.$store.dispatch('retrieveCvFolders', this.id);
@@ -33,6 +55,10 @@
         mounted(){
     },
         methods:{
+            onEmailTemplateModal(){
+                this.emailTemplateModal=false;
+                console.log(emailTemplateModal);
+            }
         }
     }
 </script>
