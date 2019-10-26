@@ -18,15 +18,17 @@ export default {
     [types.PUBLIC_JOB_POSTS]: function (state, response) {
         state.publicJobPosts = response.data.data;
     },
-    [types.JOB_BOARD_JOB_EMAIL_TEMPLATE]: function (state, response) {
-        state.jobPostEmailTemplate = response.data.data.email_template;
-    },
-  [types.JOB_BOARD_JOB_EMAIL_TEMPLATE_SETTER]: function (state, $payload) {
+
+  [types.JOB_BOARD_MODAL]: function (state, $payload) {
         state.jobPostEmailTemplate = $payload;
     },
     [types.EMAIL_TEMPLATE_MODAL]: function (state) {
         state.emailTemplateModal = !state.emailTemplateModal;
     },
+    [types.JOB_POST_EMAIL_TEMPLATE]: function (state,payload) {
+        state.jobPostEmailTemplate = payload;
+    },
+
 
 
 };

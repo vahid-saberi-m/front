@@ -1,25 +1,28 @@
 import _ from 'lodash'
 
 export default {
-    lastFiveJobPosts(state){
+    lastFiveJobPosts(state) {
         return state.lastFiveJobPosts
     },
-    liveJobPosts(state){
+    liveJobPosts(state) {
         return state.liveJobPosts
     },
-    waitingJobPosts(state){
+    waitingJobPosts(state) {
         return state.waitingJobPosts
     },
-    expiredJobPosts(state){
+    expiredJobPosts(state) {
         return state.expiredJobPosts
     },
-    publicJobPosts(state){
+    publicJobPosts(state) {
         return state.publicJobPosts
     },
-    emailTemplateModal(state){
+    emailTemplateModal(state) {
         return state.emailTemplateModal
     },
-  jobPostEmailTemplate(state){
+    jobBoardModal(state) {
         return state.jobPostEmailTemplate
     },
+    jobPostEmailTemplate(state){
+        return state.jobPostEmailTemplate
+    }
 };

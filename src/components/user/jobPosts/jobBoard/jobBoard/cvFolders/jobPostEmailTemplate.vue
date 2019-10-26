@@ -32,13 +32,13 @@
             }
         },
         computed: {
-            ...mapGetters(['jobPostEmailTemplate','emailTemplateModal', ]),
-            emailTemplateModal: {
+            ...mapGetters(['jobPostEmailTemplate','jobBoardModal' ]),
+            jobBoardModal: {
                 get() {
-                    return this.$store.getters['emailTemplateModal']
+                    return this.$store.getters['jobBoardModal']
                 },
-                set() {
-                    this.$store.commit('EMAIL_TEMPLATE_MODAL')
+                set(payload) {
+                    this.$store.commit('JOB_BOARD_MODAL', payload)
                 },
             },
             jobPostEmailTemplate:{
@@ -46,14 +46,14 @@
                     return this.$store.getters['jobPostEmailTemplate']
                 },
                 set(template) {
-                    this.$store.commit('JOB_BOARD_JOB_EMAIL_TEMPLATE_SETTER',template)
+                    this.$store.commit('JOB_POST_EMAIL_TEMPLATE',template)
                 },
             },
 
         },
         methods:{
             updateJobPostEmailTemplate(){
-                console.log(this.jobPostEmailTemplate);
+                console.log('jp email template'+this.id);
                 this.$store.dispatch( 'updateJobPostEmailTemplate',{id: this.id,
                     template: {'email_template':this.jobPostEmailTemplate}})
             }

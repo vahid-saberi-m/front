@@ -41,12 +41,24 @@
 
     export default {
         name: "cvView",
+        watch: {
+            '$route': function (refreshPage) {
+                var id = this.$store.state.route.params.id;
+                this.$store.dispatch('applicationViewCv',id);
+            },
+        },
         components: {CvViewCvFolder, CvPdfViewer, CvFoldrStash, CvFolder, ApplicantInfoCard},
+        data() {
+            return {
+                id: this.$route.params.id,
+            }
+        },
         computed: {
             ...mapGetters(['applicationDialog', 'applicationViewCv']),
 
         },
         created() {
+            this.$store.dispatch('applicationViewCv',this.id);
         }
 
     }

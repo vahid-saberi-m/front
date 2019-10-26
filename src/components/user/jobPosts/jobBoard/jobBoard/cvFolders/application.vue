@@ -31,9 +31,8 @@
                 this.$store.dispatch('deleteApplication',id)
             },
             viewCv(id){
-                this.$store.dispatch('applicationViewCv',id);
-                this.$store.commit('APPLICATION_DIALOG');
-                this.$router.push()
+                this.$store.commit('JOB_BOARD_MODAL',true);
+                this.$router.push({name: 'cvView', params:{id: id} })
             },
 
         },

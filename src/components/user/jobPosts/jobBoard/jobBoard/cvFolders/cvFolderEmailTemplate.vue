@@ -38,7 +38,7 @@
             }
         },
         mounted(){
-            console.log('dfassdafdf ' + this.id),
+            console.log('dfassdafdf ' + this.id);
             this.$store.dispatch('retrieveCvFolderEmail',this.id)
         },
         computed: {

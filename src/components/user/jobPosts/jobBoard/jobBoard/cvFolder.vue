@@ -40,13 +40,13 @@
         props: ['cvFolder'],
         components: {application, draggable},
         computed: {
-            ...mapGetters(['emailTemplateModal', ]),
-            emailTemplateModal: {
+            ...mapGetters(['jobBoardModal', ]),
+            jobBoardModal: {
                 get() {
-                    return this.$store.getters['emailTemplateModal']
+                    return this.$store.getters['jobBoardModal']
                 },
-                set() {
-                    this.$store.commit('EMAIL_TEMPLATE_MODAL')
+                set(payload) {
+                    this.$store.commit('JOB_BOARD_MODAL', payload)
                 },
             },
             cvFolderApplication: {
@@ -93,7 +93,7 @@
                 this.i++;
             },
             cvFolderEmail(id){
-                this.$store.commit('EMAIL_TEMPLATE_MODAL');
+                this.$store.commit('JOB_BOARD_MODAL',true);
                 console.log('id'+id);
                 this.$router.push({name: 'cvFolderEmail', params:{cvFolder: id} })
             }

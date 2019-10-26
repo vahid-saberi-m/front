@@ -1,13 +1,8 @@
 <template>
     <div >
-      <v-dialog
-        v-model="dialog"
-        width="96vw"
-      >
-        <router-view name="cvView"></router-view>
-      </v-dialog>
 
-      <div @click.prevent="onJobPostEmailTemplateModal " class="tools">
+
+      <div @click.prevent="onJobPostEmailTemplateModal(id) " class="tools">
             <button  class="btn ">
                 <i class="material-icons">mail</i>
                 <br>
@@ -18,7 +13,7 @@
             </button>
         </div>
       <v-dialog
-        v-model="emailTemplateModal"
+        v-model="jobBoardModal"
         width="96vw"
       >
 
@@ -26,7 +21,7 @@
         <router-view></router-view>
         <div class="card-footer">
           <button class="btn btn-secondary"
-                  @click="emailTemplateModal = false"
+                  @click="jobBoardModal = false"
           >
             خروج
           </button>
@@ -52,22 +47,14 @@
         },
         computed: {
             ...mapGetters(['cvFolders','applicationDialog','emailTemplateModal', ]),
-            emailTemplateModal: {
+            jobBoardModal: {
                 get() {
-                    return this.$store.getters['emailTemplateModal']
+                    return this.$store.getters['jobBoardModal']
                 },
                 set() {
-                    this.$store.commit('EMAIL_TEMPLATE_MODAL')
+                    this.$store.commit('JOB_BOARD_MODAL')
                 },
             },
-            dialog: {
-                get() {
-                    return this.$store.getters['applicationDialog']
-                },
-                set() {
-                    this.$store.commit('APPLICATION_DIALOG')
-                },
-            }
         },
         created() {
             // this.$store.dispatch('retrieveCvFolders', this.id);
@@ -76,9 +63,9 @@
         mounted(){
     },
         methods:{
-            onJobPostEmailTemplateModal(){
-                this.$store.commit('EMAIL_TEMPLATE_MODAL');
-                this.$router.push({name: 'jobPostEmail', params:{id: this.id} })
+            onJobPostEmailTemplateModal(id){
+                this.$store.commit('JOB_BOARD_MODAL',true);
+                this.$router.push({name: 'jobPostEmail', params:{id: id} })
             }
         }
     }
