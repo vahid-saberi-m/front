@@ -15,7 +15,7 @@ export default ({
     jobBoard(context, jobPostId) {
         request.get('/api/job-post/job-board/' + jobPostId)
             .then(response => {
-                context.commit('JOB_POST_EMAIL_TEMPLATE', response)
+                context.commit('JOB_POST_EMAIL_TEMPLATE', response.data.data)
                 context.commit('JOB_BOARD_CV_FOLDERS', response)
             })
     },
@@ -102,7 +102,7 @@ export default ({
   updateJobPostEmailTemplate(context, payload){
     request.post('/api/job-post/add-email-template/'+ payload.id,payload.template)
       .then(response=>{
-        context.commit(types.JOB_POST_EMAIL_TEMPLATE,response.data)
+        context.commit(types.JOB_POST_EMAIL_TEMPLATE,response.data.data)
       })
   }
 });
