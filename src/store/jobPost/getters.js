@@ -16,4 +16,7 @@ export default {
     publicJobPosts(state){
         return state.publicJobPosts
     },
+    emailTemplateModal(state){
+        return state.emailTemplateModal
+    },
 };

@@ -6,4 +6,5 @@ export default {
     expiredJobPosts:null,
     publicJobPosts:null,
     emailTemplate:null,
+    emailTemplateModal: false,
 };
