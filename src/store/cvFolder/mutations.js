@@ -10,5 +10,8 @@ export default {
         context.cvFolders=response.data.data.cv_folders;
         this.commit('JOB_BOARD_APPLICATIONS',context.cvFolders)
     },
+  [types.CV_FOLDER_EMAIL_template]:function (context,payload) {
+        context.emailTemplate=payload;
+    },
 
 };

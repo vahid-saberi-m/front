@@ -48,7 +48,6 @@ export default ({
                 })
     },
     liveJobPosts(context) {
-        console.log('live jobpost')
         request.get('/api/job-post/index-live' )
             .then(response => {
                 context.commit(types.LIVE_JOB_POSTS,response)
@@ -101,7 +100,6 @@ export default ({
             })
     },
   updateJobPostEmailTemplate(context, payload){
-      console.log(payload);
     request.post('/api/job-post/add-email-template/'+ payload.id,payload.template)
       .then(response=>{
         context.commit(types.JOB_BOARD_JOB_EMAIL_TEMPLATE,response)

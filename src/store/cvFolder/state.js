@@ -1,6 +1,5 @@
-
-
 export default {
-    cvFolders:null,
-    targetCvFolder:null
+  cvFolders: null,
+  targetCvFolder: null,
+  emailTemplate: null,
 }

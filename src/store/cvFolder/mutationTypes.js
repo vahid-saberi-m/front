@@ -1,3 +1,4 @@
 export const RETRIEVE_CV_FOLDERS= 'RETRIEVE_CV_FOLDERS';
 export const TARGET_CV_FOLDER= 'TARGET_CV_FOLDER';
 export const JOB_BOARD_CV_FOLDERS= 'JOB_BOARD_CV_FOLDERS';
+export const CV_FOLDER_EMAIL_template= 'CV_FOLDER_EMAIL_template';

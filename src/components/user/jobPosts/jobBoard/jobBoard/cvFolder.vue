@@ -1,11 +1,14 @@
 <template>
   <div  @drop="changeApplicationCvFolder(cvFolder.id)" class="cv-folder">
-    <div class="card-header" v-bind:style="{backgroundColor: color + ''}">
+    <div class="card-header " v-bind:style="{backgroundColor: color + ''}">
       <h5><b>{{cvFolder.name}}</b></h5>
+
     </div>
     <div>
       <div class="cv-folder-body">
-
+        <button @click.prevent="cvFolderEmail(cvFolder.id)" class="btn ">
+          <i class="material-icons">mail</i>
+        </button>
         <draggable v-model="cvFolderApplication" :options="{group:'people'}"
                    style=" min-height: 80vh;" @start="drag=true "
                    @end="drag=false">
@@ -37,6 +40,15 @@
         props: ['cvFolder'],
         components: {application, draggable},
         computed: {
+            ...mapGetters(['emailTemplateModal', ]),
+            emailTemplateModal: {
+                get() {
+                    return this.$store.getters['emailTemplateModal']
+                },
+                set() {
+                    this.$store.commit('EMAIL_TEMPLATE_MODAL')
+                },
+            },
             cvFolderApplication: {
                 get() {
                     return this.$store.getters.cvFolderApplications(this.cvFolder.id)
@@ -56,7 +68,7 @@
             }
         },
         mounted() {
-            if (this.cvFolder.name === 'در صف انتظار') {
+            if (this.cvFolder.name === 'صف انتظار') {
                 this.color = 'rgba(49, 69, 247, 0.7)'
             }
             if (this.cvFolder.name === 'قابل تامل') {
@@ -79,6 +91,11 @@
             loadMoreApplications(id) {
                 this.$store.dispatch('loadMoreApplications', {cvFolderId: id, page: this.i});
                 this.i++;
+            },
+            cvFolderEmail(id){
+                this.$store.commit('EMAIL_TEMPLATE_MODAL');
+                console.log('id'+id);
+                this.$router.push({name: 'cvFolderEmail', params:{cvFolder: id} })
             }
 
         }

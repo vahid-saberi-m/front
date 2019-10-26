@@ -151,7 +151,7 @@ const router = new Router({
                       component: jobPostEmailTemplate
                     },
                     {
-                      path: '/job_board/:id/email/cv-folder-email/:cv-folder',
+                      path: 'email/cv-folder-email/:cv-folder',
                       name: 'cvFolderEmail',
                       meta: {
                         requiresAuth: true
