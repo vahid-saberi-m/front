@@ -1,0 +1,29 @@
+.card{
+  .card-header{
+    label{
+      direction: rtl;
+      text-align: right;
+      display:block;
+    }
+  }
+  .card-body{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    textarea{
+      width: 60vw;
+      direction: rtl;
+    }
+    button{
+      margin: 1rem;
+      width: 15vw;
+      height: 5vh;
+      justify-self: flex-end;
+      align-self: left;
+    }
+  }
+  li{
+    direction: rtl;
+
+  }
+}

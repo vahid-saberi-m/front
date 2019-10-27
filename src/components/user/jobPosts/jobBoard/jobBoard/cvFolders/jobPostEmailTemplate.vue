@@ -64,6 +64,6 @@
     }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+    @import "../../../../../../styles/user/jobBoard/cvFolders/jobPostEmailTemplate";
 </style>
