@@ -18,6 +18,7 @@
                     </div>
                     <div class="pdf-view">
                         <cv-pdf-viewer :address="applicationViewCv.cv"></cv-pdf-viewer>
+                      <application-comments></application-comments>
                     </div>
                 </div>
                 <div class="card-footer">
@@ -34,6 +35,7 @@
 <script>
     import {mapGetters} from 'vuex'
     import ApplicantInfoCard from "./cvView/ApplicantInfoCard";
+    import applicationComments from "./cvView/applicationComment";
     import CvFolder from "./jobBoard/cvFolder";
     import CvFoldrStash from "./cvView/cvFolderStash";
     import CvPdfViewer from "./cvView/cvPdfViewer";
@@ -47,7 +49,7 @@
                 this.$store.dispatch('applicationViewCv',id);
             },
         },
-        components: {CvViewCvFolder, CvPdfViewer, CvFoldrStash, CvFolder, ApplicantInfoCard},
+        components: {CvViewCvFolder, CvPdfViewer, CvFoldrStash, CvFolder, ApplicantInfoCard,applicationComments},
         data() {
             return {
                 id: this.$route.params.id,
