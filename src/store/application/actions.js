@@ -29,7 +29,6 @@ export default ({
         })
     },
     applyForJob(context, credentials) {
-        console.log(context.getters['candidateEmail']);
         const fd = new FormData();
         fd.append('email', context.getters['candidateEmail']);
         fd.append('phone',credentials.phone);
@@ -73,6 +72,13 @@ export default ({
     },
     setMovingApplication(context,applicationId){
         context.commit(types.MOVING_APPLICATION,applicationId)
+    },
+    addNewComment(context, newComment){
+        request.post('/api/comment/store/'+newComment.application,{
+            comment_content: newComment.content
+        }).then(response=>{
+            context.commit(types.APPLICATION_COMMENTS,response)
+        })
     }
 });
 

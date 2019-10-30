@@ -1,0 +1,14 @@
+.comments {
+  border: 1px solid black;
+  direction: rtl ;
+  .previous-comments {
+    display: flex;
+    flex-direction: column-reverse;
+    .card-body {
+      text-align: right;
+    }
+    .card-footer {
+      text-align: left;
+    }
+  }
+}

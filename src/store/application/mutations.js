@@ -70,6 +70,9 @@ export default {
         response.data.data.forEach(function (application) {
             state.jobPostApplications.push(application);
         });
-    }
+    },
+    [types.APPLICATION_COMMENTS]: function (state,response) {
+        state.applicationViewCv.comments.push(response.data);
+    },
 
 };
