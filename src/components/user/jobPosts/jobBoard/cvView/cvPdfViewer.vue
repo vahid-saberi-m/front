@@ -1,18 +1,22 @@
 <template>
-    <div>
-        <div style="width: 50vw; height: 100vh">
-            <!--<div v-if="loadedRatio > 0 && loadedRatio < 1"-->
-                 <!--style="background-color: green; color: white; text-align: center"-->
-                 <!--:style="{ width: loadedRatio * 100 + '%' }">{{ Math.floor(loadedRatio * 100) }}%</div>-->
-            <pdf v-if="show" ref="pdf"
-                 style="border: 1px solid black; height: 83vh"
-                 :src="src" :page="page"
-                 @progress="loadedRatio = $event"
-                 @error="error"
-                 @num-pages="numPages = $event"
-                 @link-clicked="page = $event"></pdf>
-        </div>
+  <div>
+    <div style="
+        width: 50vw;
+        height: 60vh;
+        margin: 2rem;
+        border: 1px solid black;
+        overflow-x: hidden;
+        ">
+
+      <pdf v-if="show" ref="pdf"
+           style="overflow-y: auto;"
+           :src="src" :page="page"
+           @progress="1"
+           @error="error"
+           @num-pages="numPages = $event"
+           @link-clicked="page = $event"></pdf>
     </div>
+  </div>
 </template>
 
 <script>
@@ -31,7 +35,7 @@
                 src: pdf.createLoadingTask(this.address),
                 numPages: undefined,
                 loadedRatio: 0,
-                page:1
+                page: 1
             }
         },
         created() {
@@ -40,8 +44,8 @@
                 this.numPages = pdf.numPages;
             });
         },
-        methods:{
-            error: function(err) {
+        methods: {
+            error: function (err) {
 
                 console.log(err);
             }

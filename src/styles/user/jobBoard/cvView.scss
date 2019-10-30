@@ -4,11 +4,16 @@
   .card-body{
     display: flex;
     flex-direction: row-reverse ;
+    justify-content: space-between;
     .cv-info{
       width: 30vw;
     }
     .pdf-view{
       width: 60vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
   }
 }

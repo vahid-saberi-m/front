@@ -1,5 +1,11 @@
 .card{
+  width: 25vw;
   direction: rtl;
+  vertical-align: auto;
+  textarea{
+    margin: 1rem auto;
+    width: 20vw;
+  }
   .card-header{
     text-align: right;
   }

@@ -1,6 +1,26 @@
 .comments {
   border: 1px solid black;
+  width: 50vw;
+  height: 30vh;
+  overflow: auto;
   direction: rtl ;
+  .card{
+    .card-body{
+      .form-group{
+        display: flex;
+        flex-direction: row;
+        textarea{
+          width: 70%;
+        }
+        button{
+          width: 10%;
+          height: 20%;
+          align-self: flex-end;
+          margin: 0 2rem;
+        }
+      }
+    }
+  }
   .previous-comments {
     display: flex;
     flex-direction: column-reverse;

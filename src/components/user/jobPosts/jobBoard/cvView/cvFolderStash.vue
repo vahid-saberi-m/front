@@ -3,7 +3,10 @@
         <div class="card-header">
             انتقال به یکی از پوشه ها:
         </div>
-        <div class="card-body">
+      <label for="message">پیام اختصاصی شما به کارجو:<br/><small>این پیام به همراه ایمیلی که برای کارجو ارسال می شود فرستاده خواهد شد</small></label>
+
+      <textarea rows="3" class="form-control" id="message"></textarea>
+      <div class="card-body">
             <div class="button-div" v-for="cvFolder in cvFolders" :key="cvFolder.id">
                 <button class="btn btn-secondary" v-if="cvFolder.id!==id"
                         @click="changeApplicationCvFolder(cvFolder.id)">

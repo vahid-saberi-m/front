@@ -1,5 +1,5 @@
 <template>
-    <div class="text-xs-center" v-if="applicationViewCv">
+    <div class="card text-xs-center" v-if="applicationViewCv">
 
 
 
@@ -21,13 +21,7 @@
                       <application-comments></application-comments>
                     </div>
                 </div>
-                <div class="card-footer">
-                    <button class="btn btn-secondary"
-                            @click="dialog = false"
-                    >
-                        خروج
-                    </button>
-                </div>
+
             </div>
     </div>
 </template>
