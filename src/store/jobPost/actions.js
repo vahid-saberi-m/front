@@ -104,6 +104,24 @@ export default ({
       .then(response=>{
         context.commit(types.JOB_POST_EMAIL_TEMPLATE,response.data.data)
       })
-  }
+  },
+    retrieveJobPostRatingFields(context, id){
+        request.get('/api/job-post/job-board/job-post-rating-fields/'+id)
+            .then(response=>{
+                context.commit(types.JOB_POST_RATING_FIELDS,response.data.data)
+            })
+    },
+    addJobPostRatingField(context,payload){
+        request.post('/api/job-post/job-board/job-post-rating-fields/'+payload.id, payload.field)
+            .then(response=>{
+                context.commit(types.ADD_JOB_POST_RATING_FIELDS,response.data.data)
+            })
+    },
+    deleteJpbPostRatingField(context,id){
+        request.delete('/api/job-post/job-board/job-post-rating-fields/'+id)
+            .then(response=>{
+                context.commit(types.JOB_POST_RATING_FIELDS,response.data.data)
+            })
+    }
 });
 

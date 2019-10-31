@@ -22,7 +22,10 @@ export default {
     jobBoardModal(state) {
         return state.jobPostEmailTemplate
     },
-    jobPostEmailTemplate(state){
+    jobPostEmailTemplate(state) {
         return state.jobPostEmailTemplate
+    },
+    jobPostRatingFields(state) {
+        return state.jobPostRatingFields
     }
 };

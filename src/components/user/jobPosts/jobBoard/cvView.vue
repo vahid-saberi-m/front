@@ -39,14 +39,14 @@
         name: "cvView",
         watch: {
             '$route': function (refreshPage) {
-                var id = this.$store.state.route.params.id;
+                var id = this.$store.state.route.params.applicationId;
                 this.$store.dispatch('applicationViewCv',id);
             },
         },
         components: {CvViewCvFolder, CvPdfViewer, CvFoldrStash, CvFolder, ApplicantInfoCard,applicationComments},
         data() {
             return {
-                id: this.$route.params.id,
+                id: this.$route.params.applicationId,
             }
         },
         computed: {

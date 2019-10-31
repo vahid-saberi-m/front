@@ -32,7 +32,8 @@
             },
             viewCv(id){
                 this.$store.commit('JOB_BOARD_MODAL',true);
-                this.$router.push({name: 'cvView', params:{id: id} })
+                console.log('id',id);
+                this.$router.push({name: 'cvView', params:{applicationId: id} })
             },
 
         },

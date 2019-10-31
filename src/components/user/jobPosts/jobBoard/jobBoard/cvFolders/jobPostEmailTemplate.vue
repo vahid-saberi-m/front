@@ -29,7 +29,7 @@
         name: "jobPostEmailTemplate",
         data() {
             return {
-                id: this.$route.params.id,
+                id: this.$route.params.jobPostId,
             }
         },
         computed: {

@@ -25,6 +25,13 @@
           margin: 0 2rem;
         }
       }
+      .ratings{
+        display: flex;
+        .rating{
+          text-align: center;
+          margin: 1rem;
+        }
+      }
     }
   }
   .previous-comments {

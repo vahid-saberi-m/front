@@ -22,13 +22,15 @@ export default {
   [types.JOB_BOARD_MODAL]: function (state, $payload) {
         state.jobPostEmailTemplate = $payload;
     },
-    [types.EMAIL_TEMPLATE_MODAL]: function (state) {
-        state.emailTemplateModal = !state.emailTemplateModal;
-    },
     [types.JOB_POST_EMAIL_TEMPLATE]: function (state,payload) {
         state.jobPostEmailTemplate = payload;
     },
-
+    [types.JOB_POST_RATING_FIELDS]: function (state,payload) {
+        state.jobPostRatingFields= payload;
+    },
+ [types.ADD_JOB_POST_RATING_FIELDS]: function (state,payload) {
+        state.jobPostRatingFields.push(payload);
+    },
 
 
 };

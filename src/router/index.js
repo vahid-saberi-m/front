@@ -137,7 +137,7 @@ const router = new Router({
                     component: waitingPosts
                 },
                 {
-                    path: '/job_board/:id',
+                    path: '/job_board/:jobPostId',
                     name: 'jobBoard',
                     meta: {
                         requiresAuth: true
@@ -146,7 +146,7 @@ const router = new Router({
 
                   children:[
                     {
-                      path: '/job_board/:id/email/job-post-email',
+                      path: '/job_board/email/job-post-email/:jobPostId',
                       name: 'jobPostEmail',
                       meta: {
                         requiresAuth: true
@@ -154,7 +154,7 @@ const router = new Router({
                       component: jobPostEmailTemplate
                     },
                       {
-                      path: '/job_board/cv-view/:id',
+                      path: '/job_board/cv-view/:applicationId',
                       name: 'cvView',
                       meta: {
                         requiresAuth: true
@@ -170,7 +170,7 @@ const router = new Router({
                       component: cvFolderEmailTemplate
                     },
                     {
-                      path: 'email/job-post-rating-fields/:id',
+                      path: 'email/job-post-rating-fields/:jobPostId',
                       name: 'jobPostRatingFields',
                       meta: {
                         requiresAuth: true

@@ -9,6 +9,14 @@
                     <textarea class="form-control" rows="3" v-model="newComment"/>
                     <button class="btn btn-primary" @click="addNewComment">ثبت</button>
                 </div>
+                <div class="ratings">
+                    <div class="rating" v-for="rating in applicationViewCv.jobPostRatingFields" :key="rating.id">
+                        <label :for="rating.id"> <b>{{rating.field}}</b></label>
+                        <v-rating background-color="indigo lighten-3"
+                                  color="indigo" dense="true" hover="true"
+                                  size="15" :id="rating.id"></v-rating>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="previous-comments">
@@ -35,13 +43,17 @@
         },
         data() {
             return {
-                newComment: null
+                newComment: null,
+                ratings: []
             }
+        },
+        mounted:{
+
         },
         methods: {
             addNewComment() {
                 this.$store.dispatch('addNewComment', {
-                    'application': this.$route.params.id,
+                    'application': this.$route.params.applicationId,
                     'content': this.newComment
                 });
                 this.newComment = null;
