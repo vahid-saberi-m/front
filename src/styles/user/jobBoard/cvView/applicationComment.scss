@@ -4,7 +4,13 @@
   height: 30vh;
   overflow: auto;
   direction: rtl ;
+  text-align: right;
   .card{
+    .card-header{
+      display: flex;
+      justify-content: space-between;
+
+    }
     .card-body{
       .form-group{
         display: flex;

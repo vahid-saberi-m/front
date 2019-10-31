@@ -27,6 +27,7 @@ import jobPostEmailTemplate
 import cvFolderEmailTemplate
   from "../components/user/jobPosts/jobBoard/jobBoard/cvFolders/cvFolderEmailTemplate";
 import cvView from "../components/user/jobPosts/jobBoard/cvView";
+import jobPostRatingField from "../components/user/jobPosts/jobBoard/jobBoard/jobPostRatingField";
 
 Vue.use(Router);
 
@@ -167,6 +168,14 @@ const router = new Router({
                         requiresAuth: true
                       },
                       component: cvFolderEmailTemplate
+                    },
+                    {
+                      path: 'email/job-post-rating-fields/:id',
+                      name: 'jobPostRatingFields',
+                      meta: {
+                        requiresAuth: true
+                      },
+                      component: jobPostRatingField
                     },
                   ]
                 },

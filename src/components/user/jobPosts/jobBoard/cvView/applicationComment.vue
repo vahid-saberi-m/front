@@ -13,10 +13,12 @@
         </div>
         <div class="previous-comments">
             <div class="card" v-for="comment in applicationViewCv.comments" :key="comment.id">
-                <div class="card-body">{{comment.content}}</div>
-                <div class="card-footer">
-                    <small>{{comment.created_at}} </small>
-                </div>
+              <div class="card-header">
+                <div class="user-name">{{comment.user}}</div>
+                <div class="date"> <small>{{comment.created_at}} </small> </div>
+              </div>
+              <div class="card-body">{{comment.content}}</div>
+
             </div>
         </div>
     </div>
