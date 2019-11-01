@@ -12,8 +12,8 @@
                 <div class="ratings">
                     <div class="rating" v-for="rating in applicationViewCv.jobPostRatingFields" :key="rating.id">
                         <label :for="rating.id"> <b>{{rating.field}}</b></label>
-                        <v-rating background-color="indigo lighten-3"
-                                  color="indigo" dense="true" hover="true"
+                        <v-rating @input="addRating($event, rating.id)" :value="rating.id"   background-color="indigo lighten-3"
+                                  color="indigo" :dense="true" :hover="true"
                                   size="15" :id="rating.id"></v-rating>
                     </div>
                 </div>
@@ -39,16 +39,19 @@
         name: "applicationComment",
         computed: {
             ...mapGetters(['applicationViewCv']),
-
         },
         data() {
             return {
                 newComment: null,
-                ratings: []
+                ratings: [],
+
             }
         },
         mounted:{
-
+        //    ratings: this.appRatings.forEach(function (id, field) {
+        //        console.log({id , field});
+        //        this.ratings.push({id,field})
+        // }),
         },
         methods: {
             addNewComment() {
@@ -57,6 +60,9 @@
                     'content': this.newComment
                 });
                 this.newComment = null;
+            },
+            addRating(rate, id){
+                console.log(rate)
             }
         }
     }
