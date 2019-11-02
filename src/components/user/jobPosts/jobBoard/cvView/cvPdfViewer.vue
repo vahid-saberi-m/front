@@ -13,7 +13,7 @@
            :src="src" :page="page"
            @progress="1"
            @error="error"
-           @num-pages="numPages = $event"
+           @ num-pages="numPages = $event"
            @link-clicked="page = $event"></pdf>
     </div>
   </div>
